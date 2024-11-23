@@ -17,7 +17,7 @@ class ArchitectCommand : Runnable {
     override fun run() {
         // business logic here
         if (verbose) {
-            println("Hi!")
+            println("Hello from Architect!")
         }
     }
 
