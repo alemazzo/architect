@@ -22,7 +22,7 @@ class ArchitectCommandTest {
         val args = arrayOf("-v")
         PicocliRunner.run(ArchitectCommand::class.java, ctx, *args)
 
-        Assertions.assertTrue(baos.toString().contains("Hi!"))
+        Assertions.assertTrue(baos.toString().contains("Hello from Architect!"))
 
         ctx.close()
     }
