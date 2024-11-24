@@ -22,6 +22,8 @@ jobs:
           distribution: 'adopt'
           java-version: '21'
       - run: ./architect install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: ./architect init
   release:
     runs-on: ubuntu-24.04
@@ -43,6 +45,8 @@ jobs:
           distribution: 'adopt'
           java-version: '21'
       - run: ./architect install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: ./architect init
       - run: ./architect release
         env:
