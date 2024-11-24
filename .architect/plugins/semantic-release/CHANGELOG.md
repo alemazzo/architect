@@ -1,3 +1,9 @@
+## [1.9.0](https://github.com/alemazzo/architect/compare/1.8.0...1.9.0) (2024-11-24)
+
+### Features
+
+* added local command to load the current ([127cc2e](https://github.com/alemazzo/architect/commit/127cc2e18a54fa427c481dc47ddd143b404f8ad0))
+
 ## [1.8.0](https://github.com/alemazzo/architect/compare/1.7.0...1.8.0) (2024-11-24)
 
 ### Features
