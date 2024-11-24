@@ -2,7 +2,11 @@ import config from 'semantic-release-preconfigured-conventional-commits' with { 
 config.plugins.push(
     "@semantic-release/git",
     ["@semantic-release/github",  {
-        "assets": ["build/libs/architect-cli-0.1-all.jar"],
+        "assets": [{
+            "path": "build/libs/architect-cli-0.1-all.jar",
+            "name": "architect-cli.jar",
+            "label": "Architect CLI"
+        }],
     }],
 )
 export default config;
