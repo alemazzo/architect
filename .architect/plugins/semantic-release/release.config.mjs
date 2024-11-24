@@ -8,7 +8,7 @@ config.plugins.push(
                 "path": "../../../architect-cli/build/libs/architect-cli-0.1-all.jar",
                 "name": "architect-cli.jar",
                 "label": "Architect CLI"
-            }
+            },
         ],
     }],
 )

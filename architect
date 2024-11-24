@@ -1,9 +1,40 @@
 #!/bin/bash
+
+# If architect.env exists, load it
+if [ -f "architect.env" ]; then
+  source architect.env
+fi
+
 if [ "$1" = "install" ]; then
   echo "Installing Architect CLI"
-  cd architect-cli || exit
-  ./gradlew assemble
-  mv build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
+  GITHUB_REPO="alemazzo/architect" # Replace with the GitHub repository (e.g., "alemazzo/architect")
+  ASSET_NAME="architect-cli.jar" # Replace with the name of the asset to download
+  OUTPUT_DIR="./" # Directory to save the downloaded file
+
+  # Fetch the latest release metadata
+  LATEST_RELEASE_URL="https://api.github.com/repos/$GITHUB_REPO/releases/latest"
+  RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$LATEST_RELEASE_URL")
+
+  # Extract the asset download URL
+  ASSET_URL=$(echo "$RESPONSE" | jq -r ".assets[] | select(.name == \"$ASSET_NAME\") | .url")
+
+  # Check if the asset URL was found
+  if [[ -z "$ASSET_URL" || "$ASSET_URL" == "null" ]]; then
+      echo "Error: Asset '$ASSET_NAME' not found in the latest release of '$GITHUB_REPO'."
+      exit 1
+  fi
+
+  # Download the asset
+  echo "Downloading $ASSET_NAME from $ASSET_URL..."
+  curl -s -L -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/octet-stream" "$ASSET_URL" --output "$OUTPUT_DIR/$ASSET_NAME"
+
+  if [[ $? -eq 0 ]]; then
+      echo "Download complete: $ASSET_NAME"
+  else
+      echo "Error: Failed to download $ASSET_NAME."
+      exit 1
+  fi
+  echo "Architect CLI installed"
 else
   java -jar architect-cli.jar $@
 fi

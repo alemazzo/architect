@@ -19,3 +19,4 @@ out/
 .factorypath
 *.jar
 !*gradle*wrapper*.jar
+*.env
