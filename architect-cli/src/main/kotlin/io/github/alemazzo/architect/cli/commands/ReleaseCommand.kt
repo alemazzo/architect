@@ -13,12 +13,8 @@ class ReleaseCommand(@Inject private val releaser: List<Releaser>) : Runnable {
 
     override fun run() {
         println("Hello from Release!")
-        val result = releaser.all { it.release() }
-        if (result) {
-            println("All releaser passed")
-        } else {
-            println("Some releaser failed")
-        }
+        releaser.forEach(Releaser::run)
+        println("All releasers executed")
     }
 
 }

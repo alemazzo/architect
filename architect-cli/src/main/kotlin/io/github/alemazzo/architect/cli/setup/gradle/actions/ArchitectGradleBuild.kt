@@ -9,14 +9,10 @@ import io.github.alemazzo.architect.cli.setup.gradle.api.RequiresGradle
 
 @Plugin
 @RequiresGradle
-class ArchitectGradleBuild(gradleExecutor: GradleExecutor) : Check, Initializer, GradleTask(gradleExecutor) {
-    override fun check(): Boolean {
+class ArchitectGradleBuild(gradleExecutor: GradleExecutor) : GradleTask(gradleExecutor), Check, Initializer {
+    override fun run() {
         println("Checking if the project can be built with Gradle")
-        return gradleExecutor.execute(arrayOf("build"))
-    }
-
-    override fun init(): Boolean {
-        return check()
+        gradleExecutor.execute(arrayOf("build"))
     }
 }
 

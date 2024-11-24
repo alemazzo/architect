@@ -12,9 +12,8 @@ class SemanticRelease(
     private val configuration: SemanticReleaseConfiguration,
     private val commandExecutor: CommandExecutor
 ): Releaser {
-    override fun release(): Boolean {
-        println("Executing Semantic Release")
-        val command = "${configuration.path}/release"
-        return commandExecutor.execute(command, true)
+    override fun run() {
+        println("Releasing project with Semantic Release")
+        commandExecutor.execute(configuration.command, false, configuration.path)
     }
 }

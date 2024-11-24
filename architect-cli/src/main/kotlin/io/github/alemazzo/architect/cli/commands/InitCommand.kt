@@ -13,12 +13,8 @@ class InitCommand(@Inject private val initializers: List<Initializer>) : Runnabl
 
     override fun run() {
         println("Hello from Init!")
-        val result = initializers.all { it.init() }
-        if (result) {
-            println("All initializers passed")
-        } else {
-            println("Some initializers failed")
-        }
+        initializers.forEach(Initializer::run)
+        println("All initializers passed")
     }
 
 }
