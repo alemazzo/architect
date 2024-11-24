@@ -1,50 +1,23 @@
 package io.github.alemazzo.architect.cli
 
+import io.github.alemazzo.architect.cli.api.check.Check
+import io.github.alemazzo.architect.cli.components.CheckCommand
+import io.github.alemazzo.architect.cli.components.InitCommand
+import io.github.alemazzo.architect.cli.components.ProjectCommand
 import io.micronaut.configuration.picocli.PicocliRunner
+import picocli.CommandLine
 import picocli.CommandLine.Command
-import picocli.CommandLine.Option
-import picocli.CommandLine.Parameters
 
 @Command(
-    name = "check",
+    name = "architect-cli",
     description = ["..."],
     mixinStandardHelpOptions = true,
-)
-class CheckCommand : Runnable {
-    override fun run() {
-        // business logic here
-        println("Hello from Check!")
-    }
-}
-
-public enum class ArchCommand {
-    check,
-    help
-}
-
-
-@Command(
-    name = "architect",
-    description = ["..."],
-    mixinStandardHelpOptions = true,
+    subcommands = [ProjectCommand::class, InitCommand::class, CheckCommand::class]
 )
 class ArchitectCommand : Runnable {
 
-    @Option(names = ["-v", "--verbose"], description = ["..."])
-    private var verbose: Boolean = false
-
-    @Parameters(index = "0", description = ["The command to execute"])
-    private var command: ArchCommand = ArchCommand.help
-
     override fun run() {
-        when (command) {
-            ArchCommand.help -> {
-                println("Hello from Architect!")
-            }
-            ArchCommand.check -> {
-                PicocliRunner.run(CheckCommand::class.java)
-            }
-        }
+        CommandLine.usage(this, System.out)
     }
 
     companion object {
