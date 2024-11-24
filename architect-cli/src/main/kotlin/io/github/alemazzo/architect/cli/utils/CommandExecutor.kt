@@ -17,9 +17,9 @@ class CommandExecutor {
         return Pair(process.waitFor(), result)
     }
 
-    fun execute(command: String, log: Boolean = false): Boolean {
+    fun execute(command: String, log: Boolean = false, workingDir: String? = null): Boolean {
         println("[CommandExecutor] Executing command: $command")
-        val (exitCode, result) = executeCommand(command)
+        val (exitCode, result) = executeCommand(command, workingDir)
         if (exitCode != 0) {
             println("Command failed with exit code $exitCode")
             println(result)

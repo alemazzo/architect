@@ -11,7 +11,7 @@ class GradleExecutor(
 ) {
 
     private fun getCommand(args: Array<String>): String {
-        return "${configuration.path}${configuration.command} --project-dir ${configuration.path}  ${args.joinToString(" ")}"
+        return "${configuration.command} ${args.joinToString(" ")}"
     }
 
     fun execute(args: Array<String>): Boolean {
@@ -19,7 +19,7 @@ class GradleExecutor(
             println("Mocking Gradle execution")
             return true
         }
-        println("Executing Gradle command: ${getCommand(args)}")
-        return commandExecutor.execute(getCommand(args))
+        println("Executing Gradle command: ${getCommand(args)} on path: ${configuration.path}")
+        return commandExecutor.execute(getCommand(args), false, configuration.path)
     }
 }
