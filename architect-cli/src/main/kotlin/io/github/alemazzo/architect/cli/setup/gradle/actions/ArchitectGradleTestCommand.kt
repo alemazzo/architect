@@ -9,9 +9,5 @@ import io.micronaut.context.annotation.Requires
 
 @Plugin
 @RequiresGradle
-class ArchitectGradleTestCommand(gradleExecutor: GradleExecutor) : Check, GradleTask(gradleExecutor) {
-    override fun run() {
-        println("Checking if the project can be tested with Gradle")
-        gradleExecutor.execute(arrayOf("test"))
-    }
-}
+class ArchitectGradleTestCommand(gradleExecutor: GradleExecutor) :
+    Check, GradleTask(gradleExecutor, arrayOf("test"))
