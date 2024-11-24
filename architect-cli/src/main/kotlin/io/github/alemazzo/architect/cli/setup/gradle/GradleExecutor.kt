@@ -1,12 +1,17 @@
 package io.github.alemazzo.architect.cli.setup.gradle
 
 import io.github.alemazzo.architect.cli.api.annotation.Component
+import io.github.alemazzo.architect.cli.setup.gradle.configuration.GradleConfiguration
+import io.github.alemazzo.architect.cli.utils.CommandExecutor
 
 @Component
-class GradleExecutor(private val configuration: GradleExecutorConfiguration) {
+class GradleExecutor(
+    private val configuration: GradleConfiguration,
+    private val commandExecutor: CommandExecutor
+) {
 
     private fun getCommand(args: Array<String>): String {
-        return "${configuration.command} ${args.joinToString(" ")}"
+        return "${configuration.path}${configuration.command} --project-dir ${configuration.path}  ${args.joinToString(" ")}"
     }
 
     fun execute(args: Array<String>): Boolean {
@@ -15,8 +20,6 @@ class GradleExecutor(private val configuration: GradleExecutorConfiguration) {
             return true
         }
         println("Executing Gradle command: ${getCommand(args)}")
-        val process = Runtime.getRuntime().exec(getCommand(args))
-        val exitCode = process.waitFor()
-        return exitCode == 0
+        return commandExecutor.execute(getCommand(args))
     }
 }

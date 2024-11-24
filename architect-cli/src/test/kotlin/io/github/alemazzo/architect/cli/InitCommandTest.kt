@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.components.InitCommand
+import io.github.alemazzo.architect.cli.commands.InitCommand
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 

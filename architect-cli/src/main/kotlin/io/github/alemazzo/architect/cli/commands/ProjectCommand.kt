@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.components
+package io.github.alemazzo.architect.cli.commands
 
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option

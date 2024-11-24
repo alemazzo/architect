@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.setup
+package io.github.alemazzo.architect.cli.setup.gradle.checks
 
 import io.github.alemazzo.architect.cli.api.annotation.Plugin
 import io.github.alemazzo.architect.cli.api.check.Check

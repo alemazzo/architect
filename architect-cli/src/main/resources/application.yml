@@ -1,0 +1,10 @@
+micronaut:
+  application:
+    name: architect
+
+architect:
+  semantic-release:
+    path: ".architect/plugins/semantic-release"
+  gradle:
+    path: ".architect/engine/"
+    command: "gradlew"

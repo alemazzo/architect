@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.components
+package io.github.alemazzo.architect.cli.commands
 
 import io.github.alemazzo.architect.cli.api.init.Initializer
 import jakarta.inject.Inject

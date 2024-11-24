@@ -1,9 +1,10 @@
 package io.github.alemazzo.architect.cli
 
 import io.github.alemazzo.architect.cli.api.check.Check
-import io.github.alemazzo.architect.cli.components.CheckCommand
-import io.github.alemazzo.architect.cli.components.InitCommand
-import io.github.alemazzo.architect.cli.components.ProjectCommand
+import io.github.alemazzo.architect.cli.commands.CheckCommand
+import io.github.alemazzo.architect.cli.commands.InitCommand
+import io.github.alemazzo.architect.cli.commands.ProjectCommand
+import io.github.alemazzo.architect.cli.commands.ReleaseCommand
 import io.micronaut.configuration.picocli.PicocliRunner
 import picocli.CommandLine
 import picocli.CommandLine.Command
@@ -12,7 +13,7 @@ import picocli.CommandLine.Command
     name = "architect-cli",
     description = ["..."],
     mixinStandardHelpOptions = true,
-    subcommands = [ProjectCommand::class, InitCommand::class, CheckCommand::class]
+    subcommands = [ProjectCommand::class, InitCommand::class, CheckCommand::class, ReleaseCommand::class]
 )
 class ArchitectCommand : Runnable {
 

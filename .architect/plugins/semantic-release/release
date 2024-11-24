@@ -1,0 +1,4 @@
+#!/bin/bash
+cd .architect/plugins/semantic-release/ || exit
+npm install
+npx semantic-release
