@@ -18,3 +18,4 @@ out/
 .classpath
 .factorypath
 *.jar
+!*gradle*wrapper*.jar
