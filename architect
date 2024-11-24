@@ -1,13 +1,13 @@
 #!/bin/bash
-if [ "$1" = "install" ]; then
+if [ "$1" = "build" ]; then
+  echo "Building Architect CLI"
+  cd .architect/engine/ || exit
+  ./gradlew build
+elif [ "$1" = "install" ]; then
   echo "Installing Architect CLI"
   cd architect-cli || exit
   ./gradlew assemble
   mv build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
-elif [ "$1" = "build" ]; then
-  echo "Building Architect CLI"
-  cd architect-cli || exit
-  ./gradlew build
 else
   java -jar architect-cli.jar $@
 fi
