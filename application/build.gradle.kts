@@ -14,14 +14,6 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDir("../architect/application")
-        }
-    }
-}
-
 dependencies {
     kapt("info.picocli:picocli-codegen")
     kapt("io.micronaut.serde:micronaut-serde-processor")
@@ -40,16 +32,6 @@ dependencies {
 application {
     mainClass = "io.github.alemazzo.architect.ArchitectCommand"
 }
-java {
-    sourceCompatibility = JavaVersion.toVersion("21")
-}
-
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
-    }
-}
-
 
 micronaut {
     testRuntime("junit5")
@@ -59,6 +41,17 @@ micronaut {
     }
 }
 
+// Architect
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("21")
+}
+
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
 
 tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
     jdkVersion = "21"
@@ -75,3 +68,10 @@ configurations.matching { it.name != "detekt" }.all {
     }
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir("../architect/application")
+        }
+    }
+}
