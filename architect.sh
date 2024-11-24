@@ -1,2 +1,3 @@
 #!/bin/bash
-./architect/.gradlew "$@"
+cd .architect || exit
+./gradlew "$@"

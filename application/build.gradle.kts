@@ -9,7 +9,7 @@ plugins {
 version = "0.1"
 group = "io.github.alemazzo"
 
-val kotlinVersion = project.properties["kotlinVersion"] as String
+val kotlinVersion = project.properties["kotlinVersion"] as String? ?: "1.9.0"
 repositories {
     mavenCentral()
 }
@@ -64,14 +64,6 @@ configurations.matching { it.name != "detekt" }.all {
         if (requested.group == "org.jetbrains.kotlin" && requested.name.startsWith("kotlin")) {
             useVersion(kotlinVersion)
             because("All Kotlin modules should use the same version, and compiler uses $kotlinVersion")
-        }
-    }
-}
-
-sourceSets {
-    main {
-        resources {
-            srcDir("../architect/application")
         }
     }
 }

@@ -7,18 +7,14 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-24.04
     if: >-
       github.event_name != 'pull_request'
       || github.event.pull_request.head.repo.full_name != github.repository
       || startsWith(github.head_ref, 'dependabot/')
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-24.04 ] # [ windows-2022, macos-14, ubuntu-24.04 ]
-    runs-on: ${{ matrix.os }}
     concurrency:
       group: build-${{ github.workflow }}-${{ matrix.os }}-${{ github.event.number || github.ref }}
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
-      - run: ./architect build
+      - run: ./architect.sh build
