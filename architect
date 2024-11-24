@@ -35,6 +35,13 @@ if [ "$1" = "install" ]; then
       exit 1
   fi
   echo "Architect CLI installed"
+elif [ "$1" = "local" ]; then
+  # Install with gradle assemble in architect-cli and moving the jar
+  echo "Updating Architect CLI"
+  cd architect-cli || exit
+  ./gradlew assemble
+  cp build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
+  cd ..
 else
   java -jar architect-cli.jar $@
 fi
