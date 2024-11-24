@@ -1,5 +1,5 @@
 .gradle/
-build/
+build
 .idea/
 node_modules/
 .kotlin/
@@ -17,6 +17,3 @@ out/
 .settings
 .classpath
 .factorypath
-
-# Ignore Gradle build output directory
-build

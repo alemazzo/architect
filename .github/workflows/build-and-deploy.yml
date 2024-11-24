@@ -21,8 +21,4 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
-      - run: cd application
-      - uses: gradle/wrapper-validation-action@v3
-      - uses: gradle/gradle-build-action@v3.5.0
-      - name: Build
-        run: ./gradlew build
+      - run: ./architect build
