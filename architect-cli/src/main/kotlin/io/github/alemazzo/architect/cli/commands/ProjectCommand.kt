@@ -14,7 +14,6 @@ class ProjectCommand : Runnable {
     var name: String? = null
 
     override fun run() {
-        // business logic here
         println("Hello from Project! $name")
     }
 }
