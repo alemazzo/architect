@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect
+package io.github.alemazzo.architect.cli
 
 import io.micronaut.configuration.picocli.PicocliRunner
 import picocli.CommandLine.Command

@@ -1,6 +1,6 @@
-package io.github.alemazzo
+package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.ArchitectCommand
+import io.github.alemazzo.architect.cli.ArchitectCommand
 import io.micronaut.configuration.picocli.PicocliRunner
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.Environment

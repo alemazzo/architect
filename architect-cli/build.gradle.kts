@@ -30,14 +30,14 @@ dependencies {
 
 
 application {
-    mainClass = "io.github.alemazzo.architect.ArchitectCommand"
+    mainClass = "io.github.alemazzo.architect.cli.ArchitectCommand"
 }
 
 micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("io.github.alemazzo.architect.*")
+        annotations("io.github.alemazzo.architect.cli.*")
     }
 }
 
