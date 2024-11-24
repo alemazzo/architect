@@ -1,3 +1,11 @@
+## [1.1.0](https://github.com/alemazzo/architect/compare/1.0.0...1.1.0) (2024-11-24)
+
+### Features
+
+* integrated semantic-release task ([544c769](https://github.com/alemazzo/architect/commit/544c76907bf30f762efa169912dbf8c3a04e4c6b))
+* integrated semantic-release task ([88ea9a0](https://github.com/alemazzo/architect/commit/88ea9a0f6ba89dd08f8d0fe75538e3fc78ee06cc))
+* integrated semantic-release task ([4b9184a](https://github.com/alemazzo/architect/commit/4b9184a29ac5afceb22e2758fac4f97d963c2987))
+
 ## 1.0.0 (2024-11-24)
 
 ### Features
