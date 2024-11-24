@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/alemazzo/architect/compare/1.6.0...1.7.0) (2024-11-24)
+
+### Features
+
+* install from previous version ([cd7a3ea](https://github.com/alemazzo/architect/commit/cd7a3ea15e629d46f8000985605787550f02e185))
+* install from previous version ([4f7ca3a](https://github.com/alemazzo/architect/commit/4f7ca3a1e27519d1acb356c8fc0eeb0375a70884))
+
 ## [1.6.0](https://github.com/alemazzo/architect/compare/1.5.0...1.6.0) (2024-11-24)
 
 ### Features
