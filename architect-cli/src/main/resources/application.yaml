@@ -3,5 +3,8 @@ micronaut:
     name: architect
 
 architect:
+  check:
+    gradle:
+      enabled: false
   gradle:
     command: "../.architect/engine/gradlew"
