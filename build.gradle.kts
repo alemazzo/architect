@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.config.KotlinCompilerVersion.VERSION
-
 plugins {
     id("org.jetbrains.kotlin.jvm") version "2.0.21"
     id("org.jetbrains.kotlin.kapt") version "1.9.25"
@@ -11,7 +9,7 @@ plugins {
 version = "0.1"
 group = "io.github.alemazzo"
 
-val kotlinVersion = project.properties["kotlinVersion"]
+val kotlinVersion = project.properties["kotlinVersion"] as String
 repositories {
     mavenCentral()
 }
@@ -62,8 +60,8 @@ tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative"
 configurations.matching { it.name != "detekt" }.all {
     resolutionStrategy.eachDependency {
         if (requested.group == "org.jetbrains.kotlin" && requested.name.startsWith("kotlin")) {
-            useVersion(VERSION)
-            because("All Kotlin modules should use the same version, and compiler uses $VERSION")
+            useVersion(kotlinVersion)
+            because("All Kotlin modules should use the same version, and compiler uses $kotlinVersion")
         }
     }
 }
