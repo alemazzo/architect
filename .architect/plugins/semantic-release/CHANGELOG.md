@@ -1,3 +1,12 @@
+## [1.10.0](https://github.com/alemazzo/architect/compare/1.9.0...1.10.0) (2024-11-24)
+
+### Features
+
+* added local command to load the current ([f691221](https://github.com/alemazzo/architect/commit/f691221916911d50c3dc237733b4fbe7c91ee8b7))
+* skip version ([5ad0fe1](https://github.com/alemazzo/architect/commit/5ad0fe15ad1bfbbf29c39137db5808db93138c4a))
+* skip version ([2e2645e](https://github.com/alemazzo/architect/commit/2e2645e0e7bd85acd3145ce6c26de256481fbd8f))
+* skip version ([fef32e1](https://github.com/alemazzo/architect/commit/fef32e1c5815aefe4d16f90f6e23e0eecba12ecd))
+
 ## [1.9.0](https://github.com/alemazzo/architect/compare/1.8.0...1.9.0) (2024-11-24)
 
 ### Features
