@@ -1,9 +1,16 @@
-rootProject.name = "architect-engine"
+rootProject.name = "architect-project"
 
 val projectDir = "../../"
 val architectDir = "../"
 
-include("architect")
-project(":architect").projectDir = file("$projectDir/application")
+includeProject("architect-cli")
+includePlugin("conventional-commits")
 
-includeBuild("$architectDir/plugins/conventional-commits")
+fun includeProject(projectName: String) {
+    include(projectName)
+    project(":$projectName").projectDir = file("$projectDir/$projectName")
+}
+
+fun includePlugin(pluginName: String) {
+    includeBuild("$architectDir/plugins/$pluginName")
+}
