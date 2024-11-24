@@ -17,3 +17,6 @@ out/
 .settings
 .classpath
 .factorypath
+
+# Ignore Gradle build output directory
+build

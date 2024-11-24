@@ -14,6 +14,14 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDir("../architect/application")
+        }
+    }
+}
+
 dependencies {
     kapt("info.picocli:picocli-codegen")
     kapt("io.micronaut.serde:micronaut-serde-processor")
@@ -25,6 +33,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+    runtimeOnly("org.yaml:snakeyaml")
 }
 
 
