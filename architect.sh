@@ -1,3 +1,3 @@
 #!/bin/bash
-cd .architect || exit
+cd .architect/engine || exit
 ./gradlew "$@"
