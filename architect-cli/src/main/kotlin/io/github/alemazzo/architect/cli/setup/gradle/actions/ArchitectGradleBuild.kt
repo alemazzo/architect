@@ -1,14 +1,15 @@
-package io.github.alemazzo.architect.cli.setup.gradle.checks
+package io.github.alemazzo.architect.cli.setup.gradle.actions
 
 import io.github.alemazzo.architect.cli.api.annotation.Plugin
 import io.github.alemazzo.architect.cli.api.check.Check
 import io.github.alemazzo.architect.cli.api.init.Initializer
-import io.github.alemazzo.architect.cli.setup.gradle.GradleExecutor
-import io.micronaut.context.annotation.Requires
+import io.github.alemazzo.architect.cli.setup.gradle.api.GradleExecutor
+import io.github.alemazzo.architect.cli.setup.gradle.api.GradleTask
+import io.github.alemazzo.architect.cli.setup.gradle.api.RequiresGradle
 
 @Plugin
-@Requires(property = "architect.gradle.enabled", value = "true", defaultValue = "true")
-class GradleBuild(private val gradleExecutor: GradleExecutor) : Check, Initializer {
+@RequiresGradle
+class ArchitectGradleBuild(gradleExecutor: GradleExecutor) : Check, Initializer, GradleTask(gradleExecutor) {
     override fun check(): Boolean {
         println("Checking if the project can be built with Gradle")
         return gradleExecutor.execute(arrayOf("build"))

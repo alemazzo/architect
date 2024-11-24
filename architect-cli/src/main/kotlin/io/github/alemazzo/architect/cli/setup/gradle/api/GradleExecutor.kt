@@ -1,7 +1,6 @@
-package io.github.alemazzo.architect.cli.setup.gradle
+package io.github.alemazzo.architect.cli.setup.gradle.api
 
 import io.github.alemazzo.architect.cli.api.annotation.Component
-import io.github.alemazzo.architect.cli.setup.gradle.configuration.GradleConfiguration
 import io.github.alemazzo.architect.cli.utils.CommandExecutor
 
 @Component
