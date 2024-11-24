@@ -17,4 +17,4 @@ jobs:
       cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
-      - run: ./architect.sh build
+      - run: ./architect build
