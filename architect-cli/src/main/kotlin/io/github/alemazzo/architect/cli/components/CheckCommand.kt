@@ -17,12 +17,8 @@ class CheckCommand(
 ) : Runnable {
 
     override fun run() {
-        val result = checks.all { it.check() }
-        if (result) {
-            println("All checks passed")
-        } else {
-            println("Some checks failed")
-        }
+        checks.forEach(Check::run)
+        println("All checks passed")
     }
 }
 
