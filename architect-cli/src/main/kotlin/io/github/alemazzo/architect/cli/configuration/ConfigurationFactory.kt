@@ -12,9 +12,8 @@ class ConfigurationFactory {
 
 	@Bean
 	@Requires(resources = ["architect.yml"])
-	fun getExternalConfiguration(parser: ConfigurationParser): Configuration? {
+	fun getExternalConfiguration(parser: ConfigurationParser): Configuration {
 		val file = File("architect.yml")
-		if (!file.exists()) return null
 		return Configuration(parser, file.readText())
 	}
 

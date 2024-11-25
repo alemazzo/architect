@@ -8,11 +8,6 @@ data class SemanticReleaseConfiguration(
 	val path: String = ".architect/plugins/semantic-release",
 	val command: String = "./release",
 	val assets: List<Asset> = emptyList(),
-) {
-	class Yaml {
-		@JsonProperty("semantic-release")
-		val semanticRelease: SemanticReleaseConfiguration = SemanticReleaseConfiguration()
-	}
-}
+)
 
 
