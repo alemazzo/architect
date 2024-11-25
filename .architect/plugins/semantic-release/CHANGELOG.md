@@ -1,3 +1,15 @@
+## [1.13.0](https://github.com/alemazzo/architect/compare/1.12.0...1.13.0) (2024-11-25)
+
+### Features
+
+* release ([4fe22d9](https://github.com/alemazzo/architect/commit/4fe22d99e16d43e9ecc560496a6e9b74045b6e13))
+
+### General maintenance
+
+* added command output ([9475725](https://github.com/alemazzo/architect/commit/9475725d6b3c15e9eb051da8a006f6411db4eb3c))
+* cleanup ([8d0a1d0](https://github.com/alemazzo/architect/commit/8d0a1d03f4d7df79b2461d4de4fed21c3c09a51c))
+* cleanup ([2157fcf](https://github.com/alemazzo/architect/commit/2157fcf69c76d6a68269b6a28a953f6f0b434a5a))
+
 ## [1.12.0](https://github.com/alemazzo/architect/compare/1.11.0...1.12.0) (2024-11-25)
 
 ### Features
