@@ -1,3 +1,0 @@
-architect:
-  gradle:
-    mock: "true"
