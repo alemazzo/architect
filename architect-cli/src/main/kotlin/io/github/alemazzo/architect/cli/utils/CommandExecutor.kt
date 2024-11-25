@@ -26,11 +26,11 @@ class CommandExecutor {
 			return true
 		}
 		val (exitCode, result) = executeCommand(command, workingDir)
-		if (exitCode != 0) {
-			println("Command failed with exit code $exitCode")
-		} else {
-			println("[CommandExecutor] Command executed with exit code $exitCode")
-		}
+		println(
+			"[CommandExecutor] Command " +
+					(if (exitCode == 0) "succeeded" else "failed") +
+					" with exit code $exitCode"
+		)
 		println(result)
 		return exitCode == 0
 	}
