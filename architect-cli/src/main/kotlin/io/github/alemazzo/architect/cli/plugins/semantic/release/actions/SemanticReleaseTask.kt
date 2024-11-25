@@ -12,6 +12,10 @@ class SemanticReleaseTask(
 ) : Releaser {
 	override fun run() {
 		println("Releasing project with Semantic Release")
+		// Move the jar from the build folder into the release folder
+		// and then run the semantic release command
+		val releaseCommand = "cp ./architect-cli/build/libs/architect-cli-0.1-all.jar ${configuration.path}/"
+		commandExecutor.execute(releaseCommand, false)
 		commandExecutor.execute(configuration.command, false, configuration.path)
 	}
 }
