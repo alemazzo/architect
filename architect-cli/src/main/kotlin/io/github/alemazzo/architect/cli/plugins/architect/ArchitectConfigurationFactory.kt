@@ -1,10 +1,10 @@
 package io.github.alemazzo.architect.cli.plugins.architect
 
+import io.github.alemazzo.architect.cli.api.annotation.utils.Announcer
+import io.github.alemazzo.architect.cli.api.annotation.utils.PrimaryCreator
 import io.github.alemazzo.architect.cli.configuration.Configuration
 import io.micronaut.context.annotation.Bean
-import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
-import io.micronaut.context.annotation.Primary
 
 @Factory
 class ArchitectConfigurationFactory {
@@ -15,13 +15,13 @@ class ArchitectConfigurationFactory {
 	}
 
 	@Bean
-	@Primary
+	@PrimaryCreator
 	fun getArchitectConfiguration(configuration: Configuration): ArchitectConfiguration? {
 		return configuration.parse()
 	}
 
-	@Context
-	class Announcer(private val configuration: ArchitectConfiguration) {
+	@Announcer
+	class ArchitectConfigurationAnnouncer(private val configuration: ArchitectConfiguration) {
 		init {
 			println("Architect Configuration: $configuration")
 		}
