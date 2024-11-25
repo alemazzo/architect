@@ -20,7 +20,7 @@ class CommandExecutor {
 	}
 
 	fun execute(command: String, log: Boolean = false, workingDir: String? = null): Boolean {
-		println("[CommandExecutor] Executing command: $command")
+		println("[CommandExecutor] Executing command: $command in $workingDir")
 		if (disabled) {
 			println("[CommandExecutor] Command execution disabled")
 			return true
@@ -28,11 +28,10 @@ class CommandExecutor {
 		val (exitCode, result) = executeCommand(command, workingDir)
 		if (exitCode != 0) {
 			println("Command failed with exit code $exitCode")
-			println(result)
+		} else {
+			println("[CommandExecutor] Command executed with exit code $exitCode")
 		}
-		if (log) {
-			println(result)
-		}
+		println(result)
 		return exitCode == 0
 	}
 }
