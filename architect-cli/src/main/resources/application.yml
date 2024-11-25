@@ -1,9 +1,3 @@
 micronaut:
   application:
     name: architect
-
-architect:
-  gradle:
-    enabled: true
-    path: ".architect/engine/"
-    command: "./gradlew"
