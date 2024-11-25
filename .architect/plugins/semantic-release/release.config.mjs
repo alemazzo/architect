@@ -5,7 +5,7 @@ config.plugins.push(
         "@semantic-release/github",  {
         "assets": [
             {
-                "path": "architect-cli.jar",
+                "path": "architect-cli-0.1-all.jar",
                 "name": "architect-cli.jar",
                 "label": "Architect CLI"
             },
