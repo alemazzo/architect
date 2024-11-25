@@ -1,3 +1,13 @@
+## [1.17.0](https://github.com/alemazzo/architect/compare/1.16.0...1.17.0) (2024-11-25)
+
+### Features
+
+* skip release ([7802246](https://github.com/alemazzo/architect/commit/78022462e502aea0a4f92cc903c9c70e61b80d7c))
+
+### Bug Fixes
+
+* fixed script ([0bc855d](https://github.com/alemazzo/architect/commit/0bc855d3ac12be021991bb233c410ee4f2bf9cc7))
+
 ## [1.16.0](https://github.com/alemazzo/architect/compare/1.15.0...1.16.0) (2024-11-25)
 
 ### Features
