@@ -1,3 +1,17 @@
+## [1.12.0](https://github.com/alemazzo/architect/compare/1.11.0...1.12.0) (2024-11-25)
+
+### Features
+
+* added configuration loading ([d046eda](https://github.com/alemazzo/architect/commit/d046edaf2f52171bc84130e2d640ca79d859d96f))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-java action to v4 ([#14](https://github.com/alemazzo/architect/issues/14)) ([34209e5](https://github.com/alemazzo/architect/commit/34209e520de84e158db7790ae6115b6040c344a4))
+
+### General maintenance
+
+* implementing configuration parsing ([33a1a4c](https://github.com/alemazzo/architect/commit/33a1a4c420a52082740c884fdffd13024c5d6bca))
+
 ## [1.11.0](https://github.com/alemazzo/architect/compare/1.10.0...1.11.0) (2024-11-25)
 
 ### Features
