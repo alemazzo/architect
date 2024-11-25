@@ -14,6 +14,8 @@ class CommandExecutor {
 			processBuilder.directory(java.io.File(workingDir))
 		}
 		processBuilder.redirectErrorStream(true) // Merge standard output and error streams
+		// Redirect output to stdout
+		processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT)
 		val process = processBuilder.start()
 		val result = process.inputStream.bufferedReader().use(BufferedReader::readText)
 		return Pair(process.waitFor(), result)
@@ -26,11 +28,7 @@ class CommandExecutor {
 			return true
 		}
 		val (exitCode, result) = executeCommand(command, workingDir)
-		println(
-			"[CommandExecutor] Command " +
-					(if (exitCode == 0) "succeeded" else "failed") +
-					" with exit code $exitCode"
-		)
+		println("[CommandExecutor] Command execution result: $exitCode")
 		println(result)
 		return exitCode == 0
 	}
