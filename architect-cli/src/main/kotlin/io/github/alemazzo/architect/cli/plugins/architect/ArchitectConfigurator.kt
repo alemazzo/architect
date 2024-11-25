@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.configuration
+package io.github.alemazzo.architect.cli.plugins.architect
 
 import io.github.alemazzo.architect.cli.api.annotation.Architect
 import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
@@ -11,7 +11,7 @@ class ArchitectConfigurator(
 
 	override fun run() {
 		println("Configuring Architect")
-		println("Configuration: ${configuration}")
+		println("Configuration: $configuration")
 
 		println("Initializing plugins")
 		configuration.plugins.forEach {

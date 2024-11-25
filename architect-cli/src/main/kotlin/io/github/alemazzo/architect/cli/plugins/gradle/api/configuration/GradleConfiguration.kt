@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.setup.gradle.api.configuration
+package io.github.alemazzo.architect.cli.plugins.gradle.api.configuration
 
 class GradleConfiguration {
 	var mock: Boolean = false

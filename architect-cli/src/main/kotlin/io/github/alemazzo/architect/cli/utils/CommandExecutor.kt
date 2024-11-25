@@ -21,7 +21,7 @@ class CommandExecutor {
 		return Pair(process.waitFor(), result)
 	}
 
-	fun execute(command: String, log: Boolean = false, workingDir: String? = null): Boolean {
+	fun execute(command: String, workingDir: String? = null): Boolean {
 		println("[CommandExecutor] Executing command: $command in $workingDir")
 		if (disabled) {
 			println("[CommandExecutor] Command execution disabled")

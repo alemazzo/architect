@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.commands
+package io.github.alemazzo.architect.cli.commands.tasks
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
 import io.github.alemazzo.architect.cli.api.command.release.Releaser
@@ -12,4 +12,4 @@ import picocli.CommandLine.Command
 	description = ["..."],
 	mixinStandardHelpOptions = true,
 )
-class ReleaseRunner(releaser: List<Releaser>) : GroupRunner(releaser), ArchitectCommand
+class ReleasesRunner(releaser: List<Releaser>) : GroupRunner(releaser), ArchitectCommand

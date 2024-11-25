@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.commands
+package io.github.alemazzo.architect.cli.commands.tasks
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
 import io.github.alemazzo.architect.cli.api.command.check.Check
@@ -12,7 +12,7 @@ import picocli.CommandLine.Command
 	description = ["..."],
 	mixinStandardHelpOptions = true,
 )
-class CheckRunner(checks: List<Check>) : GroupRunner(checks), ArchitectCommand {
+class ChecksRunner(checks: List<Check>) : GroupRunner(checks), ArchitectCommand {
 
 	override fun run() {
 		super.run()

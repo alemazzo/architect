@@ -1,10 +1,10 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.commands.CheckRunner
-import io.github.alemazzo.architect.cli.commands.InitRunner
 import io.github.alemazzo.architect.cli.commands.ProjectRunner
-import io.github.alemazzo.architect.cli.commands.ReleaseRunner
-import io.github.alemazzo.architect.cli.commands.RunRunner
+import io.github.alemazzo.architect.cli.commands.tasks.ChecksRunner
+import io.github.alemazzo.architect.cli.commands.tasks.InitializersRunner
+import io.github.alemazzo.architect.cli.commands.tasks.ReleasesRunner
+import io.github.alemazzo.architect.cli.commands.tasks.RunnersRunner
 import io.micronaut.configuration.picocli.PicocliRunner
 import picocli.CommandLine
 import picocli.CommandLine.Command
@@ -16,10 +16,10 @@ import picocli.CommandLine.Command
 	subcommands =
 	[
 		ProjectRunner::class,
-		InitRunner::class,
-		CheckRunner::class,
-		ReleaseRunner::class,
-		RunRunner::class]
+		InitializersRunner::class,
+		ChecksRunner::class,
+		ReleasesRunner::class,
+		RunnersRunner::class]
 )
 class ArchitectCommand : Runnable {
 

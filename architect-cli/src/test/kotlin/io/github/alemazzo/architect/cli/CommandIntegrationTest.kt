@@ -10,17 +10,17 @@ import java.io.PrintStream
 @MicronautTest
 open class CommandIntegrationTest {
 
-    @Inject
-    lateinit var ctx: ApplicationContext
+	@Inject
+	lateinit var ctx: ApplicationContext
 
-    fun <T: Runnable> execute(clazz: Class<T>, vararg args: String): String {
-        val baos = ByteArrayOutputStream()
-        val sout = System.out
-        System.setOut(PrintStream(baos))
-        PicocliRunner.run(clazz, ctx, *args)
-        System.setOut(sout)
-        return baos.toString()
-    }
+	fun <T : Runnable> execute(clazz: Class<T>, vararg args: String): String {
+		val baos = ByteArrayOutputStream()
+		val sout = System.out
+		System.setOut(PrintStream(baos))
+		PicocliRunner.run(clazz, ctx, *args)
+		System.setOut(sout)
+		return baos.toString()
+	}
 
 }
 

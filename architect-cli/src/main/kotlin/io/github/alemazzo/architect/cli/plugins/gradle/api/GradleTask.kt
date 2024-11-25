@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.setup.gradle.api
+package io.github.alemazzo.architect.cli.plugins.gradle.api
 
 open class GradleTask(private val gradleExecutor: GradleExecutor, private val args: Array<String>) : Runnable {
 	override fun run() {

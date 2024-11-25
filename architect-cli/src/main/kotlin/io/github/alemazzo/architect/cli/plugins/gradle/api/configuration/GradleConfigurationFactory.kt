@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.setup.gradle.api.configuration
+package io.github.alemazzo.architect.cli.plugins.gradle.api.configuration
 
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory

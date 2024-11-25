@@ -1,16 +1,18 @@
 package io.github.alemazzo.architect.cli.configuration
 
+import io.github.alemazzo.architect.cli.api.configuration.ConfigurationParser
+import io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfiguration
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 
 @MicronautTest
-class ArchitectConfigurationParserTest(
-	val architectConfigurationParser: ArchitectConfigurationParser,
+class ConfigurationParserTest(
+	val architectConfigurationParser: ConfigurationParser,
 ) {
 
 	@Test
 	fun parseEmptyConfigurations() {
-		val configurations = architectConfigurationParser.parse("")
+		val configurations = architectConfigurationParser.parse<ArchitectConfiguration>("")
 		assert(configurations.name == "")
 		assert(configurations.description == "")
 		assert(configurations.plugins.isEmpty())
@@ -19,12 +21,12 @@ class ArchitectConfigurationParserTest(
 	@Test
 	fun parseConfigurations() {
 		val configurations =
-			architectConfigurationParser.parse(
+			architectConfigurationParser.parse<ArchitectConfiguration>(
 				"""
             name: "Architect"
             description: "A Micronaut CLI"
             plugins:
-              - "io.github.alemazzo.architect.cli.configuration.ArchitectConfigurator"
+              - "io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfigurator"
             """
 					.trimIndent()
 			)
@@ -33,18 +35,18 @@ class ArchitectConfigurationParserTest(
 		assert(configurations.plugins.size == 1)
 		assert(
 			configurations.plugins[0] ==
-					"io.github.alemazzo.architect.cli.configuration.ArchitectConfigurator"
+					"io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfigurator"
 		)
 	}
 
 	@Test
 	fun parsePartialConfigurations() {
 		val configurations =
-			architectConfigurationParser.parse(
+			architectConfigurationParser.parse<ArchitectConfiguration>(
 				"""
 			name: "Architect"
 			plugins:
-			  - "io.github.alemazzo.architect.cli.configuration.ArchitectConfigurator"
+			  - "io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfigurator"
 			"""
 					.trimIndent()
 			)
@@ -53,7 +55,7 @@ class ArchitectConfigurationParserTest(
 		assert(configurations.plugins.size == 1)
 		assert(
 			configurations.plugins[0] ==
-					"io.github.alemazzo.architect.cli.configuration.ArchitectConfigurator"
+					"io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfigurator"
 		)
 	}
 }

@@ -4,3 +4,9 @@ description: "My project description"
 plugins:
   - conventional-commits
   - semantic-release
+
+semantic-release:
+  assets:
+    - 
+      path: ./architect-cli/build/libs/architect-cli-0.1-all.jar
+      name: architect-cli-0.1-all.jar
