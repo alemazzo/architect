@@ -20,3 +20,4 @@ out/
 *.jar
 !*gradle*wrapper*.jar
 *.env
+.vscode/

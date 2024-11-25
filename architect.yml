@@ -1,0 +1,6 @@
+name: "My Project"
+description: "My project description"
+
+plugins:
+  - conventional-commits
+  - semantic-release
