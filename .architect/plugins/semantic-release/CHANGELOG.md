@@ -1,3 +1,19 @@
+## [1.11.0](https://github.com/alemazzo/architect/compare/1.10.0...1.11.0) (2024-11-25)
+
+### Features
+
+* automatic install on command ([f19d122](https://github.com/alemazzo/architect/commit/f19d122d0690c4c100c216211e238e8f92b25ff4))
+* automatic install on command ([4e37334](https://github.com/alemazzo/architect/commit/4e373343bb5e9246aef28c468e4a3518f8ab708b))
+* fix release ([68c9b33](https://github.com/alemazzo/architect/commit/68c9b338fbebd6566c9b1bca55ad83a2c50128c6))
+
+### Dependency updates
+
+* **deps:** update dependency gradle to v8.11.1 ([#19](https://github.com/alemazzo/architect/issues/19)) ([3e3916b](https://github.com/alemazzo/architect/commit/3e3916b19bb9d5ac2886cb9fbcd07c4ef6dc5820))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-java action to v3 ([#28](https://github.com/alemazzo/architect/issues/28)) ([3a917cd](https://github.com/alemazzo/architect/commit/3a917cd20ece7f8fb06bd73a3ca034e69d7e5bcd))
+
 ## [1.10.0](https://github.com/alemazzo/architect/compare/1.9.0...1.10.0) (2024-11-24)
 
 ### Features
