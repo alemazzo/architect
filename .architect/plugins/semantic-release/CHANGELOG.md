@@ -1,3 +1,9 @@
+## [1.20.0](https://github.com/alemazzo/architect/compare/1.19.0...1.20.0) (2024-11-25)
+
+### Features
+
+* semantic release configuration ([af4a2b8](https://github.com/alemazzo/architect/commit/af4a2b828030c0fdd3826c950eafa4be3195fc38))
+
 ## [1.19.0](https://github.com/alemazzo/architect/compare/1.18.0...1.19.0) (2024-11-25)
 
 ### Features
