@@ -1,3 +1,10 @@
+## [1.21.0](https://github.com/alemazzo/architect/compare/1.20.0...1.21.0) (2024-11-25)
+
+### Features
+
+* improved configuration system ([72197e5](https://github.com/alemazzo/architect/commit/72197e5833a35c1740603439c3aa23096ea35e19))
+* improved configuration system ([ed2dc03](https://github.com/alemazzo/architect/commit/ed2dc03f5fe2a7b951b3dbd81d8663f13a85de1f))
+
 ## [1.20.0](https://github.com/alemazzo/architect/compare/1.19.0...1.20.0) (2024-11-25)
 
 ### Features
