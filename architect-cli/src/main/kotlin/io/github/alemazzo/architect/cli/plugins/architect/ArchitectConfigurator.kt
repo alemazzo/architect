@@ -11,8 +11,6 @@ class ArchitectConfigurator(
 
 	override fun run() {
 		println("Configuring Architect")
-		println("Configuration: $configuration")
-
 		println("Initializing plugins")
 		configuration.plugins.forEach {
 			plugins.find { plugin -> plugin.name == it }?.let { plugin ->
