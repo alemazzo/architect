@@ -1,5 +1,6 @@
 package io.github.alemazzo.architect.cli.commands
 
+import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
@@ -10,7 +11,7 @@ import picocli.CommandLine.Option
 	description = ["..."],
 	mixinStandardHelpOptions = true,
 )
-class ProjectCommand : Runnable {
+class ProjectRunner : ArchitectCommand {
 
 	@Option(names = ["-n", "--name"], description = ["The name of the project"])
 	var name: String? = null

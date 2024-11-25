@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.semantic.release.actions
 
 import io.github.alemazzo.architect.cli.api.annotation.Architect
-import io.github.alemazzo.architect.cli.api.release.Releaser
+import io.github.alemazzo.architect.cli.api.command.release.Releaser
 import io.github.alemazzo.architect.cli.plugins.semantic.release.api.SemanticReleaseConfiguration
 import io.github.alemazzo.architect.cli.utils.CommandExecutor
 

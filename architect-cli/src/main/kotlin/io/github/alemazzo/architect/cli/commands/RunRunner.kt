@@ -1,6 +1,7 @@
 package io.github.alemazzo.architect.cli.commands
 
-import io.github.alemazzo.architect.cli.api.run.Runner
+import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
+import io.github.alemazzo.architect.cli.api.command.run.Runner
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 import picocli.CommandLine.Parameters
@@ -10,7 +11,7 @@ import picocli.CommandLine.Parameters
 	name = "run",
 	description = ["Run the application"]
 )
-class RunCommand(private val runners: List<Runner>) : Runnable {
+class RunRunner(private val runners: List<Runner>) : ArchitectCommand {
 
 	@Parameters(
 		description = ["The name of the runner to execute"],

@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.configuration
 
 import io.github.alemazzo.architect.cli.api.annotation.Architect
-import io.github.alemazzo.architect.cli.api.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
 
 @Architect
 class ArchitectConfigurator(

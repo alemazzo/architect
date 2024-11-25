@@ -1,7 +1,9 @@
 package io.github.alemazzo.architect.cli.commands
 
-import io.github.alemazzo.architect.cli.api.init.Initializer
+import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
+import io.github.alemazzo.architect.cli.api.command.init.Initializer
 import io.github.alemazzo.architect.cli.configuration.ArchitectConfigurator
+import io.github.alemazzo.architect.cli.utils.GroupRunner
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 
@@ -11,16 +13,16 @@ import picocli.CommandLine.Command
 	description = ["..."],
 	mixinStandardHelpOptions = true,
 )
-class InitCommand(private val initializers: List<Initializer>, private val configurator: ArchitectConfigurator) :
-	Runnable {
+class InitRunner(private val configurator: ArchitectConfigurator, initializers: List<Initializer>) :
+	GroupRunner(initializers),
+	ArchitectCommand {
 
 	override fun run() {
 		println("Hello from Init!")
 		println("Running configurator")
 		configurator.run()
 		println("Configurator loaded")
-		println("Running initializers")
-		initializers.forEach(Initializer::run)
+		super.run()
 		println("All initializers passed")
 	}
 
