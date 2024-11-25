@@ -1,3 +1,12 @@
+## [1.22.0](https://github.com/alemazzo/architect/compare/1.21.0...1.22.0) (2024-11-25)
+
+### Features
+
+* improved configuration system ([8d835d6](https://github.com/alemazzo/architect/commit/8d835d6524a97bf5ee3d77d4a6057393ab00069d))
+* improved configuration system ([1a612e8](https://github.com/alemazzo/architect/commit/1a612e880267eefed7f905c8c9752b69f36c8d19))
+* improved configuration system ([cf0effb](https://github.com/alemazzo/architect/commit/cf0effb7264dece25210ea4f486c51e235443800))
+* skip release ([b01916e](https://github.com/alemazzo/architect/commit/b01916e47cec28e4fd46a7b3eeb028484ce7ace4))
+
 ## [1.21.0](https://github.com/alemazzo/architect/compare/1.20.0...1.21.0) (2024-11-25)
 
 ### Features
