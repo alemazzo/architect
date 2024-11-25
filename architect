@@ -43,6 +43,6 @@ elif [ "$1" == "--local" ]; then
   ./gradlew assemble
   cp build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
   cd ..
+else
+  java -jar architect-cli.jar $@
 fi
-
-java -jar architect-cli.jar $@
