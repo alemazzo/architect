@@ -1,3 +1,10 @@
+## [1.18.0](https://github.com/alemazzo/architect/compare/1.17.0...1.18.0) (2024-11-25)
+
+### Features
+
+* test advanced ci ([c6dc32f](https://github.com/alemazzo/architect/commit/c6dc32f014c20760c938271c51887a2f412cbf0e))
+* test advanced ci ([748daf4](https://github.com/alemazzo/architect/commit/748daf4a467cfc5334cebbd28ec6065fa7907f43))
+
 ## [1.17.0](https://github.com/alemazzo/architect/compare/1.16.0...1.17.0) (2024-11-25)
 
 ### Features
