@@ -5,8 +5,10 @@ plugins:
   - conventional-commits
   - semantic-release
 
+gradle:
+  path: ./architect-cli
+
 semantic-release:
   assets:
-    - 
-      path: ./architect-cli/build/libs/architect-cli-0.1-all.jar
+    - path: ./architect-cli/build/libs/architect-cli-0.1-all.jar
       name: architect-cli-0.1-all.jar

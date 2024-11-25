@@ -9,12 +9,12 @@ import io.micronaut.context.annotation.Factory
 class ArchitectConfigurationFactory {
 
 	@Bean
-	fun getArchitectConfiguration(configuration: Configuration): ArchitectConfiguration {
-		return configuration.parse() ?: ArchitectConfiguration()
+	fun getArchitectConfiguration(configuration: Configuration?): ArchitectConfiguration {
+		return configuration?.parse() ?: ArchitectConfiguration()
 	}
 
 	@Announcer
-	class ArchitectConfigurationAnnouncer(private val configuration: ArchitectConfiguration) {
+	class ArchitectConfigurationAnnouncer(configuration: ArchitectConfiguration) {
 		init {
 			println("Architect Configuration: $configuration")
 		}

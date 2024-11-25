@@ -8,7 +8,7 @@ import io.micronaut.context.annotation.Factory
 
 
 @Factory
-class SemanticReleaseConfigurationFactory(configuration: Configuration) {
+class SemanticReleaseConfigurationFactory {
 
 	class YamlConfiguration {
 		@JsonProperty("semantic-release")
@@ -23,7 +23,7 @@ class SemanticReleaseConfigurationFactory(configuration: Configuration) {
 	}
 
 	@Announcer
-	class SemanticReleaseAnnouncer(private val configuration: SemanticReleaseConfiguration) {
+	class SemanticReleaseAnnouncer(configuration: SemanticReleaseConfiguration) {
 		init {
 			println("Semantic Release Configuration: $configuration")
 		}
