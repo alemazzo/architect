@@ -5,8 +5,18 @@ if [ -f "architect.env" ]; then
   source architect.env
 fi
 
+if [ "$1" == "--build" ]; then
+  # Install with gradle assemble in architect-cli and moving the jar
+  echo "Updating Architect CLI"
+  cd architect-cli || exit
+  ./gradlew assemble
+  rm ../architect-cli.jar
+  cp build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
+  exit 0
+fi
+
 # if jar not present then install and not --local flag then run the jar
-if [ ! -f "architect-cli.jar" ] && [ "$1" != "--local" ]; then
+if [ ! -f "architect-cli.jar" ]; then
   echo "Installing Architect CLI"
   GITHUB_REPO="alemazzo/architect" # Replace with the GitHub repository (e.g., "alemazzo/architect")
   ASSET_NAME="architect-cli.jar" # Replace with the name of the asset to download
@@ -36,13 +46,6 @@ if [ ! -f "architect-cli.jar" ] && [ "$1" != "--local" ]; then
       exit 1
   fi
   echo "Architect CLI installed"
-elif [ "$1" == "--local" ]; then
-  # Install with gradle assemble in architect-cli and moving the jar
-  echo "Updating Architect CLI"
-  cd architect-cli || exit
-  ./gradlew assemble
-  cp build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
-  cd ..
-else
-  java -jar architect-cli.jar $@
 fi
+
+java -jar architect-cli.jar $@
