@@ -1,3 +1,8 @@
 micronaut:
   application:
     name: architect
+    
+architect:
+  locations:
+    - "architect.yml"
+    - ".architect/architect.yml"
