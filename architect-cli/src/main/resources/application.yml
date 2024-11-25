@@ -3,10 +3,6 @@ micronaut:
     name: architect
 
 architect:
-  semantic-release:
-    enabled: true
-    path: ".architect/plugins/semantic-release"
-    command: "./release"
   gradle:
     enabled: true
     path: ".architect/engine/"

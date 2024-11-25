@@ -1,10 +1,13 @@
 package io.github.alemazzo.architect.cli
 
 import io.github.alemazzo.architect.cli.commands.CheckRunner
+import io.github.alemazzo.architect.cli.utils.CommandExecutor
 import org.junit.jupiter.api.Test
 
+class CheckRunnerTest(
+	override val executor: CommandExecutor,
+) : CommandIntegrationTest(), DisableExecutor {
 
-class CheckRunnerTest : CommandIntegrationTest() {
 
 	@Test
 	fun `test usage`() {

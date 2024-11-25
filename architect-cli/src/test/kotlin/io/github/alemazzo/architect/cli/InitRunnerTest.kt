@@ -1,11 +1,12 @@
 package io.github.alemazzo.architect.cli
 
 import io.github.alemazzo.architect.cli.commands.InitRunner
+import io.github.alemazzo.architect.cli.utils.CommandExecutor
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 
 @MicronautTest
-class InitRunnerTest : CommandIntegrationTest() {
+class InitRunnerTest(override val executor: CommandExecutor) : CommandIntegrationTest(), DisableExecutor {
 
 	@Test
 	fun `test usage`() {

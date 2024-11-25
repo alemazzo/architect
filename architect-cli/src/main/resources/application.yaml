@@ -1,7 +1,0 @@
-micronaut:
-  application:
-    name: architect
-
-architect:
-  gradle:
-    command: "../.architect/engine/gradlew"
