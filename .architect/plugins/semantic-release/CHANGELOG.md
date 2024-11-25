@@ -1,3 +1,10 @@
+## [1.14.0](https://github.com/alemazzo/architect/compare/1.13.0...1.14.0) (2024-11-25)
+
+### Features
+
+* skip release ([3a7564e](https://github.com/alemazzo/architect/commit/3a7564e5c91e986103d598409c8e7283df0e27b0))
+* skip release ([0105c6c](https://github.com/alemazzo/architect/commit/0105c6cc9c94b5fc2205e16dd3dac3ad466191a2))
+
 ## [1.13.0](https://github.com/alemazzo/architect/compare/1.12.0...1.13.0) (2024-11-25)
 
 ### Features
