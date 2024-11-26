@@ -1,10 +1,7 @@
 name: "My Project"
 description: "My project description"
 
-plugins:
-  - conventional-commits
-  - semantic-release
-  - gradle
+# Supported
 
 gradle:
   projects:
@@ -16,4 +13,30 @@ semantic-release:
     - path: ./architect-cli/build/libs/architect-cli-0.1-all.jar
       name: architect-cli-0.1-all.jar
 
-  
+# A list of other configurations that one day will be supported
+
+project:
+  name: "architect"
+  description: "A simple project generator"
+  version: "0.1.0"
+  license: "MIT"
+
+plugins:
+  - conventional-commits
+  - semantic-release
+  - gradle
+
+docs:
+  - template: "architect"
+  - engine: "asciidoctor"
+  - output: "docs"
+
+pipeline:
+  - build
+  - test
+  - release
+  - deploy
+  - docs
+  - notify
+  - clean
+  - validate
