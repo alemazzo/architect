@@ -1,3 +1,13 @@
+## [2.0.0](https://github.com/alemazzo/architect/compare/1.22.0...2.0.0) (2024-11-26)
+
+### ⚠ BREAKING CHANGES
+
+* general refactor and added support for conventional commits
+
+### Features
+
+* general refactor and added support for conventional commits ([cd1662c](https://github.com/alemazzo/architect/commit/cd1662c33a8c46d9dfff3e2a17d26ec0d6e848c8))
+
 ## [1.22.0](https://github.com/alemazzo/architect/compare/1.21.0...1.22.0) (2024-11-25)
 
 ### Features
