@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.commands
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
-import io.github.alemazzo.architect.cli.configuration.RequireContext
+import io.github.alemazzo.architect.cli.context.RequireContext
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
 

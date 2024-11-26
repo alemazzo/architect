@@ -2,7 +2,7 @@ package io.github.alemazzo.architect.cli.plugins.conventional.commits
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
-import io.github.alemazzo.architect.cli.configuration.Context
+import io.github.alemazzo.architect.cli.context.Context
 import io.github.alemazzo.architect.cli.plugins.conventional.commits.configuration.ConventionalCommitsContext
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires

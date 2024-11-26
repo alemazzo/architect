@@ -2,7 +2,7 @@ package io.github.alemazzo.architect.cli.plugins.semantic.release
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
-import io.github.alemazzo.architect.cli.configuration.Context
+import io.github.alemazzo.architect.cli.context.Context
 import io.github.alemazzo.architect.cli.plugins.semantic.release.configuration.SemanticReleaseContext
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires

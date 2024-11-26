@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.architect
 
 import io.github.alemazzo.architect.cli.api.annotation.utils.Announcer
-import io.github.alemazzo.architect.cli.configuration.Context
+import io.github.alemazzo.architect.cli.context.Context
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
 

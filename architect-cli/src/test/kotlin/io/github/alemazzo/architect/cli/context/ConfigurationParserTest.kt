@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.configuration
+package io.github.alemazzo.architect.cli.context
 
 import io.github.alemazzo.architect.cli.api.configuration.ConfigurationParser
 import io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfiguration
@@ -6,7 +6,7 @@ import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 
 @MicronautTest
-class ContextParserTest(
+class ConfigurationParserTest(
 	val architectConfigurationParser: ConfigurationParser,
 ) {
 

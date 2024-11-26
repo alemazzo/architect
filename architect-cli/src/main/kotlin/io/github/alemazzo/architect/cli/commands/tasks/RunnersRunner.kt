@@ -2,7 +2,7 @@ package io.github.alemazzo.architect.cli.commands.tasks
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
 import io.github.alemazzo.architect.cli.api.command.run.Runner
-import io.github.alemazzo.architect.cli.configuration.RequireContext
+import io.github.alemazzo.architect.cli.context.RequireContext
 import jakarta.inject.Inject
 import picocli.CommandLine.Command
 import picocli.CommandLine.Parameters

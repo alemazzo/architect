@@ -4,9 +4,12 @@ description: "My project description"
 plugins:
   - conventional-commits
   - semantic-release
+  - gradle
 
 gradle:
-  path: ./architect-cli
+  projects:
+    - name: "architect-cli"
+    - name: "architect-daemon"
 
 semantic-release:
   assets:

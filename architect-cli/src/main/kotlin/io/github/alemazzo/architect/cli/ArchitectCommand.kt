@@ -6,7 +6,7 @@ import io.github.alemazzo.architect.cli.commands.tasks.ChecksRunner
 import io.github.alemazzo.architect.cli.commands.tasks.InitializersRunner
 import io.github.alemazzo.architect.cli.commands.tasks.ReleasesRunner
 import io.github.alemazzo.architect.cli.commands.tasks.RunnersRunner
-import io.github.alemazzo.architect.cli.configuration.Context
+import io.github.alemazzo.architect.cli.context.Context
 import io.micronaut.configuration.picocli.PicocliRunner
 import jakarta.inject.Inject
 import picocli.CommandLine
