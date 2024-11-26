@@ -9,15 +9,15 @@ class ContextFactory {
 
 	@Singleton
 	fun getExternalConfiguration(): Context {
-		println("Loading configuration")
+		println("Loading context")
 		val file = File("architect.yml")
 		if (!file.exists()) {
-			println("External configuration not found")
+			println("External context not found")
 			return Context()
 		}
-		println("External configuration found")
+		println("External context found")
 		val context = Context(file.readText())
-		println("External configuration loaded: $context")
+		println("External context loaded: $context")
 		return context
 	}
 

@@ -2,8 +2,8 @@ package io.github.alemazzo.architect.cli.plugins.gradle.actions
 
 import io.github.alemazzo.architect.cli.api.command.check.Check
 import io.github.alemazzo.architect.cli.plugins.gradle.GradlePlugin
-import io.github.alemazzo.architect.cli.plugins.gradle.configuration.GradleContext
-import io.github.alemazzo.architect.cli.plugins.gradle.configuration.ProjectContext
+import io.github.alemazzo.architect.cli.plugins.gradle.context.GradleContext
+import io.github.alemazzo.architect.cli.plugins.gradle.context.ProjectContext
 import io.github.alemazzo.architect.cli.plugins.gradle.utils.GradleExecutor
 import jakarta.inject.Singleton
 

@@ -2,7 +2,7 @@ package io.github.alemazzo.architect.cli.plugins.semantic.release.actions
 
 import io.github.alemazzo.architect.cli.api.command.release.Releaser
 import io.github.alemazzo.architect.cli.plugins.semantic.release.SemanticReleasePlugin
-import io.github.alemazzo.architect.cli.plugins.semantic.release.configuration.SemanticReleaseContext
+import io.github.alemazzo.architect.cli.plugins.semantic.release.context.SemanticReleaseContext
 import io.github.alemazzo.architect.cli.utils.CommandExecutor
 import jakarta.inject.Singleton
 

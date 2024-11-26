@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.utils
 
-import io.github.alemazzo.architect.cli.plugins.gradle.configuration.ProjectContext
+import io.github.alemazzo.architect.cli.plugins.gradle.context.ProjectContext
 import io.github.alemazzo.architect.cli.utils.CommandExecutor
 import jakarta.inject.Singleton
 

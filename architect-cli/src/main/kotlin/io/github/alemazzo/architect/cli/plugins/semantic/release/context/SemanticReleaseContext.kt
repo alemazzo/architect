@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.plugins.semantic.release.configuration
+package io.github.alemazzo.architect.cli.plugins.semantic.release.context
 
 data class SemanticReleaseContext(
 	val path: String = ".architect/plugins/semantic-release",
