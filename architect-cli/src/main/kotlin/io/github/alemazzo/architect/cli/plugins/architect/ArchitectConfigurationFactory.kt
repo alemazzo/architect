@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.architect
 
 import io.github.alemazzo.architect.cli.api.annotation.utils.Announcer
-import io.github.alemazzo.architect.cli.configuration.Configuration
+import io.github.alemazzo.architect.cli.configuration.Context
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
 
@@ -9,8 +9,8 @@ import io.micronaut.context.annotation.Factory
 class ArchitectConfigurationFactory {
 
 	@Bean
-	fun getArchitectConfiguration(configuration: Configuration?): ArchitectConfiguration {
-		return configuration?.parse() ?: ArchitectConfiguration()
+	fun getArchitectConfiguration(context: Context?): ArchitectConfiguration {
+		return context?.ofThisPlugin() ?: ArchitectConfiguration()
 	}
 
 	@Announcer

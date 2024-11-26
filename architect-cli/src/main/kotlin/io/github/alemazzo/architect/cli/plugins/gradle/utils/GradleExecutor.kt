@@ -1,12 +1,14 @@
-package io.github.alemazzo.architect.cli.plugins.gradle.api
+package io.github.alemazzo.architect.cli.plugins.gradle.utils
 
-import io.github.alemazzo.architect.cli.api.annotation.Component
-import io.github.alemazzo.architect.cli.plugins.gradle.GradleConfiguration
+import io.github.alemazzo.architect.cli.plugins.gradle.GradlePlugin
+import io.github.alemazzo.architect.cli.plugins.gradle.configuration.GradleContext
 import io.github.alemazzo.architect.cli.utils.CommandExecutor
+import jakarta.inject.Singleton
 
-@Component
+@Singleton
+@GradlePlugin
 class GradleExecutor(
-	private val configuration: GradleConfiguration,
+	private val configuration: GradleContext,
 	private val commandExecutor: CommandExecutor,
 ) {
 

@@ -6,16 +6,14 @@ import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 
 @MicronautTest
-class ConfigurationParserTest(
+class ContextParserTest(
 	val architectConfigurationParser: ConfigurationParser,
 ) {
 
 	@Test
 	fun parseEmptyConfigurations() {
 		val configurations = architectConfigurationParser.parse<ArchitectConfiguration>("")
-		assert(configurations.name == "")
-		assert(configurations.description == "")
-		assert(configurations.plugins.isEmpty())
+		assert(configurations == null)
 	}
 
 	@Test
@@ -29,7 +27,7 @@ class ConfigurationParserTest(
               - "io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfigurator"
             """
 					.trimIndent()
-			)
+			)!!
 		assert(configurations.name == "Architect")
 		assert(configurations.description == "A Micronaut CLI")
 		assert(configurations.plugins.size == 1)
@@ -49,7 +47,7 @@ class ConfigurationParserTest(
 			  - "io.github.alemazzo.architect.cli.plugins.architect.ArchitectConfigurator"
 			"""
 					.trimIndent()
-			)
+			)!!
 		assert(configurations.name == "Architect")
 		assert(configurations.description == "")
 		assert(configurations.plugins.size == 1)

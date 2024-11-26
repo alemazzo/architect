@@ -1,12 +1,18 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.actions
 
-import io.github.alemazzo.architect.cli.api.annotation.Architect
 import io.github.alemazzo.architect.cli.api.command.check.Check
 import io.github.alemazzo.architect.cli.api.command.init.Initializer
-import io.github.alemazzo.architect.cli.plugins.gradle.api.GradleExecutor
-import io.github.alemazzo.architect.cli.plugins.gradle.api.GradleTask
+import io.github.alemazzo.architect.cli.plugins.gradle.GradlePlugin
+import io.github.alemazzo.architect.cli.plugins.gradle.utils.GradleExecutor
+import jakarta.inject.Singleton
 
-@Architect
-class ArchitectGradleBuild(gradleExecutor: GradleExecutor) :
-	Check, Initializer, GradleTask(gradleExecutor, arrayOf("build"))
+@Singleton
+@GradlePlugin
+class ArchitectGradleBuild(val gradleExecutor: GradleExecutor) :
+	Check, Initializer {
 
+	override fun run() {
+		println("Executing Gradle task with args: build")
+		gradleExecutor.execute(arrayOf("build"))
+	}
+}

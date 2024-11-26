@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.api.annotation
 
-import jakarta.inject.Singleton
+import io.micronaut.context.annotation.Context
 
-@Singleton
+@Context
 annotation class Architect
 

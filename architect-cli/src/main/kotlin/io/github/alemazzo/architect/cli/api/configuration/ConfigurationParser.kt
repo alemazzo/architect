@@ -13,9 +13,9 @@ class ConfigurationParser {
 		ObjectMapper(YAMLFactory()).registerModules(KotlinModule.Builder().build())
 			.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 
-	inline fun <reified T> parse(content: String): T {
+	inline fun <reified T> parse(content: String): T? {
 		if (content.isEmpty()) {
-			return T::class.java.getDeclaredConstructor().newInstance()
+			return null
 		}
 		return objectMapper.readValue(content, T::class.java)
 	}

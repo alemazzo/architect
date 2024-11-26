@@ -11,12 +11,15 @@ class InitializersRunnerTest(override val executor: CommandExecutor) : CommandIn
 	@Test
 	fun `test usage`() {
 		val output = execute(InitializersRunner::class.java)
+		println(output)
 		assert(output.contains("All initializers passed"))
+
 	}
 
 	@Test
 	fun `test help`() {
 		val output = execute(InitializersRunner::class.java, "--help")
+		println(output)
 		assert(output.contains("Usage: init [-hV]"))
 	}
 

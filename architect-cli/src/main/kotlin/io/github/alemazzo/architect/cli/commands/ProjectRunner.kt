@@ -1,16 +1,16 @@
 package io.github.alemazzo.architect.cli.commands
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
-import jakarta.inject.Singleton
+import io.github.alemazzo.architect.cli.configuration.RequireContext
 import picocli.CommandLine.Command
 import picocli.CommandLine.Option
 
-@Singleton
 @Command(
 	name = "project",
 	description = ["..."],
 	mixinStandardHelpOptions = true,
 )
+@RequireContext
 class ProjectRunner : ArchitectCommand {
 
 	@Option(names = ["-n", "--name"], description = ["The name of the project"])
