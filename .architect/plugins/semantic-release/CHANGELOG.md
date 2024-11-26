@@ -1,3 +1,9 @@
+## [2.1.0](https://github.com/alemazzo/architect/compare/2.0.0...2.1.0) (2024-11-26)
+
+### Features
+
+* added daemon ([6e6ed13](https://github.com/alemazzo/architect/commit/6e6ed13fd09b578664ffaa4cbbab0eb1c8e3d527))
+
 ## [2.0.0](https://github.com/alemazzo/architect/compare/1.22.0...2.0.0) (2024-11-26)
 
 ### ⚠ BREAKING CHANGES
