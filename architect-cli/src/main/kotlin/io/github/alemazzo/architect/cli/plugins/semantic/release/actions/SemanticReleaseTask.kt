@@ -5,9 +5,11 @@ import io.github.alemazzo.architect.cli.plugins.semantic.release.SemanticRelease
 import io.github.alemazzo.architect.cli.plugins.semantic.release.context.SemanticReleaseContext
 import io.github.alemazzo.architect.cli.utils.CommandExecutor
 import jakarta.inject.Singleton
+import picocli.CommandLine.Command
 
 @Singleton
 @SemanticReleasePlugin
+@Command(name = "release")
 class SemanticReleaseTask(
 	private val context: SemanticReleaseContext,
 	private val commandExecutor: CommandExecutor,

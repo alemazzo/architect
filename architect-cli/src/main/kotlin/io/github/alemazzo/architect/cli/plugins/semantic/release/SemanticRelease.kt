@@ -2,31 +2,23 @@ package io.github.alemazzo.architect.cli.plugins.semantic.release
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
-import io.github.alemazzo.architect.cli.context.Context
+import io.github.alemazzo.architect.cli.plugins.semantic.release.actions.SemanticReleaseTask
 import io.github.alemazzo.architect.cli.plugins.semantic.release.context.SemanticReleaseContext
-import io.micronaut.context.annotation.Factory
-import io.micronaut.context.annotation.Requires
 import jakarta.inject.Singleton
+import picocli.CommandLine.Command
 
-class SemanticRelease : Plugin<SemanticReleaseContext>() {
+@Singleton
+@Command(
+	name = SemanticRelease.name,
+	subcommands = [SemanticReleaseTask::class]
+)
+class SemanticRelease : Plugin<SemanticReleaseContext>(name) {
 	companion object {
 		const val name = "semantic-release"
 	}
 
-	@JsonProperty(name)
+	@JsonProperty(SemanticRelease.name)
 	override var context: SemanticReleaseContext? = null
 }
-
-@Singleton
-@Factory
-class SemanticReleaseFactory {
-
-	@Singleton
-	fun getSemanticRelease(context: Context): SemanticReleaseContext =
-		context.of<SemanticRelease>()?.context ?: SemanticReleaseContext()
-}
-
-@Requires(bean = SemanticReleaseContext::class)
-annotation class SemanticReleasePlugin
 
 

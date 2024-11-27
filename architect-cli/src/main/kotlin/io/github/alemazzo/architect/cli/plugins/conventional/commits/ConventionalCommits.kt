@@ -8,13 +8,13 @@ import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires
 import jakarta.inject.Singleton
 
-class ConventionalCommits : Plugin<ConventionalCommitsContext>() {
+class ConventionalCommits : Plugin<ConventionalCommitsContext>(name) {
 
 	companion object {
 		const val name = "conventional-commits"
 	}
 
-	@JsonProperty(name)
+	@JsonProperty(ConventionalCommits.name)
 	override var context: ConventionalCommitsContext? = null
 
 }

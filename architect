@@ -5,7 +5,7 @@ if [ -f "architect.env" ]; then
   source architect.env
 fi
 
-if [ "$1" == "--build" ]; then
+if [ "$1" == "local" ]; then
   # Install with gradle assemble in architect-cli and moving the jar
   echo "Updating Architect CLI"
   cd architect-cli || exit
