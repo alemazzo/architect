@@ -1,3 +1,15 @@
+## [2.2.0](https://github.com/alemazzo/architect/compare/2.1.0...2.2.0) (2024-11-27)
+
+### Features
+
+* cleanup ([68c734f](https://github.com/alemazzo/architect/commit/68c734ffc4ef39e89e2476ea46265340f8eeef98))
+
+### General maintenance
+
+* cleanup ([f19dc7e](https://github.com/alemazzo/architect/commit/f19dc7ede2162cb0ac004b17c7f5009a15109102))
+* configuration package -> context package ([9b7f258](https://github.com/alemazzo/architect/commit/9b7f2584bc26ef4ae11c028915d624f6198e2253))
+* ideas on architect.yml ([46ce227](https://github.com/alemazzo/architect/commit/46ce2276299cb31c584cd4228dd01357ddd158cb))
+
 ## [2.1.0](https://github.com/alemazzo/architect/compare/2.0.0...2.1.0) (2024-11-26)
 
 ### Features
