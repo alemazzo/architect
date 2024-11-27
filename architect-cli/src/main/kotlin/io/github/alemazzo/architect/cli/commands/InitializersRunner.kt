@@ -1,9 +1,7 @@
-package io.github.alemazzo.architect.cli.commands.tasks
+package io.github.alemazzo.architect.cli.commands
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
-import io.github.alemazzo.architect.cli.api.command.init.ArchitectInitializer
 import io.github.alemazzo.architect.cli.api.command.init.Initializer
-import io.github.alemazzo.architect.cli.context.RequireContext
 import jakarta.inject.Inject
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
@@ -14,8 +12,6 @@ import picocli.CommandLine.Command
 	mixinStandardHelpOptions = true,
 )
 @Singleton
-@RequireContext
-@ArchitectInitializer
 class InitializersRunner :
 	ArchitectCommand {
 
@@ -24,7 +20,7 @@ class InitializersRunner :
 
 	override fun run() {
 		initializers.forEach { it.run() }
-		println("All initializers passed")
+		logger.info("All initializers passed")
 	}
 
 }

@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.api.annotation
 
-import io.micronaut.context.annotation.Context
+import io.github.alemazzo.architect.cli.utils.log.WithLogger
 
-@Context
-annotation class Architect
+
+interface Architect : WithLogger
 

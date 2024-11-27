@@ -1,10 +1,7 @@
 package io.github.alemazzo.architect.cli.api.command.run
 
-import io.micronaut.context.annotation.Requires
+import io.github.alemazzo.architect.cli.api.annotation.Architect
 
-interface Runner : Runnable {
+interface Runner : Runnable, Architect {
 	val name: String
 }
-
-@Requires(beans = [Runner::class])
-annotation class ArchitectRunner

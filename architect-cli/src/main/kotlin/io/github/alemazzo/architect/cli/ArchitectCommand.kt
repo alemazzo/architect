@@ -1,10 +1,9 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.commands.ProjectRunner
-import io.github.alemazzo.architect.cli.commands.tasks.ChecksRunner
-import io.github.alemazzo.architect.cli.commands.tasks.InitializersRunner
-import io.github.alemazzo.architect.cli.commands.tasks.ReleasesRunner
-import io.github.alemazzo.architect.cli.commands.tasks.RunnersRunner
+import io.github.alemazzo.architect.cli.commands.ChecksRunner
+import io.github.alemazzo.architect.cli.commands.InitializersRunner
+import io.github.alemazzo.architect.cli.commands.ReleasesRunner
+import io.github.alemazzo.architect.cli.commands.RunnersRunner
 import io.github.alemazzo.architect.cli.context.Context
 import io.micronaut.configuration.picocli.PicocliRunner
 import jakarta.inject.Inject
@@ -19,7 +18,6 @@ import picocli.CommandLine.Command
 
 	subcommands =
 	[
-		ProjectRunner::class,
 		InitializersRunner::class,
 		ChecksRunner::class,
 		ReleasesRunner::class,
@@ -30,7 +28,7 @@ class ArchitectCommand : Runnable {
 
 	@Inject
 	lateinit var context: Context
-	
+
 	override fun run() {
 		CommandLine.usage(this, System.out)
 	}

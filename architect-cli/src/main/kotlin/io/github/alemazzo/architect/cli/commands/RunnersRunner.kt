@@ -1,8 +1,7 @@
-package io.github.alemazzo.architect.cli.commands.tasks
+package io.github.alemazzo.architect.cli.commands
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
 import io.github.alemazzo.architect.cli.api.command.run.Runner
-import io.github.alemazzo.architect.cli.context.RequireContext
 import jakarta.inject.Inject
 import picocli.CommandLine.Command
 import picocli.CommandLine.Parameters
@@ -11,7 +10,6 @@ import picocli.CommandLine.Parameters
 	name = "run",
 	description = ["Run the application"]
 )
-@RequireContext
 class RunnersRunner : ArchitectCommand {
 
 	@Inject
@@ -28,9 +26,9 @@ class RunnersRunner : ArchitectCommand {
 			val runner = runners.find { it.name == runnerName }
 			if (runner != null) {
 				runner.run()
-				println("Runner $runnerName executed")
+				logger.info("Runner $runnerName passed")
 			} else {
-				println("Runner $runnerName not found")
+				logger.error("Runner $runnerName not found")
 			}
 		}
 	}

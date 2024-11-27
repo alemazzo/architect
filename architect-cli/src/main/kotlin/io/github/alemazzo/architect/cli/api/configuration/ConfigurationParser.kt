@@ -4,9 +4,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import io.github.alemazzo.architect.cli.api.annotation.Component
+import jakarta.inject.Singleton
 
-@Component
+@Singleton
 class ConfigurationParser {
 
 	val objectMapper: ObjectMapper =

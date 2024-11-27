@@ -1,8 +1,7 @@
-package io.github.alemazzo.architect.cli.commands.tasks
+package io.github.alemazzo.architect.cli.commands
 
 import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
 import io.github.alemazzo.architect.cli.api.command.check.Check
-import io.github.alemazzo.architect.cli.context.RequireContext
 import jakarta.inject.Inject
 import picocli.CommandLine.Command
 
@@ -11,7 +10,6 @@ import picocli.CommandLine.Command
 	description = ["..."],
 	mixinStandardHelpOptions = true,
 )
-@RequireContext
 class ChecksRunner : ArchitectCommand {
 
 	@Inject
@@ -19,7 +17,7 @@ class ChecksRunner : ArchitectCommand {
 
 	override fun run() {
 		checks.forEach { it.run() }
-		println("All checks passed")
+		logger.info("All checks passed")
 	}
 
 }
