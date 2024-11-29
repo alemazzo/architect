@@ -1,14 +1,14 @@
-package io.github.alemazzo.architect.cli.plugins.gradle
+package io.github.alemazzo.architect.cli.plugins.gradle.context
 
 import io.github.alemazzo.architect.cli.api.annotation.Architect
-import io.github.alemazzo.architect.cli.context.Context
-import io.github.alemazzo.architect.cli.plugins.gradle.context.GradleContext
+import io.github.alemazzo.architect.cli.api.context.Context
+import io.github.alemazzo.architect.cli.plugins.gradle.Gradle
 import io.micronaut.context.annotation.Factory
 import jakarta.inject.Singleton
 
 @Singleton
 @Factory
-class GradleFactory : Architect {
+class GradleContextFactory : Architect {
 
 	@Singleton
 	fun getGradle(context: Context): GradleContext {

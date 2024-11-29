@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.context
+package io.github.alemazzo.architect.cli.api.context
 
 import io.github.alemazzo.architect.cli.api.annotation.Architect
 import io.micronaut.context.annotation.Factory

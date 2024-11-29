@@ -1,19 +1,24 @@
-package io.github.alemazzo.architect.cli.commands
+package io.github.alemazzo.architect.cli.plugins.architect.plugins.run
 
-import io.github.alemazzo.architect.cli.api.command.ArchitectCommand
+import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
 import io.github.alemazzo.architect.cli.api.command.run.Runner
-import jakarta.inject.Inject
+import io.micronaut.core.annotation.Order
+import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 import picocli.CommandLine.Parameters
 
+@Singleton
 @Command(
 	name = "run",
-	description = ["Run the application"]
+	description = ["Run a specific runner"],
 )
-class RunnersRunner : ArchitectCommand {
+@Order(3)
+class RunnerPlugin(private val runners: List<Runner>) : Plugin<Void>(name) {
+	override val context: Void? = null
 
-	@Inject
-	lateinit var runners: List<Runner>
+	companion object {
+		const val name = "run"
+	}
 
 	@Parameters(
 		description = ["The name of the runner to execute"],

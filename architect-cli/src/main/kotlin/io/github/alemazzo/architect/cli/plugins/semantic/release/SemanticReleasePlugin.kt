@@ -9,16 +9,18 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(
-	name = SemanticRelease.name,
+	name = SemanticReleasePlugin.name,
 	subcommands = [SemanticReleaseTask::class]
 )
-class SemanticRelease : Plugin<SemanticReleaseContext>(name) {
+class SemanticReleasePlugin(
+	@JsonProperty(name)
+	override val context: SemanticReleaseContext?,
+) :
+	Plugin<SemanticReleaseContext>(name) {
+
 	companion object {
 		const val name = "semantic-release"
 	}
-
-	@JsonProperty(SemanticRelease.name)
-	override var context: SemanticReleaseContext? = null
 }
 
 

@@ -5,8 +5,10 @@ import io.github.alemazzo.architect.cli.plugins.gradle.context.GradleContext
 import io.github.alemazzo.architect.cli.plugins.gradle.context.ProjectContext
 import io.github.alemazzo.architect.cli.plugins.gradle.utils.GradleExecutor
 import jakarta.inject.Singleton
+import picocli.CommandLine.Command
 
 @Singleton
+@Command(name = "test")
 class ArchitectGradleTestCommand(val context: GradleContext, private val gradleExecutor: GradleExecutor) :
 	Check {
 	override fun run() {

@@ -1,15 +1,15 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.commands.InitializersRunner
+import io.github.alemazzo.architect.cli.plugins.architect.plugins.initialiser.InitializersPlugin
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 
 @MicronautTest
-class InitializersRunnerTest : CommandIntegrationTest() {
+class InitializersPluginTest : CommandIntegrationTest() {
 
 	@Test
 	fun `test usage`() {
-		val output = execute(InitializersRunner::class.java)
+		val output = execute(InitializersPlugin::class.java)
 		println(output)
 		assert(output.contains("All initializers passed"))
 
@@ -17,7 +17,7 @@ class InitializersRunnerTest : CommandIntegrationTest() {
 
 	@Test
 	fun `test help`() {
-		val output = execute(InitializersRunner::class.java, "--help")
+		val output = execute(InitializersPlugin::class.java, "--help")
 		println(output)
 		assert(output.contains("Usage: init [-hV]"))
 	}

@@ -1,5 +1,5 @@
 applicationType: default
-defaultPackage: io.github.alemazzo.architect
+defaultPackage: io.github.alemazzo.architect.daemon
 testFramework: junit
 sourceLanguage: kotlin
 buildTool: gradle_kotlin
