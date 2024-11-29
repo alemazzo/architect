@@ -6,7 +6,6 @@ description: "My project description"
 gradle:
   projects:
     - name: "architect-cli"
-    - name: "architect-daemon"
 
 semantic-release:
   assets:
