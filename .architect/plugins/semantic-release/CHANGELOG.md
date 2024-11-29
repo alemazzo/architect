@@ -1,3 +1,13 @@
+## [3.0.0](https://github.com/alemazzo/architect/compare/2.2.0...3.0.0) (2024-11-29)
+
+### ⚠ BREAKING CHANGES
+
+* new architecture
+
+### Features
+
+* new architecture ([613ddc2](https://github.com/alemazzo/architect/commit/613ddc229dc851910d3259328d31ef12f14383de))
+
 ## [2.2.0](https://github.com/alemazzo/architect/compare/2.1.0...2.2.0) (2024-11-27)
 
 ### Features
