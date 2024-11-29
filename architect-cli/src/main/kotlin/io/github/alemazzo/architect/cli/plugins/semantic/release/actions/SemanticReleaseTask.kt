@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.plugins.semantic.release.actions
 
-import io.github.alemazzo.architect.cli.api.command.release.Releaser
+import io.github.alemazzo.architect.cli.api.architect.release.Releaser
 import io.github.alemazzo.architect.cli.plugins.semantic.release.context.SemanticReleaseContext
 import io.github.alemazzo.architect.cli.utils.execution.CommandExecutor
 import jakarta.inject.Singleton

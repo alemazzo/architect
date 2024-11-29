@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.architect.plugins.run
 
-import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
-import io.github.alemazzo.architect.cli.api.command.run.Runner
+import io.github.alemazzo.architect.cli.api.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.architect.run.Runner
 import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command

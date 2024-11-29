@@ -20,7 +20,7 @@ class GradleExecutor(
 			logger.info("Using name as path")
 			project.path = project.name
 		}
-		logger.info("Executing Gradle command: ${project.command} ${args.joinToString(" ")} in ${project.path}")
+		logger.info("Executing Gradle architect: ${project.command} ${args.joinToString(" ")} in ${project.path}")
 		return commandExecutor.execute(getCommand(project.command, args), project.path)
 	}
 }

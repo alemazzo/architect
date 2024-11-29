@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.architect.plugins.checks
 
-import io.github.alemazzo.architect.cli.api.command.check.Check
-import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.architect.check.Check
+import io.github.alemazzo.architect.cli.api.plugin.Plugin
 import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command

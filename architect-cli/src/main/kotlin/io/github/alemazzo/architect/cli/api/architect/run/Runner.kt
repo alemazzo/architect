@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.api.command.run
+package io.github.alemazzo.architect.cli.api.architect.run
 
 import io.github.alemazzo.architect.cli.api.annotation.Architect
 

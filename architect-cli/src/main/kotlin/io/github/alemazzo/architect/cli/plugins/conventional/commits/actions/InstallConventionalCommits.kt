@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.plugins.conventional.commits.actions
 
-import io.github.alemazzo.architect.cli.api.command.init.Initializer
+import io.github.alemazzo.architect.cli.api.architect.init.Initializer
 import io.github.alemazzo.architect.cli.plugins.conventional.commits.context.ConventionalCommitsContext
 import io.github.alemazzo.architect.cli.utils.github.GithubConfiguration
 import io.github.alemazzo.architect.cli.utils.github.GithubExecutor

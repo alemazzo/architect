@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.api.command.plugin
+package io.github.alemazzo.architect.cli.api.plugin
 
 import io.github.alemazzo.architect.cli.utils.log.WithLogger
 import picocli.CommandLine

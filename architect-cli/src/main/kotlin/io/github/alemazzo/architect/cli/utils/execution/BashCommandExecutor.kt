@@ -17,7 +17,7 @@ open class BashCommandExecutor : CommandExecutor, WithLogger {
 		logBanner()
 		logger.info("************ Command output ************")
 		result.lines().forEach { logger.info(it) }
-		logger.info("******** End of command output *********")
+		logger.info("******** End of architect output *********")
 		logBanner()
 		return Pair(process.waitFor(), result)
 	}
@@ -30,7 +30,7 @@ open class BashCommandExecutor : CommandExecutor, WithLogger {
 	}
 
 	override fun execute(command: String, workingDir: String?): Boolean {
-		logger.info("Executing command: $command in $workingDir")
+		logger.info("Executing architect: $command in $workingDir")
 		val (exitCode, _) = executeCommand(command, workingDir)
 		logger.info("Command executed with exit code $exitCode")
 		return exitCode == 0

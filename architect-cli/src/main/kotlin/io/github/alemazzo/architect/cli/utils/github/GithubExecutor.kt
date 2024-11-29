@@ -31,7 +31,7 @@ class GithubExecutor(
 		logger.info("Running Github Plugin Command")
 		logger.info("Repo: ${configuration.repo.owner}/${configuration.repo.name}")
 
-		// Execute a command that check if the tmp directory exists and if not, create it
+		// Execute a architect that check if the tmp directory exists and if not, create it
 		logger.info("Creating tmp directory if not exists")
 		commandExecutor.execute("mkdir -p $tempFolder")
 
@@ -43,12 +43,12 @@ class GithubExecutor(
 		logger.info("Removing the .git directory")
 		commandExecutor.execute("rm -rf $folderPath/.git")
 
-		// Execute the command inside the repository
-		logger.info("Executing the command")
+		// Execute the architect inside the repository
+		logger.info("Executing the architect")
 		commandExecutor.execute(configuration.command, folderPath)
 
 		// Remove the tmp directory
-		logger.info("Removing the tmp command directory")
+		logger.info("Removing the tmp architect directory")
 		commandExecutor.execute("rm -rf $folderPath")
 
 		// Remove the tmp directory if it's empty

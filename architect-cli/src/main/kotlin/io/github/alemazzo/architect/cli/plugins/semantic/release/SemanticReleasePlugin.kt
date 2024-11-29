@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.semantic.release
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.plugin.Plugin
 import io.github.alemazzo.architect.cli.plugins.semantic.release.actions.SemanticReleaseTask
 import io.github.alemazzo.architect.cli.plugins.semantic.release.context.SemanticReleaseContext
 import jakarta.inject.Singleton

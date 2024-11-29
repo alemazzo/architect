@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.architect.plugins.initialiser
 
-import io.github.alemazzo.architect.cli.api.command.init.Initializer
-import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.architect.init.Initializer
+import io.github.alemazzo.architect.cli.api.plugin.Plugin
 import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command

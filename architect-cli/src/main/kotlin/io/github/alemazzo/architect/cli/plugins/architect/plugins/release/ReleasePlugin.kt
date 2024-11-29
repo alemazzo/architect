@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.architect.plugins.release
 
-import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
-import io.github.alemazzo.architect.cli.api.command.release.Releaser
+import io.github.alemazzo.architect.cli.api.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.architect.release.Releaser
 import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command

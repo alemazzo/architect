@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.plugins.conventional.commits
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.alemazzo.architect.cli.api.command.plugin.Plugin
+import io.github.alemazzo.architect.cli.api.plugin.Plugin
 import io.github.alemazzo.architect.cli.plugins.conventional.commits.actions.InstallConventionalCommits
 import io.github.alemazzo.architect.cli.plugins.conventional.commits.context.ConventionalCommitsContext
 import jakarta.inject.Singleton
