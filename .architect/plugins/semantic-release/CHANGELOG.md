@@ -1,3 +1,9 @@
+## [3.1.0](https://github.com/alemazzo/architect/compare/3.0.0...3.1.0) (2024-11-29)
+
+### Features
+
+* added github repo executor ([9a00c2c](https://github.com/alemazzo/architect/commit/9a00c2cab8646eccc32c09755d3f983d7d685036))
+
 ## [3.0.0](https://github.com/alemazzo/architect/compare/2.2.0...3.0.0) (2024-11-29)
 
 ### ⚠ BREAKING CHANGES
