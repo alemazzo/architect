@@ -21,6 +21,7 @@ project:
   license: "MIT"
 
 plugins:
+  - owner/repo
   - conventional-commits
   - semantic-release
   - gradle

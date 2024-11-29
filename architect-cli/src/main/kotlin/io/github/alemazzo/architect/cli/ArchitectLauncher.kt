@@ -13,15 +13,11 @@ import picocli.CommandLine.Parameters
 	description = ["Launch the Architect CLI"]
 )
 class ArchitectLauncher(
-	val commandLine: CommandLine,
+	private val commandLine: CommandLine,
 ) : Runnable, WithLogger {
 
 	@Parameters
 	var args: Array<String> = emptyArray()
-
-	init {
-		logger.info("Creating Architect Launcher")
-	}
 
 	override fun run() {
 		logger.info("Running Architect Launcher")
@@ -29,9 +25,6 @@ class ArchitectLauncher(
 	}
 
 	companion object {
-
-		const val name = "architect-cli"
-
 		@JvmStatic
 		fun main(args: Array<String>) {
 			PicocliRunner.run(ArchitectLauncher::class.java, *args)

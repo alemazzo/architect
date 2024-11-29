@@ -12,11 +12,7 @@ import picocli.CommandLine.Command
 class CommandLineFactory(
 	private val registry: PluginRegistry,
 ) : WithLogger {
-
-	init {
-		logger.info("Creating command line factory")
-	}
-
+	
 	@Command
 	class UsageCommand : Runnable {
 		var commandLine: CommandLine? = null

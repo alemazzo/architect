@@ -25,6 +25,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
 	implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+	implementation("io.micronaut:micronaut-http-client")
 	runtimeOnly("ch.qos.logback:logback-classic")
 	runtimeOnly("org.yaml:snakeyaml")
 }

@@ -6,6 +6,11 @@ import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 
+data class ReleaseConfiguration(
+	val name: String = "release",
+	val description: String = "Release the application",
+)
+
 @Singleton
 @Command(
 	name = "release",

@@ -16,12 +16,12 @@ import picocli.CommandLine.Command
 @Order(1)
 class InitializersPlugin(private val initializers: List<Initializer>) :
 	Plugin<Void>(name) {
+	override val context: Void? = null
 
 	companion object {
 		const val name = "init"
 	}
 
-	override val context: Void? = null
 
 	override fun run() {
 		initializers.forEach { it.run() }
