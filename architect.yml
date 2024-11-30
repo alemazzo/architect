@@ -12,31 +12,11 @@ semantic-release:
     - path: ./architect-cli/build/libs/architect-cli-0.1-all.jar
       name: architect-cli.jar
 
-# A list of other configurations that one day will be supported
-
-project:
-  name: "architect"
-  description: "A simple project generator"
-  version: "0.1.0"
-  license: "MIT"
+# Mid Support
 
 plugins:
   - owner: "alemazzo"
-    repo: "architect-gradle-plugin"
-    jar: "architect-gradle-plugin.jar"
-    loadClass: "io.github.alemazzo.architect.gradle.GradlePlugin"
+    repo: "architect-semantic-release"
+    jar: "architect-semantic-release.jar"
+    loadClass: "io.github.alemazzo.architect.semantic.release.SemanticReleaseCommand"
 
-docs:
-  - template: "architect"
-  - engine: "asciidoctor"
-  - output: "docs"
-
-pipeline:
-  - build
-  - test
-  - release
-  - deploy
-  - docs
-  - notify
-  - clean
-  - validate
