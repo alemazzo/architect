@@ -25,3 +25,5 @@ out/
 .vscode/
 tmp/
 .architect/tmp
+.tmp
+.tmp/
