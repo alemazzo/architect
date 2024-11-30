@@ -1,10 +1,10 @@
 package io.github.alemazzo.architect.cli.implementation.execution
 
-import io.github.alemazzo.architect.cli.api.log.WithLogger
 import jakarta.inject.Singleton
+import java.io.File
 
 @Singleton
-open class BashCommandExecutor : CommandExecutor, WithLogger {
+open class BashCommandExecutor : CommandExecutor {
 
 	private fun String.splitToCommandParts(): List<String> {
 		val regex = Regex("""[^\s"']+|"([^"]*)"|'([^']*)'""")
@@ -13,33 +13,41 @@ open class BashCommandExecutor : CommandExecutor, WithLogger {
 			.toList()
 	}
 
-
 	private fun executeCommand(command: String, workingDir: String? = null): Pair<Int, String> {
 		val processBuilder = ProcessBuilder(command.splitToCommandParts())
 		if (workingDir != null) {
-			processBuilder.directory(java.io.File(workingDir))
+			processBuilder.directory(File(workingDir))
 		}
+		processBuilder.redirectErrorStream(true)
 		val process = processBuilder.start()
-		val result = process.inputStream.bufferedReader().readText()
-		logBanner()
-		logger.debug("************ Command output ************")
-		result.lines().forEach { logger.debug(it) }
-		logger.debug("******** End of architect output *********")
-		logBanner()
-		return Pair(process.waitFor(), result)
-	}
-
-	private fun logBanner() {
-		val count = 1
-		for (i in 0..count) {
-			logger.debug("************************************")
+		val outputBuilder = StringBuilder()
+		val outputThread = Thread {
+			process.inputStream.bufferedReader().useLines { lines ->
+				lines.forEach { line ->
+					println(line) // Optionally log each line
+					outputBuilder.appendLine(line)
+				}
+			}
 		}
+		outputThread.start()
+
+		// Wait for the process to complete
+		val exitCode = process.waitFor()
+
+		// Ensure the output thread has finished processing
+		outputThread.join()
+
+		val result = outputBuilder.toString()
+		return Pair(exitCode, result)
 	}
 
 	override fun execute(command: String, workingDir: String?): Boolean {
-		logger.info("Executing architect: $command" + if (workingDir != null) " in $workingDir" else "")
-		val (exitCode, _) = executeCommand(command, workingDir)
-		logger.info("Command executed with exit code $exitCode")
+		println("Executing architect: $command in $workingDir")
+		val (exitCode, result) = executeCommand(command, workingDir)
+		if (exitCode != 0) {
+			println("Command failed with exit code $exitCode")
+			println("Command output: $result")
+		}
 		return exitCode == 0
 	}
 }
