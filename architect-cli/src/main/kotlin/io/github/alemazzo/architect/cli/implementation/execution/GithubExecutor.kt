@@ -18,13 +18,17 @@ class GithubExecutor(
 	private val commandExecutor: CommandExecutor,
 ) : WithLogger {
 
+	fun getPath(configuration: GithubConfiguration): String {
+		return ".architect/tmp/${configuration.repo.name}"
+	}
+
 	private fun getHttpsUrl(configuration: GithubConfiguration): String {
 		return "https://github.com/${configuration.repo.owner}/${configuration.repo.name}"
 	}
 
-	fun run(configuration: GithubConfiguration) {
+	fun run(configuration: GithubConfiguration, preCommand: (CommandExecutor) -> Unit = {}) {
 		val tempFolder = ".architect/tmp"
-		val folderPath = "$tempFolder/${configuration.repo.name}"
+		val folderPath = getPath(configuration)
 		val httpsUrl = getHttpsUrl(configuration)
 
 		logger.info("Running Github Plugin Command")
@@ -41,6 +45,10 @@ class GithubExecutor(
 		// Remove the .git directory
 		logger.info("Removing the .git directory")
 		commandExecutor.execute("rm -rf $folderPath/.git")
+
+		// Execute the pre-command
+		logger.info("Executing the pre-command")
+		preCommand(commandExecutor)
 
 		// Execute the architect inside the repository
 		logger.info("Executing the architect")
