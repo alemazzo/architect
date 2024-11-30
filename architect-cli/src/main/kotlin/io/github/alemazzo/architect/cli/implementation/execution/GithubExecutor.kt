@@ -18,8 +18,12 @@ class GithubExecutor(
 	private val commandExecutor: CommandExecutor,
 ) : WithLogger {
 
+	fun getTempFolder(): String {
+		return ".architect/tmp"
+	}
+
 	fun getPath(configuration: GithubConfiguration): String {
-		return ".architect/tmp/${configuration.repo.name}"
+		return "${getTempFolder()}/${configuration.repo.name}"
 	}
 
 	private fun getHttpsUrl(configuration: GithubConfiguration): String {
@@ -27,7 +31,7 @@ class GithubExecutor(
 	}
 
 	fun run(configuration: GithubConfiguration, preCommand: (CommandExecutor) -> Unit = {}) {
-		val tempFolder = ".architect/tmp"
+		val tempFolder = getTempFolder()
 		val folderPath = getPath(configuration)
 		val httpsUrl = getHttpsUrl(configuration)
 
