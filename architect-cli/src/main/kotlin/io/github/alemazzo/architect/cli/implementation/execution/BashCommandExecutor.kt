@@ -6,7 +6,6 @@ import jakarta.inject.Singleton
 @Singleton
 open class BashCommandExecutor : CommandExecutor, WithLogger {
 
-
 	private fun executeCommand(command: String, workingDir: String? = null): Pair<Int, String> {
 		val processBuilder = ProcessBuilder(command.split(" "))
 		if (workingDir != null) {
@@ -15,17 +14,17 @@ open class BashCommandExecutor : CommandExecutor, WithLogger {
 		val process = processBuilder.start()
 		val result = process.inputStream.bufferedReader().readText()
 		logBanner()
-		logger.info("************ Command output ************")
-		result.lines().forEach { logger.info(it) }
-		logger.info("******** End of architect output *********")
+		logger.debug("************ Command output ************")
+		result.lines().forEach { logger.debug(it) }
+		logger.debug("******** End of architect output *********")
 		logBanner()
 		return Pair(process.waitFor(), result)
 	}
 
 	private fun logBanner() {
-		val count = 5
-		for (i in 1..count) {
-			logger.info("************************************")
+		val count = 1
+		for (i in 0..count) {
+			logger.debug("************************************")
 		}
 	}
 

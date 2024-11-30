@@ -14,30 +14,44 @@ class GithubPluginRegistry(
 ) : WithLogger {
 
 	fun getAll(): List<Plugin<*>> {
-		return configuration.plugins.map { loadPlugins(it) }
+		return configuration.plugins.mapNotNull { loadPlugins(it) }
 	}
 
-	private fun loadPlugins(plugin: GithubPluginConfiguration): Plugin<*> {
+	private fun loadPlugins(plugin: GithubPluginConfiguration): Plugin<*>? {
 		val owner = plugin.owner
 		val repo = plugin.repo
 		val tempFolder = ".architect/tmp"
 		val repoFolder = "$tempFolder/$repo"
 
-		// Create a temporary directory to store the plugin
-		commandExecutor.execute("mkdir -p $tempFolder")
+		try {
 
-		// Create a directory for the plugin
-		commandExecutor.execute("mkdir -p $repoFolder")
+			// Create a temporary directory to store the plugin
+			commandExecutor.execute("mkdir -p $tempFolder")
 
-		// Download the Jar with CURL and save it in a temporary directory
-		commandExecutor.execute(
-			"curl -LJO https://github.com/"
-					+ owner + "/" + repo + "/releases/latest/download/"
-					+ repo + ".jar -o " + repoFolder + "/" + repo + ".jar"
-		)
+			// Create a directory for the plugin
+			commandExecutor.execute("mkdir -p $repoFolder")
 
-		// Load the plugin from the Jar
-		return loadPluginFromJar(File("$repoFolder/$repo.jar"), plugin.loadClass)
+			// Download the Jar with CURL and save it in a temporary directory
+			commandExecutor.execute(
+				"curl -LJO https://github.com/"
+						+ owner + "/" + repo + "/releases/latest/download/"
+						+ repo + ".jar -o " + repoFolder + "/" + repo + ".jar"
+			)
+
+			// Load the plugin from the Jar
+			val plugin = loadPluginFromJar(File("$repoFolder/$repo.jar"), plugin.loadClass)
+
+			// Clean up the repository folder
+			commandExecutor.execute("rm -rf $repoFolder")
+
+			// Clean up the temporary folder if it's empty
+			commandExecutor.execute("rmdir $tempFolder")
+
+			return plugin
+		} catch (e: Exception) {
+			logger.warn("Error loading plugin $repo: ${e.message}")
+			return null
+		}
 	}
 
 	private fun loadPluginFromJar(jarFile: File, loadClass: String): Plugin<*> {

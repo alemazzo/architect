@@ -14,7 +14,9 @@ class PluginRegistry(
 ) : WithLogger {
 
 	fun register(commandLine: CommandLine) {
-		githubPluginRegistry.getAll().forEach { plugins.add(it) }
+		githubPluginRegistry.getAll().forEach {
+			plugins.add(it)
+		}
 		plugins.forEach { logger.info("Plugin: ${it.name}") }
 		plugins
 			.sortedBy { getOrder(it) }

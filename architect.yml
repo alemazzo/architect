@@ -21,10 +21,10 @@ project:
   license: "MIT"
 
 plugins:
-  - owner/repo
-  - conventional-commits
-  - semantic-release
-  - gradle
+  - owner: "alemazzo"
+    repo: "architect-gradle-plugin"
+    jar: "architect-gradle-plugin.jar"
+    loadClass: "io.github.alemazzo.architect.gradle.GradlePlugin"
 
 docs:
   - template: "architect"
