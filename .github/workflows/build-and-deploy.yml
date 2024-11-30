@@ -32,6 +32,6 @@ jobs:
 
       - run: ./architect init
 
-      - run: ./architect semantic-release release
+      - run: ./architect architect-semantic-release release
         if: >-
           !github.event.repository.fork
