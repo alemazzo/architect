@@ -19,7 +19,7 @@ class GithubPluginRegistry(
 
 	private fun loadPlugins(plugin: GithubPluginConfiguration): Plugin<*>? {
 		val owner = plugin.owner
-		val repo = plugin.repo
+		val repo = plugin.name
 		val tempFolder = ".architect/tmp"
 		val repoFolder = "$tempFolder/$repo"
 
@@ -39,7 +39,7 @@ class GithubPluginRegistry(
 			)
 
 			// Load the plugin from the Jar
-			val plugin = loadPluginFromJar(File("$repoFolder/$repo.jar"), plugin.loadClass)
+			val loadedCommand = loadCommandFromJar(File("$repoFolder/$repo.jar"), plugin.loadClass)
 
 			// Clean up the repository folder
 			commandExecutor.execute("rm -rf $repoFolder")
@@ -47,17 +47,24 @@ class GithubPluginRegistry(
 			// Clean up the temporary folder if it's empty
 			commandExecutor.execute("rmdir $tempFolder")
 
-			return plugin
+			return object : Plugin<Runnable>(plugin.name) {
+				override val context: Runnable
+					get() = TODO("Not yet implemented")
+
+				override fun run() {
+					loadedCommand.run()
+				}
+			}
 		} catch (e: Exception) {
 			logger.warn("Error loading plugin $repo: ${e.message}")
 			return null
 		}
 	}
 
-	private fun loadPluginFromJar(jarFile: File, loadClass: String): Plugin<*> {
+	private fun loadCommandFromJar(jarFile: File, loadClass: String): Runnable {
 		val classLoader = URLClassLoader(arrayOf(jarFile.toURI().toURL()), this::class.java.classLoader)
-		val pluginClass = classLoader.loadClass(loadClass)
-		return pluginClass.getDeclaredConstructor().newInstance() as Plugin<*>
+		val commandClass = classLoader.loadClass(loadClass)
+		return commandClass.getDeclaredConstructor().newInstance() as Runnable
 	}
 
 }

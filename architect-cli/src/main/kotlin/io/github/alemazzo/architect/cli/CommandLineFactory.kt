@@ -15,9 +15,14 @@ class CommandLineFactory(
 
 	@Command
 	class UsageCommand : Runnable {
-		var commandLine: CommandLine? = null
+		private lateinit var commandLine: CommandLine
+
+		fun injectCommandLine(commandLine: CommandLine) {
+			this.commandLine = commandLine
+		}
+
 		override fun run() {
-			commandLine?.usage(System.out)
+			commandLine.usage(System.out)
 		}
 	}
 
@@ -26,7 +31,7 @@ class CommandLineFactory(
 		logger.info("Creating architect line")
 		val usage = UsageCommand()
 		val commandLine = CommandLine(usage, MicronautFactory())
-		usage.commandLine = commandLine
+		usage.injectCommandLine(commandLine)
 		registry.register(commandLine)
 		logger.info("Command line created")
 		return commandLine

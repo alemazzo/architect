@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# If architect.env exists, load it
-if [ -f "architect.env" ]; then
-  source architect.env
-fi
-
 if [ "$1" == "local" ]; then
   # Install with gradle assemble in architect-cli and moving the jar
   echo "Updating Architect CLI"
@@ -24,10 +19,7 @@ if [ ! -f "architect-cli.jar" ]; then
 
   # Fetch the latest release metadata
   LATEST_RELEASE_URL="https://api.github.com/repos/$GITHUB_REPO/releases/latest"
-  RESPONSE=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "$LATEST_RELEASE_URL")
-
-  # Extract the asset download URL
-  ASSET_URL=$(echo "$RESPONSE" | jq -r ".assets[] | select(.name == \"$ASSET_NAME\") | .url")
+  ASSET_URL=$(curl -s "$LATEST_RELEASE_URL" | jq -r ".assets[] | select(.name == \"$ASSET_NAME\") | .browser_download_url")
 
   # Check if the asset URL was found
   if [[ -z "$ASSET_URL" || "$ASSET_URL" == "null" ]]; then
@@ -37,7 +29,7 @@ if [ ! -f "architect-cli.jar" ]; then
 
   # Download the asset
   echo "Downloading $ASSET_NAME from $ASSET_URL..."
-  curl -s -L -H "Authorization: token $GITHUB_TOKEN" -H "Accept: application/octet-stream" "$ASSET_URL" --output "$OUTPUT_DIR/$ASSET_NAME"
+  curl -s -L "$ASSET_URL" --output "$OUTPUT_DIR/$ASSET_NAME"
 
   if [[ $? -eq 0 ]]; then
       echo "Download complete: $ASSET_NAME"
