@@ -36,7 +36,7 @@ micronaut {
 	testRuntime("junit5")
 	processing {
 		incremental(true)
-		annotations("io.github.alemazzo.architect.cli.*")
+		annotations("io.github.alemazzo.architect.*")
 	}
 }
 

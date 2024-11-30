@@ -16,7 +16,7 @@ semantic-release:
 
 plugins:
   - owner: "alemazzo"
-    repo: "architect-semantic-release"
+    name: "architect-semantic-release"
     jar: "architect-semantic-release.jar"
-    loadClass: "io.github.alemazzo.architect.semantic.release.SemanticReleaseCommand"
+    loadClass: "io.github.alemazzo.architect.semantic.release.SemanticReleaseRunner"
 

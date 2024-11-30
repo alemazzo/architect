@@ -20,7 +20,7 @@ class ArchitectLauncher(
 	var args: Array<String> = emptyArray()
 
 	override fun run() {
-		logger.info("Running Architect Launcher")
+		logger.info("Running Architect Launcher with args: ${args.joinToString()}")
 		commandLine.execute(*args)
 	}
 

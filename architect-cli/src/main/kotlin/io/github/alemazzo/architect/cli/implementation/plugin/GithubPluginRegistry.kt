@@ -3,25 +3,49 @@ package io.github.alemazzo.architect.cli.implementation.plugin
 import io.github.alemazzo.architect.cli.api.log.WithLogger
 import io.github.alemazzo.architect.cli.api.plugin.Plugin
 import io.github.alemazzo.architect.cli.implementation.execution.CommandExecutor
+import io.micronaut.context.ApplicationContext
 import jakarta.inject.Singleton
+import picocli.CommandLine.Command
+import picocli.CommandLine.Parameters
 import java.io.File
 import java.net.URLClassLoader
+import java.util.function.BiConsumer
 
 @Singleton
 class GithubPluginRegistry(
 	private val configuration: PluginsConfiguration,
 	private val commandExecutor: CommandExecutor,
+	private val multiContextFactory: MultiContextFactory,
+	private val applicationContext: ApplicationContext,
 ) : WithLogger {
 
 	fun getAll(): List<Plugin<*>> {
 		return configuration.plugins.mapNotNull { loadPlugins(it) }
 	}
 
+	@Command
+	class PluginCommand(
+		name: String,
+		private val applicationContext: ApplicationContext,
+		private val command: BiConsumer<ApplicationContext?, List<String>>,
+	) :
+		Plugin<Void>(name) {
+		override val context: Void? = null
+
+		@Parameters
+		var args: List<String> = emptyList()
+
+		override fun run() {
+			logger.info("Running Plugin: $name with args: $args")
+			command.accept(applicationContext, args)
+		}
+	}
+
 	private fun loadPlugins(plugin: GithubPluginConfiguration): Plugin<*>? {
 		val owner = plugin.owner
-		val repo = plugin.name
+		val name = plugin.name
 		val tempFolder = ".architect/tmp"
-		val repoFolder = "$tempFolder/$repo"
+		val repoFolder = "$tempFolder/$name"
 
 		try {
 
@@ -32,39 +56,54 @@ class GithubPluginRegistry(
 			commandExecutor.execute("mkdir -p $repoFolder")
 
 			// Download the Jar with CURL and save it in a temporary directory
+			val githubTokenFromEnvironment = System.getenv("GITHUB_TOKEN")
 			commandExecutor.execute(
-				"curl -LJO https://github.com/"
-						+ owner + "/" + repo + "/releases/latest/download/"
-						+ repo + ".jar -o " + repoFolder + "/" + repo + ".jar"
+				"curl -H \"Authorization: token $githubTokenFromEnvironment\" -L  " +
+						"https://github.com/$owner/$name/releases/latest/download/$name.jar -o $repoFolder/$name.jar"
 			)
 
+			// Log jar file size
+			val jarFile = File("$repoFolder/$name.jar")
+			logger.info("Jar file size: ${jarFile.length()} bytes")
+
 			// Load the plugin from the Jar
-			val loadedCommand = loadCommandFromJar(File("$repoFolder/$repo.jar"), plugin.loadClass)
+			val (loadedCommand, applicationContext) = loadCommandFromJar(
+				File("$repoFolder/$name.jar"),
+				plugin.loadClass
+			)
 
 			// Clean up the repository folder
-			commandExecutor.execute("rm -rf $repoFolder")
+			// commandExecutor.execute("rm -rf $repoFolder")
 
 			// Clean up the temporary folder if it's empty
-			commandExecutor.execute("rmdir $tempFolder")
+			// commandExecutor.execute("rmdir $tempFolder")
 
-			return object : Plugin<Runnable>(plugin.name) {
-				override val context: Runnable
-					get() = TODO("Not yet implemented")
-
-				override fun run() {
-					loadedCommand.run()
-				}
-			}
+			return PluginCommand(plugin.name, applicationContext, loadedCommand)
 		} catch (e: Exception) {
-			logger.warn("Error loading plugin $repo: ${e.message}")
+			e.printStackTrace()
+			logger.warn("Error loading plugin $name: ${e.message}")
 			return null
 		}
 	}
 
-	private fun loadCommandFromJar(jarFile: File, loadClass: String): Runnable {
-		val classLoader = URLClassLoader(arrayOf(jarFile.toURI().toURL()), this::class.java.classLoader)
-		val commandClass = classLoader.loadClass(loadClass)
-		return commandClass.getDeclaredConstructor().newInstance() as Runnable
+	private fun loadCommandFromJar(
+		jarFile: File,
+		loadClass: String,
+	): Pair<BiConsumer<ApplicationContext?, List<String>>, ApplicationContext> {
+		logger.info("Loading plugin from jar: $jarFile")
+		val classLoader = URLClassLoader(arrayOf(jarFile.toURI().toURL()), applicationContext.classLoader)
+		return try {
+			logger.info("Creating plugin context")
+			val pluginContext = ApplicationContext.builder()
+				.classLoader(classLoader)
+				.start()
+			multiContextFactory.addContext(pluginContext)
+			logger.info("Extracting bean from plugin context")
+			pluginContext.getBean(classLoader.loadClass(loadClass)) as BiConsumer<ApplicationContext?, List<String>> to pluginContext
+		} catch (e: Exception) {
+			throw e
+		}
 	}
 
 }
+
