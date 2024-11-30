@@ -1,7 +1,6 @@
-package io.github.alemazzo.architect.cli.utils.github
+package io.github.alemazzo.architect.cli.implementation.execution
 
-import io.github.alemazzo.architect.cli.utils.execution.CommandExecutor
-import io.github.alemazzo.architect.cli.utils.log.WithLogger
+import io.github.alemazzo.architect.cli.api.log.WithLogger
 import jakarta.inject.Singleton
 
 data class Repository(

@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.utils.log.WithLogger
+import io.github.alemazzo.architect.cli.api.log.WithLogger
 import io.micronaut.configuration.picocli.PicocliRunner
 import jakarta.inject.Singleton
 import picocli.CommandLine

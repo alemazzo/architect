@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.utils.log
+package io.github.alemazzo.architect.cli.api.log
 
 import org.slf4j.Logger
 

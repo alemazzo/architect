@@ -1,7 +1,7 @@
-package io.github.alemazzo.architect.cli
+package io.github.alemazzo.architect.cli.implementation.plugin
 
+import io.github.alemazzo.architect.cli.api.log.WithLogger
 import io.github.alemazzo.architect.cli.api.plugin.Plugin
-import io.github.alemazzo.architect.cli.utils.log.WithLogger
 import io.micronaut.core.annotation.Order
 import io.micronaut.core.order.Ordered
 import jakarta.inject.Singleton
@@ -9,10 +9,12 @@ import picocli.CommandLine
 
 @Singleton
 class PluginRegistry(
-	private val plugins: List<Plugin<*>>,
+	private val plugins: MutableList<Plugin<*>>,
+	private val githubPluginRegistry: GithubPluginRegistry,
 ) : WithLogger {
 
 	fun register(commandLine: CommandLine) {
+		githubPluginRegistry.getAll().forEach { plugins.add(it) }
 		plugins.forEach { logger.info("Plugin: ${it.name}") }
 		plugins
 			.sortedBy { getOrder(it) }
@@ -32,4 +34,6 @@ class PluginRegistry(
 		// Default to a low priority
 		return Int.MAX_VALUE
 	}
+
 }
+

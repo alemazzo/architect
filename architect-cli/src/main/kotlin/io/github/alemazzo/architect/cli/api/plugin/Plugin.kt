@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.api.plugin
 
-import io.github.alemazzo.architect.cli.utils.log.WithLogger
+import io.github.alemazzo.architect.cli.api.log.WithLogger
 import picocli.CommandLine
 
 abstract class Plugin<Config>(val name: String) : Runnable, WithLogger {

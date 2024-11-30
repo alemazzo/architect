@@ -1,10 +1,10 @@
 package io.github.alemazzo.architect.cli.plugins.conventional.commits.actions
 
 import io.github.alemazzo.architect.cli.api.architect.init.Initializer
+import io.github.alemazzo.architect.cli.implementation.execution.GithubConfiguration
+import io.github.alemazzo.architect.cli.implementation.execution.GithubExecutor
+import io.github.alemazzo.architect.cli.implementation.execution.Repository
 import io.github.alemazzo.architect.cli.plugins.conventional.commits.context.ConventionalCommitsContext
-import io.github.alemazzo.architect.cli.utils.github.GithubConfiguration
-import io.github.alemazzo.architect.cli.utils.github.GithubExecutor
-import io.github.alemazzo.architect.cli.utils.github.Repository
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 

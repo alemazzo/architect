@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.utils.execution
+package io.github.alemazzo.architect.cli.implementation.execution
 
 
 interface CommandExecutor {
