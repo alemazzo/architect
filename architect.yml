@@ -6,12 +6,7 @@ description: "My project description"
 gradle:
   projects:
     - name: "architect-cli"
-
-semantic-release:
-  assets:
-    - path: ./architect-cli/build/libs/architect-cli-0.1-all.jar
-      name: architect-cli.jar
-
+      
 # Mid Support
 
 plugins:
