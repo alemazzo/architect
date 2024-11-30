@@ -1,3 +1,15 @@
+## [3.2.0](https://github.com/alemazzo/architect/compare/3.1.0...3.2.0) (2024-11-30)
+
+### Features
+
+* added github plugin dynamic loading, still to be tested ([3638060](https://github.com/alemazzo/architect/commit/36380606e2c982b9769f7c336813d5a69d1d0d79))
+
+### General maintenance
+
+* ci cleanup ([aa5ccfb](https://github.com/alemazzo/architect/commit/aa5ccfb62a8a0b642f7af89dce019d3b314312c7))
+* cleanup ([73d52cf](https://github.com/alemazzo/architect/commit/73d52cfd3d928805700d0f69cd05d2c35f78559b))
+* cleanup ([7a5c92f](https://github.com/alemazzo/architect/commit/7a5c92fd23adb029a840173faa45808cafbcf563))
+
 ## [3.1.0](https://github.com/alemazzo/architect/compare/3.0.0...3.1.0) (2024-11-29)
 
 ### Features
