@@ -20,7 +20,7 @@ jobs:
       issues: write
       pull-requests: write
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
     steps:
       
       - uses: actions/checkout@v4
@@ -32,6 +32,6 @@ jobs:
 
       - run: ./architect init
 
-      - run: ./architect architect-semantic-release release
+      - run: ./architect semantic-release release
         if: >-
           !github.event.repository.fork
