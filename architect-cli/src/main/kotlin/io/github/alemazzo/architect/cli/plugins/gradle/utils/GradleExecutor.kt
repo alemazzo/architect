@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.utils
 
-import io.github.alemazzo.architect.cli.api.annotation.Architect
+import io.github.alemazzo.architect.cli.api.Architect
 import io.github.alemazzo.architect.cli.implementation.execution.CommandExecutor
 import io.github.alemazzo.architect.cli.plugins.gradle.context.ProjectContext
 import jakarta.inject.Singleton
@@ -20,7 +20,7 @@ class GradleExecutor(
 			logger.info("Using name as path")
 			project.path = project.name
 		}
-		logger.info("Executing Gradle architect: ${project.command} ${args.joinToString(" ")} in ${project.path}")
+		logger.info("Executing Gradle phases: ${project.command} ${args.joinToString(" ")} in ${project.path}")
 		return commandExecutor.execute(getCommand(project.command, args), project.path)
 	}
 }

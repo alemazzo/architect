@@ -1,8 +1,8 @@
 package io.github.alemazzo.architect.cli
 
 import io.github.alemazzo.architect.cli.api.log.WithLogger
-import io.github.alemazzo.architect.cli.implementation.plugin.MultiContextFactory
-import io.github.alemazzo.architect.cli.implementation.plugin.PluginRegistry
+import io.github.alemazzo.architect.cli.context.MultiContextFactory
+import io.github.alemazzo.architect.cli.plugins.plugins.PluginRegistry
 import io.micronaut.context.annotation.Factory
 import jakarta.inject.Singleton
 import picocli.CommandLine
@@ -14,7 +14,10 @@ class CommandLineFactory(
 	private val multiContextFactory: MultiContextFactory,
 ) : WithLogger {
 
-	@Command
+	@Command(
+		name = "architect",
+		description = ["Architect CLI"],
+	)
 	class UsageCommand : Runnable {
 		private lateinit var commandLine: CommandLine
 
@@ -29,7 +32,7 @@ class CommandLineFactory(
 
 	@Singleton
 	fun create(): CommandLine {
-		logger.info("Creating architect line")
+		logger.info("Creating command line")
 		val usage = UsageCommand()
 		val commandLine = CommandLine(usage, multiContextFactory)
 		usage.injectCommandLine(commandLine)

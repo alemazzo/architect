@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.utils.explorer
 
-import io.github.alemazzo.architect.cli.api.annotation.Architect
+import io.github.alemazzo.architect.cli.api.Architect
 import io.github.alemazzo.architect.cli.plugins.gradle.context.ProjectContext
 import java.io.File
 

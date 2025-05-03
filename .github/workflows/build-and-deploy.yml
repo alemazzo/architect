@@ -30,8 +30,4 @@ jobs:
           distribution: 'adopt'
           java-version: '21'
 
-      - run: ./architect init
 
-      - run: ./architect architect-semantic-release release
-        if: >-
-          !github.event.repository.fork
