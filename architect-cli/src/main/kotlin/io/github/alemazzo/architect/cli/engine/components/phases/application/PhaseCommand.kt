@@ -10,9 +10,10 @@ import io.github.alemazzo.architect.cli.engine.components.phases.application.exe
 import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine
+import picocli.CommandLine.Command
 
 @Singleton
-@CommandLine.Command(
+@Command(
 	name = "phases",
 	description = ["Run the application phases"],
 	subcommands = [
