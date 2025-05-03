@@ -46,8 +46,8 @@ jobs:
       - name: Test
         run: ./architect phases test
 
-      - name: Release
-        run: ./architect phases release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'

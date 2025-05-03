@@ -3,7 +3,6 @@ package io.github.alemazzo.architect.cli.engine.components.executor.application
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import jakarta.inject.Singleton
 import java.io.File
-import java.util.concurrent.atomic.AtomicBoolean
 
 @Singleton
 open class BashCommandExecutor : CommandExecutor {
@@ -24,29 +23,11 @@ open class BashCommandExecutor : CommandExecutor {
 		val process = processBuilder.start()
 
 		val outputBuilder = StringBuilder()
-		val reader = process.inputStream.bufferedReader()
-
-		val running = AtomicBoolean(true)
-		val spinnerChars = listOf("⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏")
-		val spinnerThread = Thread {
-			var i = 0
-			while (running.get()) {
-				print("\r${spinnerChars[i++ % spinnerChars.size]} Running...")
-				Thread.sleep(500)
-			}
-		}
-
-		spinnerThread.start()
-
-		reader.useLines { lines ->
+		process.inputStream.bufferedReader().useLines { lines ->
 			lines.forEach { outputBuilder.appendLine(it) }
 		}
 
 		val exitCode = process.waitFor()
-		running.set(false)
-		spinnerThread.join()
-		print("\r") // clear spinner line
-
 		return exitCode to outputBuilder.toString().trim()
 	}
 
