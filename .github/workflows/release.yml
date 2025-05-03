@@ -46,8 +46,9 @@ jobs:
       - name: Test
         run: ./architect phases test
 
-      - name: Semantic Release
+      - name: Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          npm ci && npx semantic-release
