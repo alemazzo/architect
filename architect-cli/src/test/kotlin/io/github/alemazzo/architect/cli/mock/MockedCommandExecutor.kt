@@ -9,7 +9,7 @@ import jakarta.inject.Singleton
 @Primary
 class MockedCommandExecutor : CommandExecutor, WithLogger {
 	override fun execute(command: String, workingDir: String?): Boolean {
-		logger.info("Mocked architect execution: $command")
+		logger.info("Mocked phases execution: $command")
 		return true
 	}
 }

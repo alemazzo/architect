@@ -42,7 +42,7 @@ open class BashCommandExecutor : CommandExecutor {
 	}
 
 	override fun execute(command: String, workingDir: String?): Boolean {
-		println("Executing architect: $command in $workingDir")
+		println("Executing phases: $command in $workingDir")
 		val (exitCode, result) = executeCommand(command, workingDir)
 		if (exitCode != 0) {
 			println("Command failed with exit code $exitCode")

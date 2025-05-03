@@ -15,3 +15,114 @@ plugins:
     jar: "architect-semantic-release.jar"
     loadClass: "io.github.alemazzo.architect.semantic.release.SemanticReleaseRunner"
 
+
+## New API
+
+template:
+    type: "java-micronaut-picocli"
+    style: "java-clean-architecture"
+    docs-style: "mkdocs"
+
+commit:
+  convention: "conventional-commits"
+
+build:
+  type: "gradle"
+  output: °docker"
+
+hooks:
+  pre-build:
+    - name: "pre-build"
+      type: "shell"
+      command: "echo Pre-build step"
+  post-build:
+    - name: "post-build"
+      type: "shell"
+      command: "echo Post-build step"
+  pre-commit:
+    - name: "pre-commit"
+      type: "shell"
+      command: "echo Pre-commit step"
+
+configuration:
+  variables:
+    - name: "VERSION"
+      type: "string"
+      default: "1.0.0"
+    - name: "ENVIRONMENT"
+      type: "string"
+      default: "production"
+
+linters:
+  - name: "checkstyle"
+    type: "java-checkstyle"
+    config: "checkstyle.xml"
+  - name: "pmd"
+    type: "java-pmd"
+    config: "pmd.xml"
+
+release:
+    type: "semantic-release"
+    publish:
+        type: "maven"
+        repository: "https://repo.maven.apache.org/maven2"
+        groupId: "com.example"
+        artifactId: "my-project"
+        version: "1.0.0"
+
+pipelines:
+  - name: °picocli-application-pipeline°
+    type: "java-micronaut-picocli-pipeline"
+
+registry:
+    - name: "docker"
+      type: "docker"
+      url: "https://registry.example.com"
+      credentials:
+          username: "user"
+          password: "password"
+
+    - name: "maven"
+      type: "maven"
+      url: "https://repo.maven.apache.org/maven2"
+      credentials:
+          username: "user"
+          password: "password"
+
+dependencies:
+  tool: "renovate"
+  updates:
+    minor:
+      enabled: true
+    major:
+      enabled: true
+    patch:
+      enabled: true
+
+testing:
+  unit:
+    type: "maven"
+  integration:
+    type: "maven"
+  e2e:
+    type: "maven"
+
+scripts:
+  - name: "build"
+    type: "shell"
+    command: "echo Building project"
+  - name: "test"
+    type: "shell"
+    command: "echo Running tests"
+
+infrastructure:
+  - name: "service"
+    type: "microservice"
+
+  - name: "database"
+    type: "postgresql"
+
+  - name: "broker"
+    type: "kafka"
+
+
