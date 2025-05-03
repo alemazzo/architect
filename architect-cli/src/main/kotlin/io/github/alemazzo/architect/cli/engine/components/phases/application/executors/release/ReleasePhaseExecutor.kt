@@ -12,7 +12,6 @@ import picocli.CommandLine.Command
 	description = ["Release the application"],
 	mixinStandardHelpOptions = true,
 )
-@Order(4)
 class ReleasePhaseExecutor(releases: List<Release>) : PhaseExecutor<Release>(NAME, releases) {
 
 	companion object {

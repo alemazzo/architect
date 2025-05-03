@@ -50,7 +50,7 @@ open class BashCommandExecutor : CommandExecutor {
 		return exitCode to outputBuilder.toString().trim()
 	}
 
-	override fun execute(command: String, workingDir: String?): Boolean {
+	override fun execute(command: String, workingDir: String?) {
 		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 		println("▶ Command:")
 		println("  ${if (workingDir != null) "cd $workingDir && " else ""}$command")
@@ -62,8 +62,9 @@ open class BashCommandExecutor : CommandExecutor {
 			println("✅ Success (exit code: $exitCode)")
 		} else {
 			println("❌ Failed (exit code: $exitCode)")
+			println("Output:")
+			println(result)
+			throw RuntimeException("Command failed with exit code $exitCode")
 		}
-
-		return exitCode == 0
 	}
 }

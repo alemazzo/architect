@@ -13,7 +13,6 @@ import picocli.CommandLine.Command
 	mixinStandardHelpOptions = true,
 )
 @Singleton
-@Order(1)
 class TestPhaseExecutor(tests: List<Test>) : PhaseExecutor<Test>(NAME, tests) {
 
 	companion object {

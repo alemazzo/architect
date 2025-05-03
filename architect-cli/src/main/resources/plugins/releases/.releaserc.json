@@ -7,19 +7,14 @@
     [
       "@semantic-release/github",
       {
-        "assets": [
-          {
-            "path": "architect-cli/build/libs/architect-cli-*-all.jar",
-            "label": "architect.jar"
-          }
-        ]
+        "assets": {{assets}}
       }
     ],
     [
       "@semantic-release/git",
       {
-        "assets": ["CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} [skip ci]"
+        "assets": {{git_assets}},
+        "message": {{message}}
       }
     ]
   ]

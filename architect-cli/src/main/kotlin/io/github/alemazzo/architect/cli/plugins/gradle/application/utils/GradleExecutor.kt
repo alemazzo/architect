@@ -16,13 +16,13 @@ class GradleExecutor(
 		return "$command ${args.joinToString(" ")}"
 	}
 
-	fun execute(project: ProjectContext, args: Array<String>): Boolean {
+	fun execute(project: ProjectContext, args: Array<String>) {
 		if (project.path == null) {
 			logger.info("Project path is not set for project: ${project.name}")
 			logger.info("Using name as path")
 			project.path = project.name
 		}
 		logger.info("Executing Gradle phases: ${project.command} ${args.joinToString(" ")} in ${project.path}")
-		return commandExecutor.execute(getCommand(project.command, args), project.path)
+		commandExecutor.execute(getCommand(project.command, args), project.path)
 	}
 }

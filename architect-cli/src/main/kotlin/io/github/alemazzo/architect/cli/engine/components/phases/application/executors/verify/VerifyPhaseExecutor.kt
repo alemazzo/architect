@@ -13,7 +13,6 @@ import picocli.CommandLine.Command
 	mixinStandardHelpOptions = true,
 )
 @Singleton
-@Order(1)
 class VerifyPhaseExecutor(verifiers: List<Verify>) : PhaseExecutor<Verify>(NAME, verifiers) {
 
 	companion object {
