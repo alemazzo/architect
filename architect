@@ -6,7 +6,7 @@ if [ "$1" == "local" ]; then
   cd architect-cli || exit
   ./gradlew assemble
   rm ../architect-cli.jar
-  cp build/libs/architect-cli-0.1-all.jar ../architect-cli.jar
+  cp build/libs/architect-cli-0.1-all.jar ../architect.jar
   exit 0
 fi
 
