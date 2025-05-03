@@ -17,10 +17,7 @@ import picocli.CommandLine
 		ScriptsVerifyCommand::class,
 	]
 )
-class ScriptsCommand(
-	@JsonProperty(NAME)
-	override val context: ScriptsContext? = null,
-) : Plugin<ScriptsContext>(NAME) {
+class ScriptsCommand() : Plugin<ScriptsContext>(NAME) {
 	companion object {
 		const val NAME = "scripts"
 	}

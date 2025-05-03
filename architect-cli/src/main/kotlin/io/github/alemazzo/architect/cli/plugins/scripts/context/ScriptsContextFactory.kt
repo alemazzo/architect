@@ -7,7 +7,7 @@ import jakarta.inject.Singleton
 
 @Singleton
 @Factory
-class ScriptsContextFactoryAbstract : AbstractPluginContextFactory() {
+class ScriptsContextFactory : AbstractPluginContextFactory() {
 	@Singleton
 	fun getScriptsContext(context: Context): ScriptsContext = getContext(context)
 }

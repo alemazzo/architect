@@ -3,6 +3,7 @@ package io.github.alemazzo.architect.cli.engine.components.executor.application
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import jakarta.inject.Singleton
 import java.io.File
+import java.util.concurrent.atomic.AtomicBoolean
 
 @Singleton
 open class BashCommandExecutor : CommandExecutor {
@@ -21,34 +22,48 @@ open class BashCommandExecutor : CommandExecutor {
 		}
 		processBuilder.redirectErrorStream(true)
 		val process = processBuilder.start()
+
 		val outputBuilder = StringBuilder()
-		val outputThread = Thread {
-			process.inputStream.bufferedReader().useLines { lines ->
-				lines.forEach { line ->
-					println(line) // Optionally log each line
-					outputBuilder.appendLine(line)
-				}
+		val reader = process.inputStream.bufferedReader()
+
+		val running = AtomicBoolean(true)
+		val spinnerChars = listOf("⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏")
+		val spinnerThread = Thread {
+			var i = 0
+			while (running.get()) {
+				print("\r${spinnerChars[i++ % spinnerChars.size]} Running...")
+				Thread.sleep(100)
 			}
 		}
-		outputThread.start()
 
-		// Wait for the process to complete
+		spinnerThread.start()
+
+		reader.useLines { lines ->
+			lines.forEach { outputBuilder.appendLine(it) }
+		}
+
 		val exitCode = process.waitFor()
+		running.set(false)
+		spinnerThread.join()
+		print("\r") // clear spinner line
 
-		// Ensure the output thread has finished processing
-		outputThread.join()
-
-		val result = outputBuilder.toString()
-		return Pair(exitCode, result)
+		return exitCode to outputBuilder.toString().trim()
 	}
 
 	override fun execute(command: String, workingDir: String?): Boolean {
-		println("Executing phases: $command in $workingDir")
+		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+		println("▶ Command:")
+		println("  ${if (workingDir != null) "cd $workingDir && " else ""}$command")
+		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+
 		val (exitCode, result) = executeCommand(command, workingDir)
-		if (exitCode != 0) {
-			println("Command failed with exit code $exitCode")
-			println("Command output: $result")
+
+		if (exitCode == 0) {
+			println("✅ Success (exit code: $exitCode)")
+		} else {
+			println("❌ Failed (exit code: $exitCode)")
 		}
+
 		return exitCode == 0
 	}
 }

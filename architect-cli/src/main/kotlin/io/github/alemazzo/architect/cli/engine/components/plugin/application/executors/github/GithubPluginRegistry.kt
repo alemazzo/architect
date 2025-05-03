@@ -13,6 +13,7 @@ import java.io.File
 import java.net.URLClassLoader
 import java.util.function.BiConsumer
 
+@Suppress("UNCHECKED_CAST")
 @Singleton
 class GithubPluginRegistry(
 	private val configuration: PluginsContext,
@@ -34,7 +35,6 @@ class GithubPluginRegistry(
 		private val command: BiConsumer<ApplicationContext?, List<String>>,
 	) :
 		Plugin<Void>(name) {
-		override val context: Void? = null
 		private val logger = getLogger()
 
 		@Parameters

@@ -9,7 +9,7 @@ import jakarta.inject.Singleton
 @Factory
 class GradleContextFactoryAbstract : AbstractPluginContextFactory() {
 	@Singleton
-	fun createContext(context: Context): GradleContext = getContext(context)
+	fun createContext(context: Context): GradleContextHolder = getContext(context)
 }
 
 

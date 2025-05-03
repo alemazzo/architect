@@ -7,6 +7,7 @@ import jakarta.inject.Singleton
 import java.io.File
 
 @Factory
+@Singleton
 class ContextFactory  {
 
 	private val logger = getLogger()
@@ -18,8 +19,7 @@ class ContextFactory  {
 			logger.warn("No external configuration found")
 			return Context()
 		}
-		return Context()
-		// TODO: parse the file and create a Context object
+		logger.info("Loading external configuration from ${file.absolutePath}")
+		return Context(file.readText())
 	}
-
 }

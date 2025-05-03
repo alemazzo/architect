@@ -34,12 +34,12 @@ class CommandLineFactory(
 
 	@Singleton
 	fun create(): CommandLine {
-		logger.info("Creating command line")
+		logger.debug("Creating command line")
 		val usage = UsageCommand()
 		val commandLine = CommandLine(usage, multiContextFactory)
 		usage.injectCommandLine(commandLine)
 		registry.register(commandLine)
-		logger.info("Command line created")
+		logger.debug("Command line created")
 		return commandLine
 	}
 

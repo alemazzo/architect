@@ -10,7 +10,9 @@ abstract class AbstractPluginContextFactory {
 
 	inline fun <reified T> getContext(context: Context): T {
 		logger.info("Loading context of type ${this::class.simpleName}")
-		return context.of<T>() ?: T::class.java.getDeclaredConstructor().newInstance()
+		val createdContext = context.of<T>() ?: T::class.java.getDeclaredConstructor().newInstance()
+		logger.info("Context loaded: $createdContext")
+		return createdContext
 	}
 
 }

@@ -5,7 +5,7 @@ if [ "$1" == "local" ]; then
   echo "Updating Architect CLI"
   cd architect-cli || exit
   ./gradlew assemble
-  rm ../architect-cli.jar
+  rm ../architect.jar
   cp build/libs/architect-cli-0.1-all.jar ../architect.jar
   exit 0
 fi

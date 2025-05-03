@@ -14,7 +14,7 @@ class EngineComponentRegistry(
 	private val logger = getLogger()
 
 	fun register(commandLine: CommandLine) {
-		components.forEach { logger.info("Plugin: ${it.name}") }
+		components.forEach { logger.debug("Plugin: ${it.name}") }
 		components
 			.sortedBy { getOrder(it) }
 			.forEach { it.plug(commandLine) }
