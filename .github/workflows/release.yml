@@ -29,17 +29,9 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Init
-        run: ./architect phases init
-
-      - name: Verify
-        run: ./architect phases verify
-
-      - name: Build
-        run: ./architect phases build
-
-      - name: Test
-        run: ./architect phases test
+      - name: Build & Test CLI
+        run: ./gradlew build test
+        working-directory: architect-cli
 
   release:
     name: Release
