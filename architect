@@ -19,7 +19,7 @@ if [ ! -f "architect.jar" ]; then
 
   # Fetch the latest release metadata
   LATEST_RELEASE_URL="https://api.github.com/repos/$GITHUB_REPO/releases/latest"
-  ASSET_URL=$(curl -s "$LATEST_RELEASE_URL" | jq -r ".assets[] | select(.label == \"$ASSET_NAME\") | .browser_download_url")
+  ASSET_URL=$(curl -s "$LATEST_RELEASE_URL" | jq -r ".assets[] | select(.name == \"$ASSET_NAME\") | .browser_download_url")
 
   # Check if the asset URL was found
   if [[ -z "$ASSET_URL" || "$ASSET_URL" == "null" ]]; then
