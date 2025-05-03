@@ -11,7 +11,6 @@ import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine
 
-
 @Singleton
 @CommandLine.Command(
 	name = "phases",

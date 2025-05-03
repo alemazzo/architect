@@ -42,12 +42,18 @@ micronaut {
 
 // Architect
 
-java { sourceCompatibility = JavaVersion.toVersion("21") }
+java {
+	sourceCompatibility = JavaVersion.toVersion("17")
+}
 
-kotlin { jvmToolchain { languageVersion.set(JavaLanguageVersion.of(21)) } }
+kotlin {
+	jvmToolchain {
+		languageVersion.set(JavaLanguageVersion.of(17))
+	}
+}
 
 tasks.named<io.micronaut.gradle.docker.NativeImageDockerfile>("dockerfileNative") {
-	jdkVersion = "21"
+	jdkVersion = "17"
 }
 
 // Enforce Kotlin version coherence
