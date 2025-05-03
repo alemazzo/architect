@@ -32,7 +32,7 @@ open class BashCommandExecutor : CommandExecutor {
 			var i = 0
 			while (running.get()) {
 				print("\r${spinnerChars[i++ % spinnerChars.size]} Running...")
-				Thread.sleep(100)
+				Thread.sleep(500)
 			}
 		}
 
@@ -60,6 +60,8 @@ open class BashCommandExecutor : CommandExecutor {
 
 		if (exitCode == 0) {
 			println("✅ Success (exit code: $exitCode)")
+			println("Output:")
+			println(result)
 		} else {
 			println("❌ Failed (exit code: $exitCode)")
 			println("Output:")
