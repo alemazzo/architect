@@ -1,3 +1,10 @@
+## [4.12.1](https://github.com/alemazzo/architect/compare/v4.12.0...v4.12.1) (2025-05-03)
+
+
+### Bug Fixes
+
+* **project:** moved release to architect on ci ([c0f4410](https://github.com/alemazzo/architect/commit/c0f44102b1a84a280da8e09d4f30843a3b184cbf))
+
 # [4.12.0](https://github.com/alemazzo/architect/compare/v4.11.0...v4.12.0) (2025-05-03)
 
 
