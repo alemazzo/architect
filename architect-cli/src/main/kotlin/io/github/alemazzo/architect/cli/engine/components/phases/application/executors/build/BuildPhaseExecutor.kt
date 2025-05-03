@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.engine.components.phases.application.executors.building
+package io.github.alemazzo.architect.cli.engine.components.phases.application.executors.build
 
 import io.github.alemazzo.architect.cli.engine.components.phases.api.build.Build
 import io.github.alemazzo.architect.cli.engine.components.phases.application.PhaseExecutor

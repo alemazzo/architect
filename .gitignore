@@ -1,7 +1,8 @@
 tmp
 temp
 .gradle/
-build
+/build
+architect-cli/build
 .idea/
 node_modules/
 .kotlin/

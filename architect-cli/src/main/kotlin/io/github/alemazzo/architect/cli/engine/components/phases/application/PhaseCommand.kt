@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli.engine.components.phases.application
 
 import io.github.alemazzo.architect.cli.engine.api.components.EngineComponent
-import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.building.BuildPhaseExecutor
+import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.build.BuildPhaseExecutor
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.init.InitPhaseExecutor
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.release.ReleasePhaseExecutor
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.run.RunPhaseExecutor

@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli
 
 import io.github.alemazzo.architect.cli.api.CommandIntegrationTest
-import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.building.BuildPhaseExecutor
+import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.build.BuildPhaseExecutor
 import org.junit.jupiter.api.Test
 
 class BuildPhaseExecutorTest(
