@@ -1,3 +1,14 @@
+# [4.12.0](https://github.com/alemazzo/architect/compare/v4.11.0...v4.12.0) (2025-05-03)
+
+
+### Features
+
+* **project:** architected releases on pipeline ([a05f78e](https://github.com/alemazzo/architect/commit/a05f78ee5c16d605778bcf99a3d65fd698e90814))
+* **project:** architected releases on pipeline ([289c944](https://github.com/alemazzo/architect/commit/289c944d89a2ad8da76641856f934bb51f4e11a0))
+* **project:** releases with architect ([a82cf71](https://github.com/alemazzo/architect/commit/a82cf711faea8a84e96052a8563894ab8240936d))
+* **project:** releases with architect ([df878a1](https://github.com/alemazzo/architect/commit/df878a1441c3e7895ab4fd8a55fc54a195abd6f8))
+* **project:** releases with architect ([bc4fe02](https://github.com/alemazzo/architect/commit/bc4fe0287cc7d085a6c359e4d9319fcef6789f87))
+
 # [4.11.0](https://github.com/alemazzo/architect/compare/v4.10.0...v4.11.0) (2025-05-03)
 
 
