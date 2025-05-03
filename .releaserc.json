@@ -10,7 +10,7 @@
         "assets": [
           {
             "path": "architect-cli/build/libs/architect-cli-*-all.jar",
-            "label": "CLI Executable"
+            "label": "architect.jar"
           }
         ]
       }
