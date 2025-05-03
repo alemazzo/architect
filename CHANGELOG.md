@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/alemazzo/architect/compare/v4.3.0...v4.4.0) (2025-05-03)
+
+
+### Features
+
+* **project:** cleanup ([8a1d7fb](https://github.com/alemazzo/architect/commit/8a1d7fbe90e4f08b348402631f02d8f24e8addb3))
+
 # [4.3.0](https://github.com/alemazzo/architect/compare/v4.2.0...v4.3.0) (2025-05-03)
 
 
