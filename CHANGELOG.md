@@ -1,3 +1,10 @@
+# [4.10.0](https://github.com/alemazzo/architect/compare/v4.9.0...v4.10.0) (2025-05-03)
+
+
+### Features
+
+* **project:** pipeline to architect ([fcb2e56](https://github.com/alemazzo/architect/commit/fcb2e56cdb3258b520fcd431d2e16acb5f679a96))
+
 # [4.9.0](https://github.com/alemazzo/architect/compare/v4.8.0...v4.9.0) (2025-05-03)
 
 
