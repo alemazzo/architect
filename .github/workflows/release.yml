@@ -33,23 +33,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
 
-  build-cli:
-    needs: release
-    runs-on: ubuntu-latest
-    concurrency:
-      group: build-${{ github.workflow }}-${{ github.event.number || github.ref }}
-      cancel-in-progress: true
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # Required for correct tag-based builds
-
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -57,7 +40,7 @@ jobs:
           java-version: '21'
 
       - name: Build CLI
-        run: ./gradlew shadowJar
+        run: ./gradlew build
         working-directory: architect-cli
 
       - name: Upload JAR to GitHub Release
