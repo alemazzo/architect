@@ -1,0 +1,20 @@
+package io.github.alemazzo.architect.cli.engine.components.plugin.api
+
+import io.github.alemazzo.architect.cli.engine.api.components.EngineComponent
+import io.github.alemazzo.architect.cli.engine.api.log.getLogger
+import picocli.CommandLine
+
+abstract class Plugin<Config>(name: String) : EngineComponent(name) {
+	abstract val context: Config?
+	private val logger = getLogger()
+
+	override fun run() {
+		logger.info("Running Plugin Usage: $name")
+		CommandLine.usage(this, System.out)
+	}
+
+	override fun plug(commandLine: CommandLine) {
+		logger.info("Registering plugin: $name")
+		commandLine.addSubcommand(name, this)
+	}
+}

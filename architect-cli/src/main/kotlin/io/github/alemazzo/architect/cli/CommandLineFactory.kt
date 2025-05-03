@@ -1,8 +1,8 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.api.log.WithLogger
-import io.github.alemazzo.architect.cli.context.MultiContextFactory
-import io.github.alemazzo.architect.cli.plugins.plugins.PluginRegistry
+import io.github.alemazzo.architect.cli.engine.api.context.MultiApplicationContextFactory
+import io.github.alemazzo.architect.cli.engine.api.log.getLogger
+import io.github.alemazzo.architect.cli.engine.applications.components.EngineComponentRegistry
 import io.micronaut.context.annotation.Factory
 import jakarta.inject.Singleton
 import picocli.CommandLine
@@ -10,9 +10,11 @@ import picocli.CommandLine.Command
 
 @Factory
 class CommandLineFactory(
-	private val registry: PluginRegistry,
-	private val multiContextFactory: MultiContextFactory,
-) : WithLogger {
+	private val registry: EngineComponentRegistry,
+	private val multiContextFactory: MultiApplicationContextFactory,
+) {
+
+	private val logger = getLogger()
 
 	@Command(
 		name = "architect",

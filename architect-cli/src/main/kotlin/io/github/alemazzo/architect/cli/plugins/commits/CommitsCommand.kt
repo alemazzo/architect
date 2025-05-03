@@ -1,8 +1,8 @@
 package io.github.alemazzo.architect.cli.plugins.commits
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.alemazzo.architect.cli.api.plugin.Plugin
-import io.github.alemazzo.architect.cli.plugins.commits.actions.InitCommitsCommand
+import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
+import io.github.alemazzo.architect.cli.plugins.commits.application.InitCommitsCommand
 import io.github.alemazzo.architect.cli.plugins.commits.context.CommitsContext
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command

@@ -1,6 +1,5 @@
 package io.github.alemazzo.architect.cli
 
-import io.github.alemazzo.architect.cli.api.log.WithLogger
 import io.micronaut.configuration.picocli.PicocliRunner
 import jakarta.inject.Singleton
 import picocli.CommandLine
@@ -9,7 +8,7 @@ import picocli.CommandLine.Parameters
 @Singleton
 class ArchitectLauncher(
 	private val commandLine: CommandLine,
-) : Runnable, WithLogger {
+) : Runnable {
 
 	@Parameters
 	var args: Array<String> = emptyArray()

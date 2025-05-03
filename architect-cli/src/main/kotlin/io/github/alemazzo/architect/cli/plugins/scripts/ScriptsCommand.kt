@@ -1,9 +1,9 @@
 package io.github.alemazzo.architect.cli.plugins.scripts
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import io.github.alemazzo.architect.cli.api.plugin.Plugin
-import io.github.alemazzo.architect.cli.plugins.scripts.actions.ScriptsInitCommand
-import io.github.alemazzo.architect.cli.plugins.scripts.actions.ScriptsVerifyCommand
+import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
+import io.github.alemazzo.architect.cli.plugins.scripts.application.ScriptsInitCommand
+import io.github.alemazzo.architect.cli.plugins.scripts.application.ScriptsVerifyCommand
 import io.github.alemazzo.architect.cli.plugins.scripts.context.ScriptsContext
 import jakarta.inject.Singleton
 import picocli.CommandLine
