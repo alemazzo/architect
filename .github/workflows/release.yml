@@ -25,14 +25,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
-
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -43,10 +35,13 @@ jobs:
         run: ./gradlew build
         working-directory: architect-cli
 
-      - name: Upload JAR to GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: architect-cli/build/libs/architect-cli-0.1-all.jar
+      - name: Install dependencies
+        run: npm ci
 
+      - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+
+
+

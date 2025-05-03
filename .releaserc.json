@@ -8,8 +8,12 @@
     [
       "@semantic-release/git",
       {
-        "assets": ["CHANGELOG.md"],
-        "message": "chore(release): ${nextRelease.version} [skip ci]"
+        "assets": [
+          {
+            "path": "architect-cli/build/libs/architect-cli-*-all.jar",
+            "label": "CLI Executable"
+          }
+        ]
       }
     ]
   ]
