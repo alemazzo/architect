@@ -20,7 +20,7 @@ class GithubReleaser(
 ) : Release {
 
 	override fun run() {
-		println("Executing release verify command")
+		println("Github Releaser: releasing the application")
 		println("Release context: $context")
 		val message = objectMapper.writeValueAsString(context.release.message)
 		val assetsJson = objectMapper.writeValueAsString(context.release.assets)

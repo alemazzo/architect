@@ -11,8 +11,7 @@ class MockedCommandExecutor : CommandExecutor {
 
 	private val logger = getLogger()
 
-	override fun execute(command: String, workingDir: String?): Boolean {
+	override fun execute(command: String, workingDir: String?) {
 		logger.info("Mocked phases execution: $command")
-		return true
 	}
 }
