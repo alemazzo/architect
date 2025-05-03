@@ -1,4 +1,4 @@
-name: pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -19,11 +19,13 @@ jobs:
 
       - name: Compute Gradle cache key
         id: gradle-cache-key
-        run: echo "gradle-key=gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}" >> $GITHUB_OUTPUT
+        run: |
+          echo "gradle-key=gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}" >> $GITHUB_ENV
 
       - name: Compute Node.js cache key
         id: node-cache-key
-        run: echo "node-key=node-${{ hashFiles('package-lock.json') }}" >> $GITHUB_OUTPUT
+        run: |
+          echo "node-key=node-${{ hashFiles('package-lock.json') }}" >> $GITHUB_ENV
 
   build:
     name: Build Kotlin Project
@@ -43,7 +45,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ needs.setup.outputs.gradle-cache-key }}
+          key: ${{ env.gradle-key }}
 
       - name: Build CLI
         run: ./gradlew build --info --stacktrace
@@ -73,7 +75,7 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ needs.setup.outputs.gradle-cache-key }}
+          key: ${{ env.gradle-key }}
 
       - name: Run Tests
         run: ./gradlew test
@@ -102,13 +104,11 @@ jobs:
           path: |
             ~/.gradle/caches
             ~/.gradle/wrapper
-          key: ${{ needs.setup.outputs.gradle-cache-key }}
+          key: ${{ env.gradle-key }}
 
       - name: Run Build (for release)
         run: ./gradlew build
         working-directory: architect-cli
 
       - run: npm ci
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npx
