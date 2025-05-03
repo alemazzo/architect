@@ -11,15 +11,15 @@ if [ "$1" == "local" ]; then
 fi
 
 # if jar not present then install and not --local flag then run the jar
-if [ ! -f "architect-cli.jar" ]; then
+if [ ! -f "architect.jar" ]; then
   echo "Installing Architect CLI"
   GITHUB_REPO="alemazzo/architect" # Replace with the GitHub repository (e.g., "alemazzo/architect")
-  ASSET_NAME="architect-cli.jar" # Replace with the name of the asset to download
+  ASSET_NAME="architect.jar" # Replace with the name of the asset to download
   OUTPUT_DIR="./" # Directory to save the downloaded file
 
   # Fetch the latest release metadata
   LATEST_RELEASE_URL="https://api.github.com/repos/$GITHUB_REPO/releases/latest"
-  ASSET_URL=$(curl -s "$LATEST_RELEASE_URL" | jq -r ".assets[] | select(.name == \"$ASSET_NAME\") | .browser_download_url")
+  ASSET_URL=$(curl -s "$LATEST_RELEASE_URL" | jq -r ".assets[] | select(.label == \"$ASSET_NAME\") | .browser_download_url")
 
   # Check if the asset URL was found
   if [[ -z "$ASSET_URL" || "$ASSET_URL" == "null" ]]; then
@@ -40,4 +40,4 @@ if [ ! -f "architect-cli.jar" ]; then
   echo "Architect CLI installed"
 fi
 
-java -jar architect-cli.jar $@
+java -jar architect.jar $@

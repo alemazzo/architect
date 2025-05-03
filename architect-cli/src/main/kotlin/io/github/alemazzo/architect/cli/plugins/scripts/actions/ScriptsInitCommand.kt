@@ -5,7 +5,7 @@ import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 
 @Singleton
-@Command(name = "install")
+@Command(name = "init")
 class ScriptsInitCommand : Init {
 
 	override fun run() {
