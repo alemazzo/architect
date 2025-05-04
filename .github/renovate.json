@@ -17,7 +17,6 @@
     },
     {
       "matchUpdateTypes": ["major"],
-      "schedule": ["first day of month"],
       "groupName": "major-upgrades"
     }
   ],

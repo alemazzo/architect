@@ -16,6 +16,6 @@ import picocli.CommandLine
 )
 class ReleaseCommand() : Plugin<ReleaseContext>(NAME) {
 	companion object {
-		const val NAME = "release"
+		const val NAME = "releases"
 	}
 }

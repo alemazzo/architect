@@ -2,6 +2,7 @@ package io.github.alemazzo.architect.cli.engine.components.phases.application.ex
 
 import io.github.alemazzo.architect.cli.engine.components.phases.api.release.Release
 import io.github.alemazzo.architect.cli.engine.components.phases.application.PhaseExecutor
+import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 
@@ -11,6 +12,7 @@ import picocli.CommandLine.Command
 	description = ["Release the application"],
 	mixinStandardHelpOptions = true,
 )
+@Order(6)
 class ReleasePhaseExecutor(releases: List<Release>) : PhaseExecutor<Release>(NAME, releases) {
 
 	companion object {
