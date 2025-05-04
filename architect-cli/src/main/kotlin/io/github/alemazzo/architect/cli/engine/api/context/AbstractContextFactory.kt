@@ -1,10 +1,9 @@
-package io.github.alemazzo.architect.cli.engine.components.plugin.api
+package io.github.alemazzo.architect.cli.engine.api.context
 
-import io.github.alemazzo.architect.cli.engine.api.context.Context
 import io.github.alemazzo.architect.cli.engine.api.log.getLogger
 
 
-abstract class AbstractPluginContextFactory {
+abstract class AbstractContextFactory {
 
 	val logger = getLogger()
 

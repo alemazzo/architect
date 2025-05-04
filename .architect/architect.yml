@@ -1,6 +1,6 @@
-name: "Architect CLI"
+name: architect-cli
 description: "A command-line architect for your projects."
 
-
+template: gradle-micronaut-cli
 
 

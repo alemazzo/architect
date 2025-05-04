@@ -1,0 +1,20 @@
+folders:
+
+  - path: {{main_app_name}}
+    name: Application
+    type: application
+
+  - path: scripts
+    name: Scripts
+    type: scripts
+
+files:
+
+  - path: LICENSE
+    name: License
+    type: license
+
+  - path: README.md
+    name: Readme
+    type: readme
+

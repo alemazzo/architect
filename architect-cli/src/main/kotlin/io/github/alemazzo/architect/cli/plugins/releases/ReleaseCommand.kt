@@ -2,9 +2,7 @@ package io.github.alemazzo.architect.cli.plugins.releases
 
 import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
 import io.github.alemazzo.architect.cli.plugins.releases.application.GithubReleaser
-import io.github.alemazzo.architect.cli.plugins.scripts.application.ScriptsInitCommand
-import io.github.alemazzo.architect.cli.plugins.scripts.application.ScriptsVerifyCommand
-import io.github.alemazzo.architect.cli.plugins.scripts.context.ScriptsContext
+import io.github.alemazzo.architect.cli.plugins.releases.context.ReleaseContext
 import jakarta.inject.Singleton
 import picocli.CommandLine
 
@@ -16,7 +14,7 @@ import picocli.CommandLine
 		GithubReleaser::class,
 	]
 )
-class ReleaseCommand() : Plugin<ScriptsContext>(NAME) {
+class ReleaseCommand() : Plugin<ReleaseContext>(NAME) {
 	companion object {
 		const val NAME = "release"
 	}

@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.plugins.gradle.context
+package io.github.alemazzo.architect.cli.plugins.template.context
 
 import io.github.alemazzo.architect.cli.engine.api.context.AbstractContextFactory
 import io.github.alemazzo.architect.cli.engine.api.context.Context
@@ -7,9 +7,7 @@ import jakarta.inject.Singleton
 
 @Singleton
 @Factory
-class GradleContextFactory : AbstractContextFactory() {
+class TemplateContextFactory : AbstractContextFactory() {
 	@Singleton
-	fun createContext(context: Context): GradleContextHolder = getContext(context)
+	fun getTemplateContext(context: Context): TemplateContext = getContext(context)
 }
-
-
