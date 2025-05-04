@@ -8,7 +8,7 @@
     "aggregate-error": "^3.1.0",
     "ansi-escapes": "^7.0.0",
     "ansi-regex": "^6.1.0",
-    "ansi-styles": "^4.3.0",
+    "ansi-styles": "^5.0.0",
     "any-promise": "^1.3.0",
     "argparse": "^2.0.1",
     "argv-formatter": "^1.0.0",
