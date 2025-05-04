@@ -70,7 +70,7 @@ fi
 if ! grep -qs "export PATH=\"$HOME/.architect:\$PATH\"" "$PROFILE"; then
     echo "export PATH=\"$HOME/.architect:\$PATH\"" >> "$PROFILE"
     echo "✅ Added $INSTALL_DIR to your PATH in $PROFILE"
-    echo "🔄 Please run: source $PROFILE or restart your terminal"
+    source "$PROFILE"
 else
     echo "ℹ️ $INSTALL_DIR is already in your PATH"
 fi

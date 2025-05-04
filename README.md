@@ -1,5 +1,5 @@
 # **Architect**
 
 ```shell
-sudo curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/scripts/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/scripts/install.sh | bash
 ```

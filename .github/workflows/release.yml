@@ -34,20 +34,23 @@ jobs:
         with:
           node-version: 20
 
+      - name: Set up Architect
+        run: curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/scripts/install.sh | bash
+
       - name: Init
-        run: ./architect phases init
+        run: architect phases init
 
       - name: Verify
-        run: ./architect phases verify
+        run: architect phases verify
 
       - name: Build
-        run: ./architect phases build
+        run: architect phases build
 
       - name: Test
-        run: ./architect phases test
+        run: architect phases test
 
       - name: Release
-        run: ./architect phases release
+        run: architect phases release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
