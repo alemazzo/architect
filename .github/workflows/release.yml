@@ -35,7 +35,7 @@ jobs:
           node-version: 20
 
       - name: Set up Architect
-        run: curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/scripts/install.sh | bash
+        run: ./scripts/install-ci.sh
 
       - name: Init
         run: architect phases init
