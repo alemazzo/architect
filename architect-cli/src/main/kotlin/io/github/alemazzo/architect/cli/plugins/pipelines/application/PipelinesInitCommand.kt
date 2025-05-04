@@ -34,7 +34,9 @@ class PipelinesInitCommand(
 		resourceExtractor.getResourceFileContent(resourceFile)
 			.let { content ->
 				val filePath = File(pipelinesDir, "${pipelinesContextHolder.pipeline.name}.yml")
-				filePath.writeText(content)
+				filePath.writeText(content
+					.replace("{{name}}", pipelinesContextHolder.pipeline.name)
+				)
 			}
 	}
 
