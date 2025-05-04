@@ -7,7 +7,7 @@ import jakarta.inject.Singleton
 
 @Singleton
 @Factory
-class GradleContextFactoryAbstract : AbstractPluginContextFactory() {
+class GradleContextFactory : AbstractPluginContextFactory() {
 	@Singleton
 	fun createContext(context: Context): GradleContextHolder = getContext(context)
 }

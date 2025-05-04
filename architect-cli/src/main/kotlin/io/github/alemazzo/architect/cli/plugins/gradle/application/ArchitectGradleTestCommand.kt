@@ -1,6 +1,5 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.application
 
-import io.github.alemazzo.architect.cli.engine.api.log.getLogger
 import io.github.alemazzo.architect.cli.engine.components.phases.api.test.Test
 import io.github.alemazzo.architect.cli.plugins.gradle.application.utils.GradleExecutor
 import io.github.alemazzo.architect.cli.plugins.gradle.context.GradleContextHolder

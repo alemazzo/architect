@@ -1,0 +1,4 @@
+release:
+  assets:
+    - name: architect.jar
+      path: "architect-cli/build/libs/architect-cli-*-all.jar"

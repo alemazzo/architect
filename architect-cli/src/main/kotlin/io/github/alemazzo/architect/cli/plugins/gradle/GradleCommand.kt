@@ -4,8 +4,10 @@ import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
 import io.github.alemazzo.architect.cli.plugins.gradle.application.ArchitectGradleBuild
 import io.github.alemazzo.architect.cli.plugins.gradle.application.ArchitectGradleTestCommand
 import io.github.alemazzo.architect.cli.plugins.gradle.context.GradleContextHolder
+import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 
+@Singleton
 @Command(
 	name = GradleCommand.name,
 	subcommands = [

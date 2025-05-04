@@ -1,0 +1,3 @@
+gradle:
+  projects:
+    - name: "architect-cli"
