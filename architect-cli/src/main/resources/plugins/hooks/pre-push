@@ -1,4 +1,3 @@
-#!/bin/sh
 echo "Running pre-push hook..."
 architect hooks pre-push "$@"
 

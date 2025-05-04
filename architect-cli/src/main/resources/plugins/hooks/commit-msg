@@ -1,5 +1,4 @@
-#!/bin/sh
-echo "Running pre-commit hook..."
+echo "Running commit-msg hook..."
 architect hooks commit-msg "$@"
 
 
