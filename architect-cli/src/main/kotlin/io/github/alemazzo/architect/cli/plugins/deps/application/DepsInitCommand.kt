@@ -10,21 +10,16 @@ import java.io.File
 @Singleton
 @Command(name = "init")
 class DepsInitCommand(
-	private val depsContextHolder: DepsContextHolder,
+	depsContextHolder: DepsContextHolder,
 	private val resourceExtractor: ResourceExtractor,
 ) : Init {
 
 	val resourceRoot = "plugins/deps/" + depsContextHolder.deps.type
-	val resourceFile = resourceRoot + "/${depsContextHolder.deps.type}.${depsContextHolder.deps.format}"
 
 	override fun run() {
 		val depsDir = File(".github/")
 		println("Creating deps file in $depsDir")
-		resourceExtractor.getResourceFileContent(resourceFile)
-			.let { content ->
-				val filePath = File(depsDir, "${depsContextHolder.deps.type}.${depsContextHolder.deps.format}")
-				filePath.writeText(content)
-			}
+		resourceExtractor.copyDirectoryFromResources(resourceRoot, depsDir.toPath())
 	}
 
 }
