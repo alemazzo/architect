@@ -29,7 +29,7 @@ class GithubPluginRegistry(
 	}
 
 	@Command
-	class PluginCommand(
+	class PluginTask(
 		name: String,
 		private val applicationContext: ApplicationContext,
 		private val command: BiConsumer<ApplicationContext?, List<String>>,
@@ -83,7 +83,7 @@ class GithubPluginRegistry(
 			// Clean up the temporary folder if it's empty
 			// commandExecutor.execute("rmdir $tempFolder")
 
-			return PluginCommand(plugin.name, applicationContext, loadedCommand)
+			return PluginTask(plugin.name, applicationContext, loadedCommand)
 		} catch (e: Exception) {
 			e.printStackTrace()
 			logger.warn("Error loading plugin $name: ${e.message}")

@@ -12,7 +12,7 @@ class BuildPhaseExecutorTest(
 	fun `test usage`() {
 		val output = execute(buildPhaseExecutor)
 		println(output)
-		assert(output.contains("Running phase executor: build"))
+		assert(output.contains("Running phase: build"))
 
 	}
 

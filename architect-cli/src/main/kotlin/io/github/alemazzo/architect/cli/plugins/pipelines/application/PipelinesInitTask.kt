@@ -12,7 +12,7 @@ import java.nio.file.Paths
 
 @Singleton
 @Command(name = "init")
-class PipelinesInitCommand(
+class PipelinesInitTask(
 	private val pipelinesContextHolder: PipelinesContextHolder,
 	private val resourceExtractor: ResourceExtractor,
 ) : Init {

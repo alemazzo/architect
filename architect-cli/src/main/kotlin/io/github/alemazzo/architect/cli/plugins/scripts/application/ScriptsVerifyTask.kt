@@ -6,7 +6,7 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "verify")
-class ScriptsVerifyCommand : Verify {
+class ScriptsVerifyTask : Verify {
 
 	override fun run() {
 		println("Executing scripts verify")

@@ -9,7 +9,7 @@ import java.io.File
 
 @Singleton
 @Command(name = "init")
-class DepsInitCommand(
+class DepsInitTask(
 	depsContextHolder: DepsContextHolder,
 	private val resourceExtractor: ResourceExtractor,
 ) : Init {

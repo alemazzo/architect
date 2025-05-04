@@ -9,7 +9,7 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "test")
-class ArchitectGradleTestCommand(val context: GradleContextHolder, private val gradleExecutor: GradleExecutor) :
+class ArchitectGradleTestTask(val context: GradleContextHolder, private val gradleExecutor: GradleExecutor) :
 	Test {
 
 	override fun run() {

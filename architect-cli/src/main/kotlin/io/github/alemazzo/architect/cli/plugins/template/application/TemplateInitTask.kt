@@ -8,7 +8,7 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "init")
-class TemplateInitCommand : Init {
+class TemplateInitTask : Init {
 
 	override fun run() {
 		println("Executing template install")

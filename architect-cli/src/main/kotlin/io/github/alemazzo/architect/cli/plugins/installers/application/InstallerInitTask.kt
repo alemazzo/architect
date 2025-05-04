@@ -11,7 +11,7 @@ import java.nio.file.Paths
 
 @Singleton
 @CommandLine.Command(name = "init")
-class InstallerInitCommand(
+class InstallerInitTask(
 	private val installersContextHolder: InstallersContextHolder,
 	private val resourceExtractor: ResourceExtractor,
 	private val commandExecutor: CommandExecutor

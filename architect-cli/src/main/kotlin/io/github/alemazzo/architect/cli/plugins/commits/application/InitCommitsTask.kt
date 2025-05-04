@@ -8,7 +8,7 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "init")
-class InitCommitsCommand(
+class InitCommitsTask(
 	val context: CommitsContext,
 	val executor: CommandExecutor,
 ) : Init {

@@ -1,5 +1,5 @@
 package io.github.alemazzo.architect.cli.engine.components.phases.api.verify
 
-import io.github.alemazzo.architect.cli.engine.api.ArchitectCommand
+import io.github.alemazzo.architect.cli.engine.api.ArchitectTask
 
-interface Verify : ArchitectCommand
+interface Verify : ArchitectTask

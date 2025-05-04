@@ -15,7 +15,7 @@ import kotlin.io.path.Path
 
 @Singleton
 @Command(name = "verify")
-class TemplateVerifyCommand(
+class TemplateVerifyTask(
 	val context: ArchitectContext,
 	val templateContext: TemplateContext,
 	val resourceExtractor: ResourceExtractor

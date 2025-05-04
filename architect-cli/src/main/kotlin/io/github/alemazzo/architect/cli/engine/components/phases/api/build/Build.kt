@@ -1,5 +1,5 @@
 package io.github.alemazzo.architect.cli.engine.components.phases.api.build
 
-import io.github.alemazzo.architect.cli.engine.api.ArchitectCommand
+import io.github.alemazzo.architect.cli.engine.api.ArchitectTask
 
-interface Build : ArchitectCommand
+interface Build : ArchitectTask

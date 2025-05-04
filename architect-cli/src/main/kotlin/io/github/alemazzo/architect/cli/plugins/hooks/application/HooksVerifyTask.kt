@@ -9,7 +9,7 @@ import java.nio.file.Paths
 
 @Singleton
 @Command(name = "verify")
-class HooksVerifyCommand : Verify {
+class HooksVerifyTask : Verify {
 
 	override fun run() {
 		val hooksDir = Paths.get(".git/hooks")

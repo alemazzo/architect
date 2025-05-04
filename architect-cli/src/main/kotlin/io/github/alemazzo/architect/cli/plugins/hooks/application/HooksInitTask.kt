@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption
 
 @Singleton
 @Command(name = "init")
-class HooksInitCommand(
+class HooksInitTask(
 	private val resourceExtractor: ResourceExtractor,
 	private val commandExecutor: CommandExecutor
 ) : Init {

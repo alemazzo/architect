@@ -12,7 +12,7 @@ class InitPhaseExecutorTest(
 	fun `test usage`() {
 		val output = execute(initPhaseExecutor)
 		println(output)
-		assert(output.contains("Running phase executor: init"))
+		assert(output.contains("Running phase: init"))
 	}
 
 	@Test

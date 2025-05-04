@@ -1,15 +1,16 @@
 package io.github.alemazzo.architect.cli.engine.api.components
 
+import io.github.alemazzo.architect.cli.engine.api.ArchitectTask
 import picocli.CommandLine
 
-interface EngineComponent : Runnable {
-	val name: String
+abstract class EngineComponent(val name: String) : ArchitectTask {
 
 	override fun run() {
+		println("Engine $name")
 		CommandLine.usage(this, System.out)
 	}
 
-	fun plug(commandLine: CommandLine) {
+	open fun plug(commandLine: CommandLine) {
 		commandLine.addSubcommand(name, this)
 	}
 }

@@ -1,6 +1,5 @@
-package io.github.alemazzo.architect.cli.engine.components.phases.application
+package io.github.alemazzo.architect.cli.engine.components.phases
 
-import io.github.alemazzo.architect.cli.engine.api.ArchitectCommand
 import io.github.alemazzo.architect.cli.engine.api.components.EngineComponent
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.build.BuildPhaseExecutor
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.init.InitPhaseExecutor
@@ -13,7 +12,7 @@ import picocli.CommandLine
 
 @Singleton
 @CommandLine.Command(
-	name = PhaseCommand.NAME,
+	name = PhaseTask.NAME,
 	description = ["Execute the phase command"],
 	mixinStandardHelpOptions = true,
 	subcommands = [
@@ -25,13 +24,8 @@ import picocli.CommandLine
 		ReleasePhaseExecutor::class,
 	]
 )
-class PhaseCommand(
-) : EngineComponent {
-	override val name: String = NAME
-
-	override fun run() {
-		println("Running phase command")
-	}
+class PhaseTask(
+) : EngineComponent(NAME) {
 
 	companion object {
 		const val NAME = "phases"

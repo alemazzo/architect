@@ -8,13 +8,13 @@ import picocli.CommandLine
 
 @Singleton
 @CommandLine.Command(
-	name = ReleaseCommand.NAME,
+	name = ReleaseTask.NAME,
 	description = ["Release the application"],
 	subcommands = [
 		GithubReleaser::class,
 	]
 )
-class ReleaseCommand() : Plugin<ReleaseContext>(NAME) {
+class ReleaseTask() : Plugin<ReleaseContext>(NAME) {
 	companion object {
 		const val NAME = "releases"
 	}

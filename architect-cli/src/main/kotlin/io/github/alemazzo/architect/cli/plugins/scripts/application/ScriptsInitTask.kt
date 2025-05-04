@@ -6,7 +6,7 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "init")
-class ScriptsInitCommand : Init {
+class ScriptsInitTask : Init {
 
 	override fun run() {
 		println("Executing scripts install")

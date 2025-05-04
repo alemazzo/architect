@@ -9,7 +9,7 @@ import java.nio.file.Paths
 
 @Singleton
 @Command(name = "verify")
-class PipelinesVerifyCommand : Verify {
+class PipelinesVerifyTask : Verify {
 
 	override fun run() {
 		println("Verifying pipelines...")

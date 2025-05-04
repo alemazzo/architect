@@ -7,7 +7,7 @@ import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "verify")
-class VerifyCommitsCommand(
+class VerifyCommitsTask(
 	val context: CommitsContext,
 ) : Verify {
 	override fun run() {

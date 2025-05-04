@@ -14,7 +14,7 @@ import java.nio.file.Path
 	description = ["Verify the commit"],
 	mixinStandardHelpOptions = true,
 )
-class VerifyCommitMessageCommand(
+class VerifyCommitMessageTask(
 	val context: CommitsContext,
 	val executor: CommandExecutor,
 	private val resourceExtractor: ResourceExtractor
