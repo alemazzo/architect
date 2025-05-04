@@ -176,7 +176,7 @@
     "signale": "^1.4.0",
     "skin-tone": "^2.0.0",
     "slash": "^5.1.0",
-    "source-map": "^0.6.1",
+    "source-map": "^0.7.0",
     "spawn-error-forwarder": "^1.0.0",
     "spdx-correct": "^3.2.0",
     "spdx-exceptions": "^2.5.0",
