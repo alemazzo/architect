@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli
+package io.github.alemazzo.architect.cli.engine.applications.components
 
 import io.github.alemazzo.architect.cli.engine.api.context.MultiApplicationContextFactory
 import io.github.alemazzo.architect.cli.engine.api.log.getLogger

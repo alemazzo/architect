@@ -1,6 +1,10 @@
 package io.github.alemazzo.architect.cli.plugins.hooks
 
 import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
+import io.github.alemazzo.architect.cli.plugins.hooks.application.HooksInitCommand
+import io.github.alemazzo.architect.cli.plugins.hooks.application.HooksVerifyCommand
+import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PreCommitCommand
+import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PrePushCommand
 import io.github.alemazzo.architect.cli.plugins.pipelines.application.PipelinesInitCommand
 import io.github.alemazzo.architect.cli.plugins.pipelines.application.PipelinesVerifyCommand
 import io.github.alemazzo.architect.cli.plugins.pipelines.context.PipelinesContextHolder
@@ -12,8 +16,10 @@ import picocli.CommandLine
 	name = HooksCommand.name,
 	description = ["Run the hooks commands"],
 	subcommands = [
-		PipelinesInitCommand::class,
-		PipelinesVerifyCommand::class,
+		HooksInitCommand::class,
+		HooksVerifyCommand::class,
+		PreCommitCommand::class,
+		PrePushCommand::class
 	]
 )
 

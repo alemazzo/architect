@@ -1,5 +1,9 @@
 package io.github.alemazzo.architect.cli.plugins.commits.context
 
 data class CommitsContext(
-	val commits: List<String> = emptyList(),
+	val commits: CommitContext = CommitContext(),
+)
+
+data class CommitContext(
+	val type: String = "conventional",
 )
