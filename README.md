@@ -1,5 +1,8 @@
 # Architect CLI
 
+<p align="center">
+  <img src=".resources/logo.png" alt="Architect CLI Logo" width="100%"/>
+</p>
 **The software architect we all deserve.** Architect CLI enforces structure, consistency, and integrity across your codebase by embedding verifiable rules directly into your development workflow. Through opinionated, convention-over-configuration defaults and fully configurable templates, it delivers production-ready standards out of the box while allowing you to craft your own.
 
 ## Why Architect CLI?
