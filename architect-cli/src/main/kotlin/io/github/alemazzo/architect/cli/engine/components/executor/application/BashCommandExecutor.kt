@@ -3,6 +3,7 @@ package io.github.alemazzo.architect.cli.engine.components.executor.application
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import jakarta.inject.Singleton
 import java.io.File
+import kotlin.system.exitProcess
 
 @Singleton
 open class BashCommandExecutor : CommandExecutor {
@@ -47,7 +48,7 @@ open class BashCommandExecutor : CommandExecutor {
 			println("❌ Failed (exit code: $exitCode)")
 			println("Output:")
 			println(result)
-			throw RuntimeException("Command failed with exit code $exitCode")
+			exitProcess(-1)
 		}
 	}
 }
