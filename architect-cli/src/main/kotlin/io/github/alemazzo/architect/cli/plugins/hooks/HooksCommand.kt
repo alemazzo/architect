@@ -3,6 +3,7 @@ package io.github.alemazzo.architect.cli.plugins.hooks
 import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
 import io.github.alemazzo.architect.cli.plugins.hooks.application.HooksInitCommand
 import io.github.alemazzo.architect.cli.plugins.hooks.application.HooksVerifyCommand
+import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.CommitMsgCommand
 import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PreCommitCommand
 import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PrePushCommand
 import io.github.alemazzo.architect.cli.plugins.pipelines.application.PipelinesInitCommand
@@ -19,7 +20,8 @@ import picocli.CommandLine
 		HooksInitCommand::class,
 		HooksVerifyCommand::class,
 		PreCommitCommand::class,
-		PrePushCommand::class
+		PrePushCommand::class,
+		CommitMsgCommand::class
 	]
 )
 
