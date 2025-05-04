@@ -2,7 +2,7 @@ package io.github.alemazzo.architect.cli.plugins.commits
 
 import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
 import io.github.alemazzo.architect.cli.plugins.commits.application.InitCommitsCommand
-import io.github.alemazzo.architect.cli.plugins.commits.application.VerifyCommitMessagePreCommitCommand
+import io.github.alemazzo.architect.cli.plugins.commits.application.VerifyCommitMessageCommand
 import io.github.alemazzo.architect.cli.plugins.commits.application.VerifyCommitsCommand
 import io.github.alemazzo.architect.cli.plugins.commits.context.CommitsContext
 import jakarta.inject.Singleton
@@ -15,7 +15,7 @@ import picocli.CommandLine.Command
 	subcommands = [
 		InitCommitsCommand::class,
 		VerifyCommitsCommand::class,
-		VerifyCommitMessagePreCommitCommand::class,
+		VerifyCommitMessageCommand::class,
   	],
 )
 class CommitsCommand : Plugin<CommitsContext>(name) {

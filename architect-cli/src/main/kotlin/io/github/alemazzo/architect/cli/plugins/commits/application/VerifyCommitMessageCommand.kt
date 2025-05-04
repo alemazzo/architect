@@ -4,10 +4,8 @@ import io.github.alemazzo.architect.cli.engine.api.resources.ResourceExtractor
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import io.github.alemazzo.architect.cli.plugins.commits.context.CommitsContext
 import io.github.alemazzo.architect.cli.plugins.hooks.api.stages.CommitMsg
-import io.github.alemazzo.architect.cli.plugins.hooks.api.stages.PreCommit
 import jakarta.inject.Singleton
 import picocli.CommandLine
-import java.nio.file.Files
 import java.nio.file.Path
 
 @Singleton
@@ -22,10 +20,7 @@ class VerifyCommitMessageCommand(
 	private val resourceExtractor: ResourceExtractor
 ) : CommitMsg {
 
-	@CommandLine.Parameters(
-		description = ["The commit message to verify"],
-	)
-	var commitMessageFilePath: String = ""
+	override var commitMessageFilePath: String = ""
 
 	override fun run() {
 		println("Verifying commit message: $commitMessageFilePath")
