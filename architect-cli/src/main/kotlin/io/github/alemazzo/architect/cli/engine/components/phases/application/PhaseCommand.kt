@@ -1,6 +1,7 @@
 package io.github.alemazzo.architect.cli.engine.components.phases.application
 
 import io.github.alemazzo.architect.cli.engine.api.ArchitectCommand
+import io.github.alemazzo.architect.cli.engine.api.components.EngineComponent
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.build.BuildPhaseExecutor
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.init.InitPhaseExecutor
 import io.github.alemazzo.architect.cli.engine.components.phases.application.executors.release.ReleasePhaseExecutor
@@ -25,7 +26,8 @@ import picocli.CommandLine
 	]
 )
 class PhaseCommand(
-) : ArchitectCommand {
+) : EngineComponent {
+	override val name: String = NAME
 
 	override fun run() {
 		println("Running phase command")

@@ -40,19 +40,19 @@ jobs:
         run: curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/.installers/bash-ci | bash
 
       - name: Init
-        run: architect phases init
+        run: architect init
 
       - name: Verify
-        run: architect phases verify
+        run: architect verify
 
       - name: Build
-        run: architect phases build
+        run: architect build
 
       - name: Test
-        run: architect phases test
+        run: architect test
 
       - name: Release
-        run: architect phases release
+        run: architect release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
