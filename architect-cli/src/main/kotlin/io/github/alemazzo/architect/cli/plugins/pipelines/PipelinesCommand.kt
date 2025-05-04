@@ -1,4 +1,4 @@
-package io.github.alemazzo.architect.cli.plugins.hooks
+package io.github.alemazzo.architect.cli.plugins.pipelines
 
 import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
 import io.github.alemazzo.architect.cli.plugins.pipelines.application.PipelinesInitCommand
@@ -9,16 +9,16 @@ import picocli.CommandLine
 
 @Singleton
 @CommandLine.Command(
-	name = HooksCommand.name,
-	description = ["Run the hooks commands"],
+	name = PipelinesCommand.name,
+	description = ["Run the pipelines commands"],
 	subcommands = [
 		PipelinesInitCommand::class,
 		PipelinesVerifyCommand::class,
 	]
 )
 
-class HooksCommand : Plugin<PipelinesContextHolder>(name) {
+class PipelinesCommand : Plugin<PipelinesContextHolder>(name) {
 	companion object {
-		const val name = "hooks"
+		const val name = "pipelines"
 	}
 }

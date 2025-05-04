@@ -1,0 +1,3 @@
+pipeline:
+  name: architect-pipeline
+  type: github/classic-java-17
