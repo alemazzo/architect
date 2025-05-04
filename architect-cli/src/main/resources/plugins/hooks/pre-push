@@ -1,4 +1,5 @@
 #!/bin/sh
-architect hooks pre-push
+echo "Running pre-push hook..."
+architect hooks pre-push "$@"
 
 
