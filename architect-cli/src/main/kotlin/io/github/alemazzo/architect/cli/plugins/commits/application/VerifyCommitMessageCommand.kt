@@ -3,6 +3,7 @@ package io.github.alemazzo.architect.cli.plugins.commits.application
 import io.github.alemazzo.architect.cli.engine.api.resources.ResourceExtractor
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import io.github.alemazzo.architect.cli.plugins.commits.context.CommitsContext
+import io.github.alemazzo.architect.cli.plugins.hooks.api.stages.CommitMsg
 import io.github.alemazzo.architect.cli.plugins.hooks.api.stages.PreCommit
 import jakarta.inject.Singleton
 import picocli.CommandLine
@@ -15,11 +16,11 @@ import java.nio.file.Path
 	description = ["Verify the commit"],
 	mixinStandardHelpOptions = true,
 )
-class VerifyCommitMessagePreCommitCommand(
+class VerifyCommitMessageCommand(
 	val context: CommitsContext,
 	val executor: CommandExecutor,
 	private val resourceExtractor: ResourceExtractor
-) : PreCommit {
+) : CommitMsg {
 
 	@CommandLine.Parameters(
 		description = ["The commit message to verify"],
