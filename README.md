@@ -45,7 +45,7 @@ java -jar architect-cli/build/libs/architect-cli-*-all.jar init
 ### One‑Line Installer Script
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/scripts/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/.installers/bash | bash
 ```
 
 This installer:
@@ -73,7 +73,7 @@ Rebuilds and reinjects your local changes without a fresh download.
 For non-interactive CI environments (e.g., GitHub Actions), use the CI installer script:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/scripts/install-ci.sh | bash
+curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/.installers/bash-ci | bash
 ```
 
 This installs the CLI into `$HOME/.architect` and adds it to the `PATH` for the duration of the CI job without modifying shell profiles.

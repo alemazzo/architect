@@ -1,15 +1,14 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.context
 
 import io.github.alemazzo.architect.cli.engine.api.context.AbstractContextFactory
-import io.github.alemazzo.architect.cli.engine.api.context.Context
 import io.micronaut.context.annotation.Factory
 import jakarta.inject.Singleton
 
 @Singleton
 @Factory
-class GradleContextFactory : AbstractContextFactory() {
+class GradleContextFactory : AbstractContextFactory<GradleContextHolder>() {
 	@Singleton
-	fun createContext(context: Context): GradleContextHolder = getContext(context)
+	override fun create(): GradleContextHolder = getContext()
 }
 
 

@@ -4,9 +4,9 @@ folders:
     name: Application
     type: application
 
-  - path: scripts
-    name: Scripts
-    type: scripts
+  - path: installer
+    name: Installers
+    type: installers
 
 files:
 

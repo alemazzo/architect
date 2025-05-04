@@ -7,7 +7,7 @@ import jakarta.inject.Singleton
 
 @Singleton
 @Factory
-class PipelinesContextFactory : AbstractContextFactory() {
+class PipelinesContextFactory : AbstractContextFactory<PipelinesContextHolder>() {
 	@Singleton
-	fun getPipelinesContext(context: Context): PipelinesContextHolder = getContext(context)
+	override fun create(): PipelinesContextHolder = getContext()
 }

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+
+OWNER="alemazzo"
+NAME="architect"
+ASSET_TYPE="jar"
+
+BIN_DIR="$HOME/.local/bin"
+mkdir -p "$BIN_DIR"
+
+GITHUB_REPO="$OWNER/$NAME"
+ASSET="$NAME.$ASSET_TYPE"
+
+EXECUTABLE_PATH="$BIN_DIR/$NAME"
+ASSET_PATH="$BIN_DIR/$ASSET"
+
+ASSET_URL=$(curl -s "https://api.github.com/repos/$GITHUB_REPO/releases/latest" | jq -r ".assets[] | select(.name == \"$ASSET\") | .browser_download_url")
+curl -s -L "$ASSET_URL" --output "$ASSET_PATH"
+cat <<'EOF' > "$EXECUTABLE_PATH"
+#!/bin/bash
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+EOF
+echo "exec java -jar $ASSET_PATH \"\$@\"" >> "$EXECUTABLE_PATH"
+
+chmod +x "$EXECUTABLE_PATH"
+echo "$BIN_DIR" >> $GITHUB_PATH
