@@ -3,11 +3,9 @@ package io.github.alemazzo.architect.cli.plugins.hooks
 import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
 import io.github.alemazzo.architect.cli.plugins.hooks.application.HooksInitCommand
 import io.github.alemazzo.architect.cli.plugins.hooks.application.HooksVerifyCommand
-import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.CommitMsgCommand
-import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PreCommitCommand
-import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PrePushCommand
-import io.github.alemazzo.architect.cli.plugins.pipelines.application.PipelinesInitCommand
-import io.github.alemazzo.architect.cli.plugins.pipelines.application.PipelinesVerifyCommand
+import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.CommitMsgCommandExecutor
+import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PreCommitCommandExecutor
+import io.github.alemazzo.architect.cli.plugins.hooks.application.stages.PrePushCommandExecutor
 import io.github.alemazzo.architect.cli.plugins.pipelines.context.PipelinesContextHolder
 import jakarta.inject.Singleton
 import picocli.CommandLine
@@ -19,9 +17,9 @@ import picocli.CommandLine
 	subcommands = [
 		HooksInitCommand::class,
 		HooksVerifyCommand::class,
-		PreCommitCommand::class,
-		PrePushCommand::class,
-		CommitMsgCommand::class
+		PreCommitCommandExecutor::class,
+		PrePushCommandExecutor::class,
+		CommitMsgCommandExecutor::class
 	]
 )
 
