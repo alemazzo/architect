@@ -5,5 +5,5 @@ data class InstallerContext(
 	val name: String,
 	val appPath: String,
 	val assetType: String = "jar",
-	val path: String = "installers",
+	val path: String = ".installers",
 )
