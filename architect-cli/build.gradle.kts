@@ -5,11 +5,11 @@ version = "0.1"
 group = "io.github.alemazzo"
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.9.24"
-	id("org.jetbrains.kotlin.kapt") version "1.9.24"
-	id("org.jetbrains.kotlin.plugin.allopen") version "1.9.24"
+	id("org.jetbrains.kotlin.jvm") version "1.9.25"
+	id("org.jetbrains.kotlin.kapt") version "1.9.25"
+	id("org.jetbrains.kotlin.plugin.allopen") version "1.9.25"
 	id("com.github.johnrengelman.shadow") version "8.1.1"
-	id("io.micronaut.application") version "4.4.4"
+	id("io.micronaut.application") version "4.5.3"
 }
 
 repositories { mavenCentral() }
