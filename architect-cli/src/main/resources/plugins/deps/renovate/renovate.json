@@ -21,36 +21,44 @@
     },
     {
       "matchManagers": ["npm"],
-      "groupName": "npm-dependencies",
-      "matchFileNames": ["package.json"]
-    },
-    {
-      "matchManagers": ["dockerfile"],
-      "groupName": "docker-images",
-      "matchFileNames": ["Dockerfile"]
+      "groupName": "npm-dependencies"
     },
     {
       "matchManagers": ["github-actions"],
-      "groupName": "github-actions",
-      "matchFileNames": [".github/workflows/*.yml"]
+      "groupName": "github-actions"
     },
     {
-      "matchManagers": ["helm"],
+      "matchManagers": ["helm-values"],
       "groupName": "helm-charts",
       "matchFileNames": ["Chart.yaml"]
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "groupName": "docker-images"
     }
   ],
-  "enabledManagers": ["gradle", "maven", "npm", "dockerfile", "github-actions", "helm"],
   "gradle": {
+    "enabled": true,
     "fileMatch": ["(^|/)build\\.gradle(.kts)?$"]
   },
   "maven": {
+    "enabled": true,
     "fileMatch": ["(^|/)pom\\.xml$"]
   },
   "npm": {
+    "enabled": true,
     "fileMatch": ["(^|/)package\\.json$", "(^|/)package-lock\\.json$"]
   },
   "dockerfile": {
+    "enabled": true,
     "fileMatch": ["(^|/)Dockerfile$"]
+  },
+  "github-actions": {
+    "enabled": true,
+    "fileMatch": ["(^|/)\\.github/workflows/.*\\.ya?ml$"]
+  },
+  "helm-values": {
+    "enabled": true,
+    "fileMatch": ["(^|/)Chart\\.yaml$"]
   }
 }
