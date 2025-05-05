@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.commands.template.application
 
-import io.github.alemazzo.architect.cli.engine.components.tasks.api.init.InitTask
+import io.github.alemazzo.architect.cli.engine.tasks.api.init.InitTask
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 

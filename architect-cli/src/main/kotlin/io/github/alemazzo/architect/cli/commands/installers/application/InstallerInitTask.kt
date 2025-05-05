@@ -1,8 +1,8 @@
 package io.github.alemazzo.architect.cli.commands.installers.application
 
-import io.github.alemazzo.architect.cli.engine.components.resources.ResourceExtractor
-import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
-import io.github.alemazzo.architect.cli.engine.components.tasks.api.init.InitTask
+import io.github.alemazzo.architect.cli.engine.utils.resources.ResourceExtractor
+import io.github.alemazzo.architect.cli.engine.utils.executor.api.CommandExecutor
+import io.github.alemazzo.architect.cli.engine.tasks.api.init.InitTask
 import io.github.alemazzo.architect.cli.commands.installers.context.InstallersContextHolder
 import jakarta.inject.Singleton
 import picocli.CommandLine

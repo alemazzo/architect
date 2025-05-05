@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.commands.dependencies
 
-import io.github.alemazzo.architect.cli.engine.components.plugin.api.PluginCommand
+import io.github.alemazzo.architect.cli.engine.plugins.api.PluginCommand
 import io.github.alemazzo.architect.cli.commands.dependencies.application.DependenciesInitTask
 import io.github.alemazzo.architect.cli.commands.dependencies.application.DependenciesVerifyTask
 import io.github.alemazzo.architect.cli.commands.pipelines.context.PipelinesContextHolder

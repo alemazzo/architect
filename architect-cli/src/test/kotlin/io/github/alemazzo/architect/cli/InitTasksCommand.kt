@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.cli
 
 import io.github.alemazzo.architect.cli.api.CommandIntegrationTest
-import io.github.alemazzo.architect.cli.engine.components.tasks.application.executors.init.InitTasksCommand
+import io.github.alemazzo.architect.cli.engine.tasks.application.executors.init.InitTasksCommand
 import org.junit.jupiter.api.Test
 
 class InitTasksCommand(
@@ -12,7 +12,7 @@ class InitTasksCommand(
 	fun `test usage`() {
 		val output = execute(initTasksExecutor)
 		println(output)
-		assert(output.contains("Running phase: init"))
+		assert(output.contains("Running tasks: init"))
 	}
 
 	@Test

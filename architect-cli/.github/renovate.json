@@ -1,0 +1,64 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "groupName": "all-patch-and-minor"
+    },
+    {
+      "matchPackagePatterns": ["^org\\.jetbrains\\.kotlin:"],
+      "groupName": "kotlin-libs",
+      "rangeStrategy": "bump"
+    },
+    {
+      "matchPackagePatterns": ["spring-boot-dependencies"],
+      "groupName": "spring-boot-bom"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "groupName": "major-upgrades"
+    },
+    {
+      "matchManagers": ["npm"],
+      "groupName": "npm-dependencies"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions"
+    },
+    {
+      "matchManagers": ["helm-values"],
+      "groupName": "helm-charts",
+      "matchFileNames": ["Chart.yaml"]
+    },
+    {
+      "matchManagers": ["dockerfile"],
+      "groupName": "docker-images"
+    }
+  ],
+  "gradle": {
+    "enabled": true,
+    "fileMatch": ["(^|/)build\\.gradle(.kts)?$"]
+  },
+  "maven": {
+    "enabled": true,
+    "fileMatch": ["(^|/)pom\\.xml$"]
+  },
+  "npm": {
+    "enabled": true,
+    "fileMatch": ["(^|/)package\\.json$", "(^|/)package-lock\\.json$"]
+  },
+  "dockerfile": {
+    "enabled": true,
+    "fileMatch": ["(^|/)Dockerfile$"]
+  },
+  "github-actions": {
+    "enabled": true,
+    "fileMatch": ["(^|/)\\.github/workflows/.*\\.ya?ml$"]
+  },
+  "helm-values": {
+    "enabled": true,
+    "fileMatch": ["(^|/)Chart\\.yaml$"]
+  }
+}

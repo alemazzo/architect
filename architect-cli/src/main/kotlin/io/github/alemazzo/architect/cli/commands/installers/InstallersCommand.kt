@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.commands.installers
 
-import io.github.alemazzo.architect.cli.engine.components.plugin.api.PluginCommand
+import io.github.alemazzo.architect.cli.engine.plugins.api.PluginCommand
 import io.github.alemazzo.architect.cli.commands.installers.application.InstallerInitTask
 import io.github.alemazzo.architect.cli.commands.installers.context.InstallersContextHolder
 import jakarta.inject.Singleton

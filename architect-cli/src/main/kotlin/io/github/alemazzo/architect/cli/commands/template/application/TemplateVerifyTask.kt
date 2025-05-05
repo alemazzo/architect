@@ -5,8 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import io.github.alemazzo.architect.cli.engine.context.api.ArchitectContext
-import io.github.alemazzo.architect.cli.engine.components.resources.ResourceExtractor
-import io.github.alemazzo.architect.cli.engine.components.tasks.api.verify.VerifyTask
+import io.github.alemazzo.architect.cli.engine.utils.resources.ResourceExtractor
+import io.github.alemazzo.architect.cli.engine.tasks.api.verify.VerifyTask
 import io.github.alemazzo.architect.cli.commands.template.context.TemplateContext
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command

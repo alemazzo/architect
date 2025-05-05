@@ -69,3 +69,17 @@ configurations
 			}
 		}
 	}
+
+val generateCompletion by tasks.registering(JavaExec::class) {
+	group = "build"
+	description = "Generates autocompletion script for architect"
+
+	classpath = sourceSets["main"].runtimeClasspath
+	mainClass.set("picocli.AutoComplete")
+
+	args = listOf(
+		"io.github.alemazzo.architect.cli.ArchitectLauncher", // Your @Command class
+		"-n=architect", // name of your CLI command
+		"-o", "${buildDir}/completion/architect_completion.sh"
+	)
+}
