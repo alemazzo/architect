@@ -44,18 +44,4 @@ open class BashCommandExecutor : CommandExecutor {
 			exitProcess(-1)
 		}
 	}
-
-	override fun executeAsync(command: String, workingDir: String?): Process {
-		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-		println("▶ Command:")
-		println("  ${if (workingDir != null) "cd $workingDir && " else ""}$command")
-		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-
-		val process = ProcessBuilder("sh", "-c", command)
-		if (workingDir != null) {
-			process.directory(File(workingDir))
-		}
-		process.redirectErrorStream(true)
-		return process.start()
-	}
 }
