@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.engine.components.tasks.application.executors.verify
 
-import io.github.alemazzo.architect.cli.engine.components.tasks.api.verify.VerifyTasks
+import io.github.alemazzo.architect.cli.engine.components.tasks.api.verify.VerifyTask
 import io.github.alemazzo.architect.cli.engine.components.tasks.application.TaskCommand
 import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
@@ -14,7 +14,7 @@ import picocli.CommandLine.Command
 )
 @Singleton
 @Order(2)
-class VerifyTaskCommand(verifiers: List<VerifyTasks>) : TaskCommand<VerifyTasks>(NAME, verifiers) {
+class VerifyTaskCommand(verifiers: List<VerifyTask>) : TaskCommand<VerifyTask>(NAME, verifiers) {
 
 	companion object {
 		const val NAME = "verify"

@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.commands.commits.application
 
-import io.github.alemazzo.architect.cli.engine.components.tasks.api.verify.VerifyTasks
+import io.github.alemazzo.architect.cli.engine.components.tasks.api.verify.VerifyTask
 import io.github.alemazzo.architect.cli.commands.commits.context.CommitsContext
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
@@ -9,7 +9,7 @@ import picocli.CommandLine.Command
 @Command(name = "verify")
 class CommitsVerifyTask(
 	val context: CommitsContext,
-) : VerifyTasks {
+) : VerifyTask {
 	override fun run() {
 		println("Executing commits verify")
 	}
