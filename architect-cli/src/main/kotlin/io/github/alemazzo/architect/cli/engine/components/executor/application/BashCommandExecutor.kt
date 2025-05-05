@@ -8,15 +8,8 @@ import kotlin.system.exitProcess
 @Singleton
 open class BashCommandExecutor : CommandExecutor {
 
-	private fun String.splitToCommandParts(): List<String> {
-		val regex = Regex("""[^\s"']+|"([^"]*)"|'([^']*)'""")
-		return regex.findAll(this)
-			.map { it.groupValues[0].trim('"', '\'') }
-			.toList()
-	}
-
 	private fun executeCommand(command: String, workingDir: String? = null): Pair<Int, String> {
-		val processBuilder = ProcessBuilder(command.splitToCommandParts())
+		val processBuilder = ProcessBuilder("sh", "-c", command)
 		if (workingDir != null) {
 			processBuilder.directory(File(workingDir))
 		}
@@ -50,5 +43,19 @@ open class BashCommandExecutor : CommandExecutor {
 			println(result)
 			exitProcess(-1)
 		}
+	}
+
+	override fun executeAsync(command: String, workingDir: String?): Process {
+		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+		println("▶ Command:")
+		println("  ${if (workingDir != null) "cd $workingDir && " else ""}$command")
+		println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+
+		val process = ProcessBuilder("sh", "-c", command)
+		if (workingDir != null) {
+			process.directory(File(workingDir))
+		}
+		process.redirectErrorStream(true)
+		return process.start()
 	}
 }

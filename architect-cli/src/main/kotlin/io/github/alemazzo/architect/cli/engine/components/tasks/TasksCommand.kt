@@ -28,6 +28,6 @@ class TasksCommand(
 ) : Command(NAME) {
 
 	companion object {
-		const val NAME = "phases"
+		const val NAME = "tasks"
 	}
 }
