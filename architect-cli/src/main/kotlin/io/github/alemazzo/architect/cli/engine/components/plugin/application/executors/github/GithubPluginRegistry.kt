@@ -1,9 +1,9 @@
 package io.github.alemazzo.architect.cli.engine.components.plugin.application.executors.github
 
-import io.github.alemazzo.architect.cli.engine.api.context.MultiApplicationContextFactory
-import io.github.alemazzo.architect.cli.engine.api.log.getLogger
+import io.github.alemazzo.architect.cli.engine.context.api.MultiApplicationContextFactory
+import io.github.alemazzo.architect.cli.engine.utils.log.getLogger
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
-import io.github.alemazzo.architect.cli.engine.components.plugin.api.Plugin
+import io.github.alemazzo.architect.cli.engine.components.plugin.api.PluginCommand
 import io.github.alemazzo.architect.cli.engine.components.plugin.application.context.PluginsContext
 import io.micronaut.context.ApplicationContext
 import jakarta.inject.Singleton
@@ -24,17 +24,17 @@ class GithubPluginRegistry(
 
 	private val logger = getLogger()
 
-	fun getAll(): List<Plugin<*>> {
+	fun getAll(): List<PluginCommand<*>> {
 		return configuration.plugins.mapNotNull { loadPlugins(it) }
 	}
 
 	@Command
-	class PluginTask(
+	class PluginCommandRunnable(
 		name: String,
 		private val applicationContext: ApplicationContext,
 		private val command: BiConsumer<ApplicationContext?, List<String>>,
 	) :
-		Plugin<Void>(name) {
+		PluginCommand<Void>(name) {
 		private val logger = getLogger()
 
 		@Parameters
@@ -46,7 +46,7 @@ class GithubPluginRegistry(
 		}
 	}
 
-	private fun loadPlugins(plugin: GithubPluginConfiguration): Plugin<*>? {
+	private fun loadPlugins(plugin: GithubPluginConfiguration): PluginCommand<*>? {
 		val owner = plugin.owner
 		val name = plugin.name
 		val tempFolder = ".phases/tmp"
@@ -83,7 +83,7 @@ class GithubPluginRegistry(
 			// Clean up the temporary folder if it's empty
 			// commandExecutor.execute("rmdir $tempFolder")
 
-			return PluginTask(plugin.name, applicationContext, loadedCommand)
+			return PluginCommandRunnable(plugin.name, applicationContext, loadedCommand)
 		} catch (e: Exception) {
 			e.printStackTrace()
 			logger.warn("Error loading plugin $name: ${e.message}")

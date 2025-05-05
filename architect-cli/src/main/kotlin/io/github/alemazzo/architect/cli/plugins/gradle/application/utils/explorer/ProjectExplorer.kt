@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.plugins.gradle.application.utils.explorer
 
-import io.github.alemazzo.architect.cli.engine.api.log.getLogger
+import io.github.alemazzo.architect.cli.engine.utils.log.getLogger
 import io.github.alemazzo.architect.cli.plugins.gradle.context.ProjectContext
 import java.io.File
 

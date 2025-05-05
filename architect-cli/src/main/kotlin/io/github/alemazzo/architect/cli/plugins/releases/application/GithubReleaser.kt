@@ -1,8 +1,8 @@
 package io.github.alemazzo.architect.cli.plugins.releases.application
 
-import io.github.alemazzo.architect.cli.engine.api.resources.ResourceExtractor
+import io.github.alemazzo.architect.cli.engine.components.resources.ResourceExtractor
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
-import io.github.alemazzo.architect.cli.engine.components.phases.api.release.Release
+import io.github.alemazzo.architect.cli.engine.components.tasks.api.release.ReleaseTask
 import io.github.alemazzo.architect.cli.plugins.releases.context.ReleasesContext
 import io.micronaut.serde.ObjectMapper
 import jakarta.inject.Singleton
@@ -17,7 +17,7 @@ class GithubReleaser(
 	private val resourceExtractor: ResourceExtractor,
 	private val commandExecutor: CommandExecutor,
 	private val objectMapper: ObjectMapper,
-) : Release {
+) : ReleaseTask {
 
 	override fun run() {
 		println("Github Releaser: releasing the application")

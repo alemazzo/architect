@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.mock
 
-import io.github.alemazzo.architect.cli.engine.api.log.getLogger
+import io.github.alemazzo.architect.cli.engine.utils.log.getLogger
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import io.micronaut.context.annotation.Primary
 import jakarta.inject.Singleton

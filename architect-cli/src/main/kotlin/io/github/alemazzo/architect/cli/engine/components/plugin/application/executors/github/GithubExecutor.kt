@@ -1,6 +1,6 @@
 package io.github.alemazzo.architect.cli.engine.components.plugin.application.executors.github
 
-import io.github.alemazzo.architect.cli.engine.api.log.getLogger
+import io.github.alemazzo.architect.cli.engine.utils.log.getLogger
 import io.github.alemazzo.architect.cli.engine.components.executor.api.CommandExecutor
 import jakarta.inject.Singleton
 
