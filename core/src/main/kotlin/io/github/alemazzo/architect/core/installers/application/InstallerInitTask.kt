@@ -1,5 +1,4 @@
 package io.github.alemazzo.architect.core.installers.application
-
 import io.github.alemazzo.architect.engine.utils.resources.ResourceExtractor
 import io.github.alemazzo.architect.engine.utils.executor.api.CommandExecutor
 import io.github.alemazzo.architect.engine.tasks.api.init.InitTask
@@ -17,7 +16,7 @@ class InstallerInitTask(
 	private val commandExecutor: CommandExecutor
 ) : InitTask {
 
-	val resourceRoot = "plugins/installers"
+	val resourceRoot = "installers"
 
 	override fun run() {
 		val context = installersContextHolder.installers ?: return
@@ -30,7 +29,6 @@ class InstallerInitTask(
 				.replace("{{owner}}", context.owner)
 				.replace("{{name}}", context.name)
 				.replace("{{assetType}}", context.assetType)
-				.replace("{{appPath}}", context.appPath)
 			file.writeText(replacedContent)
 			commandExecutor.execute("chmod +x ${file.path}")
 		}

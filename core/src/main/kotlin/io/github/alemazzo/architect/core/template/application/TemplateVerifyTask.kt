@@ -33,7 +33,7 @@ class TemplateVerifyTask(
 
 	override fun run() {
 		println("Executing template verify")
-		val resourcePath = "plugins/templates"
+		val resourcePath = "templates"
 		val yamlFile = resourcePath + "/${templateContext.template}.${templateContext.template_format}"
 		val content = resourceExtractor.getResourceFileContent(yamlFile).replace("{{main_app_name}}", context.name)
 		val foldersContext = objectMapper.readValue(content, FoldersContext::class.java)

@@ -1,8 +1,8 @@
 package io.github.alemazzo.architect.core.installers
 
+import io.github.alemazzo.architect.core.installers.application.InstallerInitTask
 import io.github.alemazzo.architect.engine.plugins.api.PluginCommand
 import io.github.alemazzo.architect.core.installers.context.InstallersContextHolder
-import io.github.alemazzo.architect.core.installers.application.InstallerInitTask
 import jakarta.inject.Singleton
 import picocli.CommandLine
 

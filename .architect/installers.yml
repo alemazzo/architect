@@ -2,4 +2,3 @@ installers:
   owner: alemazzo
   name: architect
   assetType: jar
-  appPath: architect-cli

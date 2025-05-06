@@ -31,7 +31,7 @@ chmod +x "$BIN_PATH"
 if [ "$1" == "local" ]; then
   echo "Building $NAME"
   ./gradlew build
-  cp build/libs/"$ASSET_NAME"-0.1-all."$ASSET_TYPE" "$FINAL_ASSET"
+  cp build/libs/"$NAME"-0.1-all."$ASSET_TYPE" "$FINAL_ASSET"
   exit 0
 else
   GITHUB_REPO="$OWNER/$NAME"
