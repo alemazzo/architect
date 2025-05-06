@@ -1,0 +1,4 @@
+echo "Running commit-msg hook..."
+architect commit-msg "$@"
+
+

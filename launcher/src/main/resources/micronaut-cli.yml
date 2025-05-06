@@ -1,0 +1,6 @@
+applicationType: cli
+defaultPackage: io.github.alemazzo
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle_kotlin
+features: [ app-name, gradle, http-client-test, junit, kapt, kotlin, logback, micronaut-build, picocli, picocli-junit, picocli-kotlin-application, properties, readme, serialization-jackson, shade ]

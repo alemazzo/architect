@@ -1,4 +1,0 @@
-echo "Running pre-commit hook..."
-architect hooks pre-commit "$@"
-
-
