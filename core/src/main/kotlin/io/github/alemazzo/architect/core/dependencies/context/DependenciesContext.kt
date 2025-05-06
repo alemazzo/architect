@@ -1,7 +1,7 @@
 package io.github.alemazzo.architect.core.dependencies.context
 
 data class DepsContext(
-	val type: String = "renovate",
+	val type: String = "dependencies/renovate",
 	val format: String = "json",
 )
 

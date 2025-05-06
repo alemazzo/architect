@@ -14,7 +14,7 @@ class PipelinesInitTask(
 	private val resourceExtractor: ResourceExtractor,
 ) : InitTask {
 
-	val resourceRoot = "plugins/pipelines/"
+	val resourceRoot = "pipelines/"
 	val resourceFile = resourceRoot + pipelinesContextHolder.pipeline.type + ".yml"
 
 	override fun run() {

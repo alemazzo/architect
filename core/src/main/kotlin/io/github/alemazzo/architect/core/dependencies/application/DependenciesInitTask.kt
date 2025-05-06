@@ -14,7 +14,7 @@ class DependenciesInitTask(
 	private val resourceExtractor: ResourceExtractor,
 ) : InitTask {
 
-	val resourceRoot = "plugins/deps/" + dependenciesContext.deps.type
+	val resourceRoot = "dependencies/" + dependenciesContext.deps.type
 
 	override fun run() {
 		val depsDir = File(".github/")

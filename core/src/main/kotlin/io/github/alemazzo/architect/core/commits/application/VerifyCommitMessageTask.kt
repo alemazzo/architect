@@ -30,7 +30,7 @@ class VerifyCommitMessageTask(
 
 		val convention = context.commits.type
 		val filename = "verify.sh"
-		resourceExtractor.copyFileFromResources("plugins/commits/$convention/verify.sh", Path.of("."), filename)
+		resourceExtractor.copyFileFromResources("commits/$convention/verify.sh", Path.of("."), filename)
 		executor.execute("./$filename $commitMessageFilePath")
 		executor.execute("rm -f $filename")
 	}
