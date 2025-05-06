@@ -5,5 +5,5 @@ data class CommitsContext(
 )
 
 data class CommitContext(
-	val type: String = "commits/conventional",
+	val type: String = "conventional",
 )
