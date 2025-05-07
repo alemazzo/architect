@@ -60,15 +60,7 @@ Run:
 architect init
 ```
 
-### Local Development Mode
-
-```bash
-architect --local init
-```
-
-Rebuilds and reinjects your local changes without a fresh download.
-
-### CI Installation Mode
+### Github CI Installation Mode
 
 For non-interactive CI environments (e.g., GitHub Actions), use the CI installer script:
 
@@ -76,19 +68,19 @@ For non-interactive CI environments (e.g., GitHub Actions), use the CI installer
 curl -sSL https://raw.githubusercontent.com/alemazzo/architect/main/.installers/bash-ci | bash
 ```
 
-This installs the CLI into `$HOME/.architect` and adds it to the `PATH` for the duration of the CI job without modifying shell profiles.
+This installs the CLI into `$HOME/.architect` and adds it to the `GITHUB_PATH` for the duration of the CI job without modifying shell profiles.
 
 ---
 
 ## Usage
 
-The `architect` command delegates to **subcomponents** (phases or plugins), handling all registered subtasks automatically. Each subcomponent is accessible via:
+The `architect` command delegates to **subcomponents** (tasks or plugins), handling all registered subtasks automatically. Each subcomponent is accessible via:
 
 ```bash
 architect <component> [subtask] [options]
 ```
 
-* `<component>`: a core phase or plugin name (e.g., `init`, `verify`, `build`, `test`, `run`, `release`, `hooks`, `commits`, `pipeline`).
+* `<component>`: a core task or plugin name (e.g., `init`, `verify`, `build`, `test`, `run`, `release`, `hooks`, `commits`, `pipeline`).
 * `[subtask]`: an optional task under the component (e.g., `install`, `verify`, `pre-commit`, `commit-msg`). If omitted, it runs the default action for the component.
 
 ### Examples
@@ -108,16 +100,10 @@ architect <component> [subtask] [options]
   ```bash
   architect hooks install
   ```
-* **Enforce commit rules**:
+* **Trigger a build**:
 
   ```bash
-  architect commits enforce
-  ```
-* **Trigger a specific build subtask** (e.g., clean, assemble):
-
-  ```bash
-  architect build clean
-  architect build assemble
+  architect build
   ```
 * **View help for any component**:
 
@@ -125,27 +111,11 @@ architect <component> [subtask] [options]
   architect <component> --help
   ```
 
-### Common Options
-
-* `--local`: Use locally built JAR instead of downloading.
-* `-h`, `--help`: Show usage for the root command or a specific component.
-* `-V`, `--version`: Show the CLI version.
-
 ---
 
 ## Extending Architect CLI
 
-Add your own phases by implementing one of the phase interfaces (`Init`, `Verify`, `Build`, `Test`, `Run`, `Release`) and annotating with Picocli:
-
-```kotlin
-@Singleton
-@Command(name = "audit", description = ["Run custom audit rules"])
-class AuditPhase : Verify {
-    override fun run() { /* enforce audit rules */ }
-}
-```
-
-Micronaut DI and Picocli will auto-discover and wire your phase.
+TODO
 
 ---
 
@@ -154,11 +124,7 @@ Micronaut DI and Picocli will auto-discover and wire your phase.
 Place YAML files in your `.architect/` directory to customize behavior:
 
 ```yaml
-# .architect/settings.yml
-allowedCommitTypes:
-  - feat
-  - fix
-  - chore
+TODO
 ```
 
 The CLI merges all `*.yml` and `*.yaml` files into a single `Context` object.
