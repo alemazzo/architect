@@ -28,6 +28,7 @@ class InstallerInitTask(
 			val replacedContent = content
 				.replace("{{owner}}", context.owner)
 				.replace("{{name}}", context.name)
+				.replace("{{applicationName}}", context.applicationName)
 				.replace("{{assetType}}", context.assetType)
 			file.writeText(replacedContent)
 			commandExecutor.execute("chmod +x ${file.path}")

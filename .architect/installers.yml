@@ -2,3 +2,4 @@ installers:
   owner: alemazzo
   name: architect
   assetType: jar
+  applicationName: architect

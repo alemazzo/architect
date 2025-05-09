@@ -9,11 +9,12 @@ set -e
 OWNER="{{owner}}"
 NAME="{{name}}"
 ASSET_TYPE="{{assetType}}"
+APPLICATION_NAME="{{applicationName}}"
 
 ASSET_NAME="$NAME.$ASSET_TYPE"
 INSTALL_DIR="$HOME/.$NAME"
-BIN_PATH="$INSTALL_DIR/$NAME"
 
+BIN_PATH="$INSTALL_DIR/$APPLICATION_NAME"
 FINAL_ASSET="$INSTALL_DIR/$ASSET_NAME"
 
 echo "📦 Installing $NAME"
@@ -29,7 +30,7 @@ echo "exec java -jar $FINAL_ASSET \"\$@\"" >> "$BIN_PATH"
 chmod +x "$BIN_PATH"
 
 if [ "$1" == "local" ]; then
-  echo "Building $NAME"
+  echo "Building $APPLICATION_NAME"
   ./gradlew build
   cp build/libs/"$NAME"-0.1-all."$ASSET_TYPE" "$FINAL_ASSET"
   exit 0

@@ -9,17 +9,18 @@ set -e
 OWNER="alemazzo"
 NAME="architect"
 ASSET_TYPE="jar"
+APPLICATION_NAME="architect"
 
 BIN_DIR="$HOME/.local/bin"
 mkdir -p "$BIN_DIR"
 
 GITHUB_REPO="$OWNER/$NAME"
-ASSET="$NAME.$ASSET_TYPE"
+ASSET_NAME="$NAME.$ASSET_TYPE"
 
-EXECUTABLE_PATH="$BIN_DIR/$NAME"
-ASSET_PATH="$BIN_DIR/$ASSET"
+EXECUTABLE_PATH="$BIN_DIR/$APPLICATION_NAME"
+ASSET_PATH="$BIN_DIR/$ASSET_NAME"
 
-ASSET_URL=$(curl -s "https://api.github.com/repos/$GITHUB_REPO/releases/latest" | jq -r ".assets[] | select(.name == \"$ASSET\") | .browser_download_url")
+ASSET_URL=$(curl -s "https://api.github.com/repos/$GITHUB_REPO/releases/latest" | jq -r ".assets[] | select(.name == \"$ASSET_NAME\") | .browser_download_url")
 curl -s -L "$ASSET_URL" --output "$ASSET_PATH"
 cat <<'EOF' > "$EXECUTABLE_PATH"
 #!/bin/bash
