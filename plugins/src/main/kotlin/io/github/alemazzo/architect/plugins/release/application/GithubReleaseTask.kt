@@ -21,12 +21,15 @@ class GithubReleaseTask(
 	private val objectMapper: ObjectMapper,
 ) : ReleaseTask {
 
+	val standardGitAssets = listOf("**/*.gradle", "**/*.gradle.kts", "**/*.properties")
+
 	override fun run() {
 		println("Github Releaser: releasing the application")
 		println("Release context: $context")
 		val message = objectMapper.writeValueAsString(context.release.message)
 		val assetsJson = objectMapper.writeValueAsString(context.release.assets)
-		val gitAssetsjson = objectMapper.writeValueAsString(context.release.git_assets)
+		val allGitAssets = standardGitAssets + context.release.git_assets
+		val gitAssetsjson = objectMapper.writeValueAsString(allGitAssets)
 
 		resourceExtractor.copyFileFromResources("releases/run.sh", Path(""), "run.sh")
 		resourceExtractor.getResourceFileContent("releases/.releaserc.json")
