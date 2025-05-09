@@ -5,6 +5,12 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "./update-version.sh ${nextRelease.version}"
+      }
+    ],
+    [
       "@semantic-release/github",
       {
         "assets": {{assets}}
@@ -15,12 +21,6 @@
       {
         "assets": {{git_assets}},
         "message": {{message}}
-      }
-    ],
-    [
-      "@semantic-release/exec",
-      {
-        "prepareCmd": "./update-version.sh ${nextRelease.version}"
       }
     ]
   ]

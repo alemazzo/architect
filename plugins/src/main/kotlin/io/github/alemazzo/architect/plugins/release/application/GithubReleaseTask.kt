@@ -21,7 +21,7 @@ class GithubReleaseTask(
 	private val objectMapper: ObjectMapper,
 ) : ReleaseTask {
 
-	val standardGitAssets = listOf("**/*.gradle", "**/*.gradle.kts", "**/*.properties")
+	val standardGitAssets = listOf("**/*.gradle", "**/*.gradle.kts")
 
 	override fun run() {
 		println("Github Releaser: releasing the application")

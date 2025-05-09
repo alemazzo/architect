@@ -12,7 +12,7 @@ NEXT_RELEASE_VERSION="$1"
 echo "Collecting files to update version..."
 
 # Collect all matching files
-FILES=$(find . -type f \( -name '*.gradle' -o -name '*.gradle.kts' -o -name '*.properties' \))
+FILES=$(find . -type f \( -name '*.gradle' -o -name '*.gradle.kts' \))
 
 # Check if any files were found
 if [ -z "$FILES" ]; then
