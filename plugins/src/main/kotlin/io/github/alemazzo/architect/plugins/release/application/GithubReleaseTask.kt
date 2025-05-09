@@ -32,6 +32,7 @@ class GithubReleaseTask(
 		val gitAssetsjson = objectMapper.writeValueAsString(allGitAssets)
 
 		resourceExtractor.copyFileFromResources("releases/run.sh", Path(""), "run.sh")
+		resourceExtractor.copyFileFromResources("releases/update-version.sh", Path(""), "update-version.sh")
 		resourceExtractor.getResourceFileContent("releases/.releaserc.json")
 			.replace("{{message}}", message)
 			.replace("{{assets}}", assetsJson)
@@ -43,6 +44,7 @@ class GithubReleaseTask(
 		commandExecutor.execute("./run.sh")
 
 		commandExecutor.execute("rm run.sh")
+		commandExecutor.execute("rm update-version.sh")
 		commandExecutor.execute("rm .releaserc.json")
 	}
 
