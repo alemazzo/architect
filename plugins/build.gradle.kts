@@ -1,6 +1,6 @@
 val kotlinVersion = project.properties["kotlinVersion"] as String? ?: "1.9.24"
 
-version = "1.1.1"
+version = "4.23.5"
 
 group = "io.github.alemazzo.architect"
 
