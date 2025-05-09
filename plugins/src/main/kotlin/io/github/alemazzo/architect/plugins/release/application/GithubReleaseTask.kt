@@ -4,6 +4,7 @@ import io.github.alemazzo.architect.engine.utils.resources.ResourceExtractor
 import io.github.alemazzo.architect.engine.utils.executor.api.CommandExecutor
 import io.github.alemazzo.architect.engine.tasks.api.release.ReleaseTask
 import io.github.alemazzo.architect.plugins.release.context.ReleasesContext
+import io.micronaut.core.annotation.Order
 import io.micronaut.serde.ObjectMapper
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
@@ -11,6 +12,7 @@ import java.nio.file.Files
 import kotlin.io.path.Path
 
 @Singleton
+@Order(1)
 @Command(name = "github-releaser", description = ["Release the application using Github"], mixinStandardHelpOptions = true)
 class GithubReleaseTask(
 	private val context: ReleasesContext,

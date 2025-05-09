@@ -5,11 +5,13 @@ import io.github.alemazzo.architect.engine.tasks.api.run.RunTask
 import io.github.alemazzo.architect.plugins.gradle.application.utils.GradleExecutor
 import io.github.alemazzo.architect.plugins.gradle.context.GradleContextHolder
 import io.github.alemazzo.architect.plugins.gradle.context.ProjectContext
+import io.micronaut.core.annotation.Order
 import jakarta.inject.Singleton
 import picocli.CommandLine.Command
 
 @Singleton
 @Command(name = "github-packages-release")
+@Order(10)
 class GradleReleaseTask(val context: GradleContextHolder, private val gradleExecutor: GradleExecutor) :
 	ReleaseTask {
 
