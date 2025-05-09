@@ -26,8 +26,6 @@ class GradleReleaseTask(val context: GradleContextHolder, private val gradleExec
 			return
 		}
 		println("Executing gradle release for project ${project.name}")
-		gradleExecutor.execute(project, arrayOf("clean"))
-		gradleExecutor.execute(project, arrayOf("build"))
-		gradleExecutor.execute(project, arrayOf("publishGprPublicationToGitHubPackagesRepository"))
+		gradleExecutor.execute(project, arrayOf("clean", "build --no-build-cache", "publishGprPublicationToGitHubPackagesRepository"))
 	}
 }
