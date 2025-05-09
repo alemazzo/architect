@@ -2,6 +2,7 @@ package io.github.alemazzo.architect.plugins.gradle
 
 import io.github.alemazzo.architect.engine.plugins.api.PluginCommand
 import io.github.alemazzo.architect.plugins.gradle.application.GradleBuildTask
+import io.github.alemazzo.architect.plugins.gradle.application.GradleReleaseTask
 import io.github.alemazzo.architect.plugins.gradle.application.GradleRunTask
 import io.github.alemazzo.architect.plugins.gradle.application.GradleTestTask
 import io.github.alemazzo.architect.plugins.gradle.context.GradleContextHolder
@@ -15,6 +16,7 @@ import picocli.CommandLine.Command
 		GradleBuildTask::class,
 		GradleTestTask::class,
 		GradleRunTask::class,
+		GradleReleaseTask::class,
 	]
 )
 class GradleCommand : PluginCommand<GradleContextHolder>(name) {

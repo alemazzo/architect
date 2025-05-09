@@ -4,6 +4,7 @@ data class ProjectContext(
 	val name: String,
 	var path: String?,
 	val command: String = "./gradlew",
+	val githubPackageRelease: Boolean = false,
 )
 
 data class GradleContext(
