@@ -33,6 +33,7 @@ class GithubReleaseTask(
 
 		resourceExtractor.copyFileFromResources("releases/run.sh", Path(""), "run.sh")
 		resourceExtractor.copyFileFromResources("releases/update-version.sh", Path(""), "update-version.sh")
+		commandExecutor.execute("chmod +x update-version.sh")
 		resourceExtractor.getResourceFileContent("releases/.releaserc.json")
 			.replace("{{message}}", message)
 			.replace("{{assets}}", assetsJson)
