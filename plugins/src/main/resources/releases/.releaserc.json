@@ -16,6 +16,12 @@
         "assets": {{git_assets}},
         "message": {{message}}
       }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "sed -i 's/^version = \".*\"/version = \"${nextRelease.version}\"/' build.gradle.kts"
+      }
     ]
   ]
 }
