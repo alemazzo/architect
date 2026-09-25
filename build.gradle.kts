@@ -5,12 +5,12 @@ version = "4.23.7"
 group = "io.github.alemazzo.architect"
 
 plugins {
-	id("org.jetbrains.kotlin.jvm") version "1.9.25"
-	id("org.jetbrains.kotlin.kapt") version "1.9.25"
-	id("org.jetbrains.kotlin.plugin.allopen") version "1.9.25"
+	id("org.jetbrains.kotlin.jvm") version "2.4.20"
+	id("org.jetbrains.kotlin.kapt") version "2.4.20"
+	id("org.jetbrains.kotlin.plugin.allopen") version "2.4.20"
 	id("com.github.johnrengelman.shadow") version "8.1.1"
-	id("io.micronaut.library") version "4.6.2"
-	id("io.micronaut.application") version "4.6.2"
+	id("io.micronaut.library") version "5.0.2"
+	id("io.micronaut.application") version "5.0.2"
 }
 
 repositories { mavenCentral() }
