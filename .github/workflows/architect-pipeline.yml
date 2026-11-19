@@ -30,7 +30,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17.0.21+9'
+          java-version: '17.0.21+100000002'
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
